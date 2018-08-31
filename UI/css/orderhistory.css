@@ -1,0 +1,588 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+html,
+body {
+  font-family: "Montserrat";
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.bg {
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/bg-img1.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-repeat: no-repeat;
+}
+.regbut {
+  float: right;
+  margin-right: 50px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 46px;
+}
+
+.aside {
+  background: #4747477b;
+  /* padding: 10px; */
+  width: 300px;
+  position: fixed;
+  height: 100%;
+}
+
+.body {
+  /* background: rgb(114, 147, 191); */
+  /* flex: 1;
+  height: 100%;
+  padding: 10px;
+  position: relative;
+  margin-left: 220px; */
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
+a {
+  text-decoration: none;
+  color: #232323;
+
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: tomato;
+}
+.topnav {
+  position: fixed;
+  /* Set the navbar to fixed position */
+  overflow: hidden;
+  margin: 0px;
+  background-color: #33333399;
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+.mgl {
+  margin-left: 100px;
+}
+
+.topnav a {
+  transition: 0.4s;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4caf50;
+  color: white;
+}
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 0px;
+  padding-left: 20px;
+
+  z-index: 1;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+.navbar1 {
+  background-color: #33333399;
+  color: white;
+  padding: 20px 0;
+}
+
+/*
+    * Just a quick hamburger
+    */
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+
+  position: relative;
+
+  background: #fff;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/* 
+    * Transform all the slices of hamburger
+    * into a crossmark.
+    */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+    * But let's hide the middle one.
+    */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+    * Ohyeah and the last one should go the other direction
+    */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+    * Make this absolute positioned
+    * at the top left of the screen
+    */
+#menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+
+  background: #edededd9;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+    * And let's slide it in from the left
+    */
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
+
+@media screen and (max-width: 414px) {
+  .card {
+    margin-top: 30% !important;
+    width: 80% !important;
+  }
+  .card {
+    margin-top: 10px !important;
+    width: 55% !important;
+  }
+  .cardimg {
+    height: 200px;
+    width: 100px;
+  }
+  .button {
+    border-radius: none !important;
+  }
+  .button1 {
+    border-radius: none !important;
+  }
+}
+@media screen and (max-width: 411px) {
+  .card {
+    margin-top: 30% !important;
+    width: 80% !important;
+  }
+  .card {
+    margin-top: 10px !important;
+    width: 55% !important;
+  }
+  .cardimg {
+    height: 200px;
+    width: 100px;
+  }
+  .button {
+    border-radius: none !important;
+  }
+  .button1 {
+    border-radius: none !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .card {
+    margin-top: 30% !important;
+    width: 80% !important;
+  }
+  .card {
+    margin-top: 10px !important;
+    width: 61% !important;
+  }
+  .cardimg {
+    height: 200px;
+    width: 100px;
+  }
+  .button {
+    border-radius: none !important;
+  }
+  .button1 {
+    border-radius: none !important;
+  }
+}
+@media screen and (max-width: 360px) {
+  .card {
+    margin-top: 10px !important;
+    width: 63% !important;
+  }
+  .cardimg {
+    height: 200px;
+    width: 100px;
+  }
+  .button {
+    border-radius: none !important;
+  }
+  .button1 {
+    border-radius: none !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  .card {
+    margin-top: 10px !important;
+    width: 65% !important;
+  }
+  .cardimg {
+    height: 200px;
+    width: 100px;
+  }
+  .button {
+    border-radius: none !important;
+  }
+  .button1 {
+    border-radius: none !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .aside {
+    display: none;
+  }
+  body {
+    background-image: url("../images/bg-image1.jpg");
+  }
+  .topnav {
+    display: none;
+  }
+  .button {
+    width: 80%;
+    border-radius: none;
+  }
+  .button1 {
+    width: 80%;
+    border-radius: none;
+  }
+  .card {
+    background-color: #4747477b;
+  }
+}
+.logo1 {
+  float: right;
+  /* padding-left: 40px; */
+  padding-right: 40px;
+  /* padding-top: 8px; */
+}
+.logo {
+  float: left;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 8px;
+}
+
+@media screen and (min-width: 601px) {
+  #menuToggle {
+    display: none;
+  }
+  .navbar1 {
+    display: none;
+  }
+  .button {
+    width: 45% !important;
+    border-radius: none;
+    text-align: center !important;
+  }
+  .button1 {
+    width: 45% !important;
+    border-radius: none;
+    padding: 50%;
+    text-align: center !important;
+  }
+  .card {
+    background-color: #4747477b;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 207px;
+    height: 200px;
+    display: grid;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  .cardimg {
+    height: 180px;
+    width: 180px;
+  }
+  .maincontainer {
+    margin-left: 310px;
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+}
+.foodlogo {
+  margin-top: 15px;
+  margin-left: 100px;
+  width: 100px;
+  height: 100px;
+}
+.title {
+  margin-top: 20px;
+  text-align: center;
+  color: #f2f2f2;
+}
+.adminbtn {
+  color: #f2f2f2;
+  background: #4caf4f;
+  border: none;
+  /* margin-top:-10px; */
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif !important;
+  /* margin-right:-18px; */
+  /* display: inline; */
+  font-weight: 600;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 107px;
+  padding-right: 107px;
+  margin-top: 10px;
+}
+.adminbtn:hover {
+  color: #232323;
+  background: #f2f2f2;
+  transition: 0.4s;
+}
+
+.adminbtn1 {
+  color: #f2f2f2;
+  background: #4caf4f;
+  border: none;
+  /* margin-top:-10px; */
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif !important;
+  /* margin-right:-18px; */
+  /* display: inline; */
+  font-weight: 600;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 107px;
+  padding-right: 107px;
+  margin-top: 10px;
+}
+.adminbtn1:hover {
+  color: #232323;
+  background: #f2f2f2;
+  transition: 0.4s;
+}
+.btnaccept {
+  padding-left: 20px;
+  padding-right: 21px;
+  margin-left: -4px;
+  color: #f2f2f2;
+  background: #4caf4f;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+}
+.btnaccept:hover {
+  color: #232323;
+  background: #f2f2f2;
+  transition: 0.4s;
+}
+.btndeny {
+  margin-left: -5px;
+  padding-top: 10px;
+  background-color: #474747;
+  padding-bottom: 10px;
+  color: #f2f2f2;
+  margin-left: -2px;
+  margin-right: 2px;
+  border: none;
+}
+.btndeny:hover {
+  color: #232323;
+  background: #f2f2f2;
+  transition: 0.4s;
+}
+.btncomp {
+  margin-left: -4px;
+  color: #f2f2f2;
+  background: #4caf4f;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+}
+.btncomp:hover {
+  color: #232323;
+  background: #f2f2f2;
+  transition: 0.4s;
+}
+.gridcontainer {
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
+}
+.griditem {
+  /* padding: 20px; */
+  /* font-size: 30px; */
+  margin-bottom: 40px;
+  text-align: center;
+}
+/* /* table styling here  */
+body {
+  font-family: "Montserrat", sans-serif;
+}
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+table tr {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+table th,
+table td {
+  padding: 10px;
+  text-align: center;
+}
+table th {
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+  table thead {
+    display: none;
+  }
+  table tr {
+    border-bottom: 2px solid #ddd;
+    display: block;
+    margin-bottom: 10px;
+  }
+  table td {
+    border-bottom: 1px dotted #ccc;
+    display: block;
+    font-size: 13px;
+    text-align: right;
+  }
+  table td:last-child {
+    border-bottom: 0;
+  }
+  table td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .footer {
+    display: none !important;
+  }
+  .disp {
+    /* margin-top: -30px;
+    margin-bottom: 30px; */
+    color: #474747;
+    display: block !important;
+    text-align: center !important;
+  }
+}
+imgt {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+imgt:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.tbg {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.footer {
+  text-align: center;
+  bottom: 0%;
+  
+  position: absolute;
+  display: table;
+  width: 100%;
+  /* background:rgba(255, 255, 255, 0.6); */
+  height: 60px; /* Height of the footer */
+  /* margin-top: -100px; */
+}
+.disp {
+  font-size: 2em;
+  margin-top:50px;
+  margin-bottom: 40px;
+  text-align: center;
+  color:#474747
+  /* display: none; */
+}
