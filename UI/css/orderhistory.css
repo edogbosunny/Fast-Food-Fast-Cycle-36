@@ -576,6 +576,6 @@ imgt:hover {
   margin-top:10x;
   margin-bottom: 40px;
   text-align: center;
-  color:#f2f2f2;
+  color:#f2f2f2 !important;
   /* display: none; */
 }
