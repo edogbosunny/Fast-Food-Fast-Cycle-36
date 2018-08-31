@@ -199,7 +199,7 @@ a {
     width: 80% !important;
   }
   .cardrg{
-    width:80%
+    width:80% !important;
   }
   .button {
     border-radius: none !important;
@@ -213,8 +213,8 @@ a {
     margin-top: 30% !important;
     width: 80% !important;
   }
-    .cardrg{
-    width:80%
+   .cardrg{
+    width:80% !important;
   }
   .button {
     border-radius: none !important;
@@ -231,9 +231,8 @@ a {
   }
   .button {
     border-radius: none !important;
-  }
     .cardrg{
-    width:80%
+    width:80% !important;
   }
   .button1 {
     border-radius: none !important;
@@ -244,8 +243,8 @@ a {
     margin-top: 30% !important;
     width: 80% !important;
   }
-    .cardrg{
-    width:80%
+   .cardrg{
+    width:80% !important;
   }
   .button {
     border-radius: none !important;
@@ -260,7 +259,7 @@ a {
     background-image: url("../images/bg-image1.jpg");
   }
     .cardrg{
-    width:80%
+    width:80% !important;
   }
   .topnav {
     display: none;
@@ -282,8 +281,8 @@ a {
   #menuToggle {
     display: none;
   }
-    .cardrg{
-    width:80%
+     .cardrg{
+    width:50% !important;
   }
   .navbar1 {
     display: none;
