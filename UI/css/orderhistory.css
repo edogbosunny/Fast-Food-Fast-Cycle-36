@@ -305,7 +305,7 @@ a:hover {
     display: none;
   }
   body {
-    background-image: url("../images/bg-image1.jpg");
+/*     background-image: url("../images/bg-image1.jpg"); */
   }
   .topnav {
     display: none;
