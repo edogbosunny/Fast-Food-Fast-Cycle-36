@@ -235,13 +235,9 @@ a:hover {
 }
 @media screen and (max-width: 411px) {
   .card {
-    margin-top: 30% !important;
-    width: 80% !important;
+    width: 80% ;
   }
-  .card {
-    margin-top: 10px !important;
-    width: 55% !important;
-  }
+
   .cardimg {
     height: 200px;
     width: 100px;
