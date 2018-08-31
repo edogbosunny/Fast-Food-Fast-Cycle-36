@@ -198,6 +198,9 @@ a {
     margin-top: 30% !important;
     width: 80% !important;
   }
+  .cardrg{
+    width:80%
+  }
   .button {
     border-radius: none !important;
   }
@@ -209,6 +212,9 @@ a {
   .card {
     margin-top: 30% !important;
     width: 80% !important;
+  }
+    .cardrg{
+    width:80%
   }
   .button {
     border-radius: none !important;
@@ -226,6 +232,9 @@ a {
   .button {
     border-radius: none !important;
   }
+    .cardrg{
+    width:80%
+  }
   .button1 {
     border-radius: none !important;
   }
@@ -234,6 +243,9 @@ a {
   .card {
     margin-top: 30% !important;
     width: 80% !important;
+  }
+    .cardrg{
+    width:80%
   }
   .button {
     border-radius: none !important;
@@ -246,6 +258,9 @@ a {
 @media screen and (max-width: 609px) {
   body {
     background-image: url("../images/bg-image1.jpg");
+  }
+    .cardrg{
+    width:80%
   }
   .topnav {
     display: none;
@@ -266,6 +281,9 @@ a {
 @media screen and (min-width: 610px) {
   #menuToggle {
     display: none;
+  }
+    .cardrg{
+    width:80%
   }
   .navbar1 {
     display: none;
