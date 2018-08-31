@@ -255,9 +255,7 @@ a {
 }
 
 @media screen and (max-width: 609px) {
-  body {
-    background-image: url("../images/bg-image1.jpg");
-  }
+
     .cardrg{
     width:80% !important;
   }
