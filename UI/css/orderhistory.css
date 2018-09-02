@@ -215,13 +215,12 @@ a:hover {
 
 @media screen and (max-width: 414px) {
   .card {
-    margin-top: 30% !important;
+
+   
     width: 80% !important;
   }
-  .card {
-    margin-top: 10px !important;
-    width: 55% !important;
-  }
+ 
+
   .cardimg {
     height: 200px;
     width: 100px;
@@ -235,13 +234,11 @@ a:hover {
 }
 @media screen and (max-width: 411px) {
   .card {
-    margin-top: 30% !important;
-    width: 80% !important;
+
+    width: 80% ;
   }
-  .card {
-    margin-top: 10px !important;
-    width: 55% !important;
-  }
+
+
   .cardimg {
     height: 200px;
     width: 100px;
@@ -276,7 +273,9 @@ a:hover {
 }
 @media screen and (max-width: 360px) {
   .card {
-    margin-top: 10px !important;
+
+    margin-top: 10px !important;d
+
     width: 63% !important;
   }
   .cardimg {
@@ -312,7 +311,9 @@ a:hover {
     display: none;
   }
   body {
-    background-image: url("../images/bg-image1.jpg");
+
+/*     background-image: url("../images/bg-image1.jpg"); */
+
   }
   .topnav {
     display: none;
@@ -547,8 +548,10 @@ table th {
     display: none !important;
   }
   .disp {
-    /* margin-top: -30px;
-    margin-bottom: 30px; */
+
+    margin-top: -40px;
+/*     margin-bottom: 30px; */ 
+
     color: #474747;
     display: block !important;
     text-align: center !important;
@@ -580,9 +583,11 @@ imgt:hover {
 }
 .disp {
   font-size: 2em;
-  margin-top:50px;
+
+  margin-top:10x;
   margin-bottom: 40px;
   text-align: center;
-  color:#474747
+  color:#f2f2f2 !important;
+
   /* display: none; */
 }
