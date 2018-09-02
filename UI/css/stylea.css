@@ -197,7 +197,7 @@ a {
 }
 @media screen and (max-width: 414px) {
   .card {
-    margin-top: 30% !important;
+    /* margin-top: 30% !important; */
     width: 80% !important;
   }
   .button {
@@ -209,7 +209,7 @@ a {
 }
 @media screen and (max-width: 411px) {
   .card {
-    margin-top: 30% !important;
+    /* margin-top: 30% !important; */
     width: 80% !important;
   }
   .button {
@@ -222,7 +222,7 @@ a {
 
 @media screen and (max-width: 375px) {
   .card {
-    margin-top: 30% !important;
+    /* margin-top: 30% !important; */
     width: 80% !important;
   }
   .button {
@@ -234,7 +234,7 @@ a {
 }
 @media screen and (max-width: 360px) {
   .card {
-    margin-top: 30% !important;
+    /* margin-top: 30% !important; */
     width: 80% !important;
   }
   .button {
