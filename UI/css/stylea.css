@@ -11,7 +11,7 @@ body {
   font-family: "Montserrat", sans-serif !important;
 }
 .bg {
-  background-image: url("../images/bg-img.jpg");
+  background-image: url("../images/bg-imgage1.jpg");
   height: 100vh;
   background-position: center top;
   background-size: cover;
@@ -246,9 +246,9 @@ a {
 }
 
 @media screen and (max-width: 609px) {
-  body {
+  /* body {
     background-image: url("../images/bg-image1.jpg");
-  }
+  } */
   .topnav {
     display: none;
   }
