@@ -478,3 +478,23 @@ a {
   height:60px;   /* Height of the footer */
   /* margin-top: -100px; */
 }
+.bot1 {
+    margin-left:15px;
+    background-color: #4caf50;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #f2f2f2;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: -13px;
+    transition: 0.4ms;
+    
+  }
+  .bot1:hover{
+    background-color: #f2f2f2 !important;
+    color:#474747 !important;
+    transition: 0.4ms;
+  }
