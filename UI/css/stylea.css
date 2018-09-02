@@ -442,7 +442,9 @@ a {
 .logo3 {
   float: right;
   /* padding-left: 40px; */
-  padding-right: 10px;
+  padding-right: 7px;
+  padding-left:7px;
+  margin-top:-3px;
   /* padding-top: 8px; */
 }
 .loginwidth {
