@@ -12,17 +12,22 @@ A platform for customers to order good food fast.
 
 ##Api Endpoints
 
-## Get All Order  - GET method
+## Get All Order - GET method
+
 ###/api/v1/getorder
 
 ## Create Order - POST method
+
 ###/api/v1/createorder
 
 ## Get Order by ID - GET method
+
 ###/api/v1/getorder/:id
 
-## Update a Specific Order - PUT method 
+## Update a Specific Order - PUT method
+
 ###/api/v1/getorder/:id
 
-## Delete a Specific Order - DELETE method 
+## Delete a Specific Order - DELETE method
+
 ###/api/v1/delorder/:id
