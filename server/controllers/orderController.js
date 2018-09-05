@@ -83,7 +83,7 @@ class Order {
       };
       db.splice(itemIndex, 1, newUpdatedOrder);
       return res.status(201).send({
-        success: true,
+        success: "true",
         message: "Order Added Succesfully",
         newUpdatedOrder
       });
