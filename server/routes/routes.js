@@ -31,4 +31,9 @@ router.get("/getorder/:id", orderController.getSingleOrder);
 //@access public
 router.put("/getorder/:id", orderController.updateOrder);
 
+//@route POST /api/v1/createorder
+//@desc  creates order route
+//@access public
+router.post("/createorder", orderController.createOrder);
+
 export default router;
