@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 const port = process.env.PORT || 4000;
-// import routes from "./server/routes/routes";
+import routes from "./server/routes/routes";
 const app = express();
 
 //@route GET /api/v1/
@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 //middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// app.use("/api/v1", routes);
+app.use("/api/v1", routes);
 
 app.listen(port, () => {
   console.log("connected on port 5000");

@@ -20,4 +20,10 @@ router.get("/", (req, res) => {
 //@access public
 router.get("/getorder", orderController.getAllOrders);
 
+
+//@route GET /api/v1/getorder/:id
+//@desc  get single order by id
+//@access public
+router.get("/getorder/:id", orderController.getSingleOrder);
+
 export default router;
