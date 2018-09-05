@@ -26,4 +26,9 @@ router.get("/getorder", orderController.getAllOrders);
 //@access public
 router.get("/getorder/:id", orderController.getSingleOrder);
 
+//@route PUT /api/v1/getorder/:id
+//@desc  update single order by id
+//@access public
+router.put("/getorder/:id", orderController.updateOrder);
+
 export default router;
