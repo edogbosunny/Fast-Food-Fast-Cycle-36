@@ -97,7 +97,7 @@ class Order {
       if (delOrder.orderId === id) {
         db.splice(index, 1);
         return res.status(200).json({
-          success: true,
+          success: "true",
           message: "Order Deleted Succesfully"
         });
       }
