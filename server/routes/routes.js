@@ -36,4 +36,9 @@ router.put("/getorder/:id", orderController.updateOrder);
 //@access public
 router.post("/createorder", orderController.createOrder);
 
+//@route DELETE /api/v1/getorder/:id
+//@desc  delete single order by id
+//@access public
+router.delete("/delorder/:id", orderController.deleteOrder);
+
 export default router;
