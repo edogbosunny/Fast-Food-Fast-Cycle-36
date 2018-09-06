@@ -18,7 +18,7 @@ Project is managed here [using](https://www.pivotaltracker.com/n/projects/219597
 
 ## Templates
 
-UI templates are hosted on Github pages [here]()
+UI templates are hosted on Github pages [here](https://edogbosunny.github.io/Fast-Food-Fast-Cycle-36/UI/)
 
 ## Technogies Used
 
