@@ -4,6 +4,7 @@ A platform for customers to order good food fast.
 
 ## Feature
 
+
 - Index page that has a login and register button
 - Login page
 - Register page
@@ -18,10 +19,13 @@ A platform for customers to order good food fast.
 
 Project is managed here [using](https://www.pivotaltracker.com/n/projects/2193604) the project management tool, Pivotal Tracker.
 
+
 ## Templates
 
 UI templates are hosted on Github pages [here]()
 
+
 ### Authors
 
 - Edogbo Sunny
+

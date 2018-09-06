@@ -1,0 +1,72 @@
+{
+  "name": "fast-food-fast-cycle-36",
+  "version": "1.0.0",
+  "description": "github pages branch",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node app.js",
+    "start:dev": "node_modules/.bin/nodemon app.js --exec babel-node -- ",
+    "lint": "eslint *.js --fix",
+    "test": "nyc mocha test/**/*test.js --exit",
+    "coverage": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text --cache mocha test/**/*test.js --exit",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "nyc": {
+    "_comment": "Purpose of this part: to do code coverage within Mocha/Chai using Istanbul",
+    "register": "babel-register",
+    "include": [
+      "**/*.js",
+      "./*.js"
+    ],
+    "exclude": [
+      "**/node_modules/**",
+      "**/test/**",
+      "**/coverage/**"
+    ],
+    "all": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edogbosunny/Fast-Food-Fast-Cycle-36.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edogbosunny/Fast-Food-Fast-Cycle-36/issues"
+  },
+  "homepage": "https://github.com/edogbosunny/Fast-Food-Fast-Cycle-36#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cross-env": "^5.2.0",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-validation": "^1.0.2",
+    "joi": "^13.6.0",
+    "validator": "^10.7.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-istanbul": "^4.1.6",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.2.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nodemon": "^1.18.3",
+    "nyc": "^12.0.2",
+    "request": "^2.88.0",
+    "sinon": "^6.1.5",
+    "sinon-express-mock": "^2.0.5"
+  }
+}
