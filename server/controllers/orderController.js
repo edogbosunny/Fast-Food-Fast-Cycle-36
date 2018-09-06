@@ -4,7 +4,8 @@ import validateOrderInput from "../validation/order";
 class Order {
   static createOrder(req, res) {
     //decopuling
-    let { orderId, meal, quantity, status, date } = req.body;
+    // let { orderId, meal, quantity, status, date } = req.body;
+    let { date } = req.body;
     const { errors, isValid } = validateOrderInput(req.body);
     //check for validation here
     if (!isValid) {
@@ -53,7 +54,7 @@ class Order {
   //create another method to edit order
   static updateOrder(req, res) {
     const { errors, isValid } = validateOrderInput(req.body);
-    let { orderId, meal, quantity, status, date } = req.body;
+    let { date } = req.body;
     const id = parseInt(req.params.id, 10);
     let orderFound;
     let itemIndex;
