@@ -13,7 +13,14 @@ A platform for customers to order good food fast.
 - Customer Order history page
 - Available Order  page
 
-## you may navigate other pages using the buttons on the page.
+## Navigation Links
+- [/index](https://edogbosunny.github.io/Fast-Food-Fast-Cycle-36/UI/)
+- [/register](https://edogbosunny.github.io/Fast-Food-Fast-Cycle-36/UI/www/register.html)
+- [/login](https://edogbosunny.github.io/Fast-Food-Fast-Cycle-36/UI/www/login.html)
+- [/cart](https://edogbosunny.github.io/Fast-Food-Fast-Cycle-36/UI/www/cart.html)
+- [/orderhistory](https://edogbosunny.github.io/Fast-Food-Fast-Cycle-36/UI/www/orderhistory.html)
+- [/admin-Dashboard](https://edogbosunny.github.io/Fast-Food-Fast-Cycle-36/UI/www/admin.html)
+- [/availableOrder](https://edogbosunny.github.io/Fast-Food-Fast-Cycle-36/UI/www/availableorder.html?)
 
 ## Project Management
 
