@@ -20,6 +20,10 @@ Project is managed here [using](https://www.pivotaltracker.com/n/projects/219597
 
 UI templates are hosted on Github pages [here](https://edogbosunny.github.io/Fast-Food-Fast-Cycle-36/UI/)
 
+## Deployment
+
+- API endpoint is hosted [HERE](https://fast-food-fast-app.herokuapp.com/) on Heroku https://fast-food-fast-app.herokuapp.com/
+
 ## Technogies Used
 
 - NodeJs - Run time environment.
@@ -34,28 +38,25 @@ UI templates are hosted on Github pages [here](https://edogbosunny.github.io/Fas
 * Istanbul - Javascript code instrumenter.
 * nyc - Istanbul's command line interface.
 
+## How to Test using Postman
+- To retrieve all order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/getorder and select GET method
+- To retrieve single order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/getorder/:id and select GET method.
+- To Update an order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/getorder/:id select the PUT method and pass in to the body {meal:"rice", quantity:3}
+- To Delete an order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/delorder/:id and select the DELETE method
+- To create an order, enterthis url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/createorder and parse into the body
+{meal:'rice',quantity:1} with a POST method
+
 ## Api Endpoints
-
-## Get All Order - GET method
-
-### /api/v1/getorder
-
-## Create Order - POST method
-
-### /api/v1/createorder
-
-## Get Order by ID - GET method
-
-### /api/v1/getorder/:id
-
-## Update a Specific Order - PUT method
-
-### /api/v1/getorder/:id
-
-## Delete a Specific Order - DELETE method
-
-### /api/v1/delorder/:id
-
+### Get All Order - GET method
+- /api/v1/getorder
+### Create Order - POST method
+- /api/v1/createorder
+### Get Order by ID - GET method
+- /api/v1/getorder/:id
+### Update a Specific Order - PUT method
+- /api/v1/getorder/:id
+### Delete a Specific Order - DELETE method
+- /api/v1/delorder/:id
 
 ### Authors
 * Edogbo Sunny
