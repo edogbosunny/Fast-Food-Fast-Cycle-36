@@ -2,7 +2,7 @@
   "name": "fast-food-fast-cycle-36",
   "version": "1.0.0",
   "description": "github pages branch",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "babel-node app.js",
     "start:dev": "node_modules/.bin/nodemon app.js --exec babel-node -- ",
