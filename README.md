@@ -12,7 +12,7 @@ A platform for customers to order good food fast.
 - Customer Order history page
 - Available Order  page
 
-## you may navigate other pages using the buttons on the page
+## you may navigate other pages using the buttons on the page.
 
 ## Project Management
 
