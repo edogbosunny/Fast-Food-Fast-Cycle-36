@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 body {
   /* height: 100vh;
@@ -7,8 +6,8 @@ body {
   /* background-size: cover;
   background-repeat: no-repeat;
  
-  background-repeat: no-repeat; */ 
-  font-family: "Montserrat", sans-serif !important;
+  background-repeat: no-repeat; */
+  font-family: "Montserrat", sans-serif;
 }
 .bg {
   background-image: url("../images/bg-img.jpg");
@@ -16,7 +15,7 @@ body {
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "Montserrat", sans-serif;
 }
 .regbut {
   float: right;
@@ -26,7 +25,7 @@ body {
 .topnav {
   overflow: hidden;
   margin: 0px;
-  background-color: #33333399;
+  background-color: #474747;
 }
 
 .mgl {
@@ -102,7 +101,7 @@ a {
   -webkit-touch-callout: none;
 }
 .navbar1 {
-  background-color: #33333399;
+  background-color: #474747;
   color: white;
   padding: 20px 0;
 }
@@ -197,95 +196,158 @@ a {
 }
 @media screen and (max-width: 414px) {
   .card {
-    margin-top: 30% !important;
-    width: 80% !important;
+    margin-top: 30%;
+    width: 80%;
   }
   .button {
-    border-radius: none !important;
+    border-radius: none;
   }
   .button1 {
-    border-radius: none !important;
+    border-radius: none;
   }
   .cardrg {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     padding-top: 1%;
     padding-bottom: 2%;
-    width: 95% !important;
-    margin-top: 20% !important;
+    width: 95%;
+    margin-top: 20%;
     background-color: rgba(255, 255, 255, 0.6);
     color: #474747;
-}
+  }
+  .bg {
+    height: -webkit-fill-available;
+  }
 }
 @media screen and (max-width: 411px) {
   .card {
-    margin-top: 30% !important;
-    width: 80% !important;
+    margin-top: 20% !important;
+    width: 80%;
   }
   .button {
-    border-radius: none !important;
+    border-radius: none;
   }
   .button1 {
-    border-radius: none !important;
+    border-radius: none;
   }
   .cardrg {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     padding-top: 1%;
     padding-bottom: 2%;
-    width: 95% !important;
-    margin-top: 20% !important;
-    background-color: rgba(255, 255, 255, 0.6);
+    width: 95%;
+    margin-top: 20%;
+    background-color: rgba(255, 255, 255, 0.8);
     color: #474747;
-}
+  }
+  .bg {
+    height: -webkit-fill-available;
+  }
 }
 
 @media screen and (max-width: 375px) {
   .card {
-    margin-top: 30% !important;
-    width: 80% !important;
+    margin-top: 30%;
+    width: 80%;
   }
   .button {
-    border-radius: none !important;
+    border-radius: none;
+  }
+  h1 {
+    font-size: 25px;
+    padding-bottom: 20px;
+  }
+  h4 {
+    margin-bottom: 20px;
   }
   .button1 {
-    border-radius: none !important;
+    border-radius: none;
   }
   .cardrg {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     padding-top: 1%;
     padding-bottom: 2%;
-    width: 95% !important;
-    margin-top: 20% !important;
-    background-color: rgba(255, 255, 255, 0.6);
+    width: 95%;
+    margin-top: 20%;
+    background-color: rgba(255, 255, 255, 0.8);
     color: #474747;
-}
+  }
+  .bg {
+    height: -webkit-fill-available;
+  }
 }
 @media screen and (max-width: 360px) {
   .card {
-    margin-top: 30% !important;
-    width: 80% !important;
+    margin-top: 20px !important;
+    margin-bottom: 100px !important;
+    width: 80%;
+  }
+
+  h2 {
+    font-size: 25px;
   }
   .button {
-    border-radius: none !important;
+    border-radius: none;
   }
   .button1 {
-    border-radius: none !important;
+    border-radius: none;
   }
   .cardrg {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
     transition: 0.3s;
     padding-top: 1%;
     padding-bottom: 2%;
-    width: 95% !important;
-    margin-top: 20% !important;
-    background-color: rgba(255, 255, 255, 0.6);
+    width: 95%;
+    margin-top: 20%;
+    background-color: rgba(255, 255, 255, 0.8);
     color: #474747;
-}
+  }
+  .bg {
+    height: -webkit-fill-available;
+  }
 }
 
-@media screen and (max-width: 609px) {
+@media screen and (max-width: 320px) {
+  .card {
+    margin-top: 30%;
+    width: 80%;
+  }
+  .button {
+    border-radius: none;
+  }
+  .button1 {
+    border-radius: none;
+  }
+  h1 {
+    font-size: 25px;
+    padding-bottom: 20px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  h4 {
+    margin-bottom: 20px;
+  }
+  h5{
+    font-size: 10px;
+  }
+  .cardrg {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+    transition: 0.3s;
+    padding-top: 1%;
+    /* padding-bottom: 2%; */
+    width: 95%;
+    margin-top: 10px !important;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #474747;
+  }
+  .bg {
+    height: -webkit-fill-available;
+  }
+}
+
+@media screen and (max-width: 620px) {
   /* body {
     background-image: url("../images/bg-image1.jpg");
   } */
@@ -308,14 +370,14 @@ a {
     transition: 0.3s;
     padding-top: 1%;
     padding-bottom: 2%;
-    width: 95% !important;
-    margin-top: 20% !important;
-    background-color: rgba(255, 255, 255, 0.6);
+    width: 95%;
+    margin-top: 20%;
+    background-color: rgba(255, 255, 255, 0.8);
     color: #474747;
-}
+  }
 }
 
-@media screen and (min-width: 610px) {
+@media screen and (min-width: 621px) {
   #menuToggle {
     display: none;
   }
@@ -323,17 +385,16 @@ a {
     display: none;
   }
   .button {
-    width: 45% !important;
+    width: 45%;
     border-radius: none;
-    text-align: center !important;
+    text-align: center;
   }
   .button1 {
-    width: 45% !important;
+    width: 45%;
     border-radius: none;
     padding: 50%;
-    text-align: center !important;
+    text-align: center;
   }
-  
 }
 
 .card {
@@ -341,24 +402,22 @@ a {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   padding-top: 2%;
-  padding-bottom: 2%;
-  width: 50%;
+  border-radius: 8px;
+  display: table;
   margin-top: 12%;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.94);
   color: #474747;
 }
 
 .cardrg {
-  /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   padding-top: 1%;
+  border-radius: 10px;
   padding-bottom: 2%;
-  width: 50%;
   margin-top: 10%;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.8);
   color: #474747;
-  
 }
 
 .Aligner {
@@ -370,6 +429,8 @@ a {
   text-align: center;
   color: #474747;
   font-size: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 .button {
   background-color: #4caf50;
@@ -381,7 +442,7 @@ a {
   display: inline;
   margin: 4px -3px;
   font-size: 20px;
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "Montserrat", sans-serif;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -390,35 +451,19 @@ a {
   background-color: #4caf50;
   border: 0px;
   color: white;
-  /* border-radius: 10px 0px 0px 10px; */
+  padding: 10px 0px 10px 0px;
   padding: 3% 15%;
   text-align: center;
-  /* display: inline; */
-  margin: 20px 3px;
+  font-weight: 600;
+  display: grid;
   font-size: 20px;
-  font-family: "Montserrat", sans-serif !important;
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
-  width: 100%;
 }
 
-.a5 {
-  background-color: #4caf50;
-  border: 0px;
-  color: white;
-  /* border-radius: 10px 0px 0px 10px; */
-  padding: 3% 15%;
-  text-align: center;
-  /* display: inline; */
-  margin: 20px 3px;
-  font-size: 20px;
-  font-family: "Montserrat", sans-serif !important;
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  width: 100%;
-}
 .button1 {
   background-color: #474747;
   border: 0px;
@@ -429,7 +474,7 @@ a {
   display: inline;
   margin: 4px -3px;
   font-size: 20px;
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "Montserrat", sans-serif;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -440,12 +485,13 @@ a {
   border: 0px;
   color: white;
   /* border-radius: 0px 10px 10px 0px; */
-  padding: 10px 20px 10px 20px;
+  padding: 10px 0px 10px 0px;
+  display: grid;
   text-align: center;
-  display: inline;
-  margin: 4px -3px;
+  font-weight: 600;
+  border-radius: 8px;
   font-size: 20px;
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "Montserrat", sans-serif;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -458,18 +504,40 @@ a {
   background-color: #4caf50;
   border: 0px;
   color: white;
-  /* border-radius: 10px 0px 0px 10px; */
-  padding: 10px 28px 10px 40px;
+  padding: 10px 0px 10px 0px;
+  display: grid;
+  font-weight: 600;
   text-align: center;
-  display: inline;
-  margin: 4px -3px;
+  border-radius: 8px;
+  margin-bottom: 10px;
   font-size: 20px;
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "Montserrat", sans-serif;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
 }
 .a4:hover {
+  background-color: #f2f2f2;
+  color: #474747;
+}
+
+.a5 {
+  background-color: #4caf50;
+  border: 0px;
+  color: white;
+  padding: 10px 0px 10px 0px;
+  padding: 3% 15%;
+  text-align: center;
+  font-weight: 600;
+  display: grid;
+  font-size: 20px;
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.a5:hover {
   background-color: #f2f2f2;
   color: #474747;
 }
@@ -502,29 +570,33 @@ a {
   padding: 10px 0px 5px 5px;
   margin-top: 10px;
   font-size: 15px;
+  border: solid;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-width: 2px;
+  border-color: #474747;
   display: block;
   list-style: none;
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "Montserrat", sans-serif;
   text-transform: capitalize;
   /* font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif; */
 }
 .formcls {
   max-width: 400px;
 }
-.divwidth {
-  margin-left: 20%;
-  margin-right: 20%;
-}
+/* .divwidth { */
+/* margin-left: 20%; */
+/* margin-right: 20%; */
+/* } */
 .txtwidth {
   width: 99%;
 }
 .footer {
   text-align: center;
-  bottom: 0%;
-  position:absolute;
-  display: table;
+  background-color: #f2f2f2;
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  background:rgba(255, 255, 255, 0.6);
-  height:60px;   /* Height of the footer */
-  /* margin-top: -100px; */
+  /* height: 100px; */
 }

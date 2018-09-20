@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/orderhistory.css">
+    <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
     <title>Order History</title>
@@ -98,18 +98,21 @@
                 <h1 class="title">Order Food Fast</h1>
                 <!-- <hr style="width:109%; margin-left:-10px;"> -->
 
-                <form action="../www/orderhistory.html">
+                <div align="center" class="btnpad btnmag ">
+                    <a href="./addproduct.html" class="adminbtn3">Add Order</a>
+                </div>
 
-                    <div align="center">
-                        <button class="adminbtn"> Order History</button>
-                    </div>
-                </form>
-                <form action="./availableorder.html">
+                <div align="center" class="btnpad ">
+                    <a href="./availableorder.html" class="adminbtn"> Food List</a>
+                </div>
+                <div align="center" class="btnpad ">
+                    <a href="./declinedorder.html" class="adminbtn4">Declined Order</a>
+                </div>
 
-                    <div align="center">
-                        <button class="adminbtn1">All Order</button>
-                    </div>
-                </form>
+                <div align="center" class="btnpad ">
+                    <a href="" class="adminbtn1">Completed Order</a>
+                </div>
+
 
 
 
@@ -123,7 +126,7 @@
         <div class="maincontainer">
             <div style="margin:20px">
                 <div>
-                    <h2 class="disp">Order History</h2>
+                    <h2 class="disp">All Order</h2>
                 </div>
                 <table>
                     <thead class="tbg">
@@ -131,7 +134,7 @@
                             <th>Food image</th>
                             <th>Quantity</th>
                             <th>Amount</th>
-                            <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -156,19 +159,6 @@
                             <td data-label="quantity">1 item</td>
                             <td data-label="Amount">N2,311</td>
                             <td data-label="status">Delivered</td>
-                        </tr>
-
-                        <tr class="tbg">
-                            <td data-label="Payment">
-
-
-                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
-
-                            </td>
-                            <td data-label="quantity">1 item</td>
-                            <td data-label="Amount">N2,311</td>
-                            <td data-label="status">Delivered</td>
-                        </tr>
 
                         <tr class="tbg">
                             <td data-label="Payment">
@@ -224,6 +214,7 @@
     </div>
 </body>
 <footer class="footer">
+
     <div>
         <h5 style="color:#474747">An Andela project by Edogbo Sunny | © 2018</h5>
     </div>
