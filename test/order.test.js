@@ -24,7 +24,7 @@ describe("GET /", () => {
   it("should return response 200 from home route", done => {
     chai
       .request(app)
-      .get("/")
+      .get("/api/v1/")
       .end((err, res) => {
         if (err) done(err);
         // expect(res.body.success).to.deep.equals("true");

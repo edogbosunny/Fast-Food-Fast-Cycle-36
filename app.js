@@ -4,16 +4,6 @@ const port = process.env.PORT || 4000;
 import routes from "./server/routes/routes";
 const app = express();
 
-//@route GET /api/v1/
-//@desc  rote test
-//@access public
-app.get("/", (req, res) => {
-  return res.status(200).json({
-    success: "connected",
-    message: "this is a test route"
-  });
-});
-
 // app.get("/*", (req, res) => {
 //   res.status(404).json({
 //     status: "error",
