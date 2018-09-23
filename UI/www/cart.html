@@ -3,8 +3,9 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="../css/cart.css" />
     <link rel="stylesheet" href="../css/style.css">
 
@@ -30,26 +31,11 @@
         </nav>
 
         <nav role="navigation " class="navbar1 ">
-            <!-- <img class="logo1 " src="/UI/images/logo3.png " alt="logo"> -->
             <div id="menuToggle">
-                <!--
-                          A fake / hidden checkbox is used as click reciever,
-                          so you can use the :checked selector on it.
-                          -->
                 <input type="checkbox" />
-
-                <!--
-                          Some spans to act as a hamburger.
-                          
-                          They are acting like a real hamburger,
-                        
-                          -->
                 <span></span>
                 <span></span>
                 <span></span>
-
-
-
                 <ul id="menu">
 
                     <a href="../index.html">
@@ -60,14 +46,17 @@
                     <a href="#">
                         <li>About</li>
                     </a>
-
-
                 </ul>
             </div>
             <span class="mobmenu topnav1">
-                <a href="" class="active bot">Cart</a>
-                <a href="" class="active bot1">Logout</a>
+                <img class="logo5 " src="../images/logo3.png " alt="logo">
+                <span style="margin-right:0px">
 
+                    <a href="" i class="fas fa-shopping-cart fas"></a>
+                </span>
+                <span style="margin-right:15px">
+                    <a href="" i class="fas fa-sign-out-alt"></a>
+                </span>
             </span>
 
 
@@ -114,10 +103,10 @@
                                 <h3>Payment</h3>
                                 <label for="fname">Accepted Cards</label>
                                 <div class="icon-container">
-                                    <i class="fa fa-cc-visa" style="color:navy;"></i>
-                                    <i class="fa fa-cc-amex" style="color:blue;"></i>
-                                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                                    <i class="fa fa-cc-discover" style="color:orange;"></i>
+                                    <i class="fab fa-cc-visa" style="color:navy;"></i>
+                                    <i class="fab fa-cc-amex" style="color:blue;"></i>
+                                    <i class="fab fa-cc-mastercard" style="color:red;"></i>
+                                    <i class="fab fa-cc-discover" style="color:orange;"></i>
                                 </div>
                                 <label for="cname">Name on Card</label>
                                 <input type="text" id="cname" name="cardname" placeholder="John More Doe">
@@ -187,7 +176,12 @@
         </div>
     </div>
 </body>
+<footer class="footer">
 
+    <div>
+        <h5 style="color:#474747">An Andela project by Edogbo Sunny | © 2018</h5>
+    </div>
+
+</footer>
 
 </html>
-

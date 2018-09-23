@@ -7,8 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/stylea.css">
+    <!--<link rel="stylesheet" href="../css/index.css"> -->
+    <!-- <link rel="stylesheet" href="../css/stylea.css"> -->
+    <link rel="stylesheet" href="../css/available.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+
+
 
     <title>Order Food Fast</title>
     <link rel="apple-touch-icon" sizes="57x57" href="./images/fav/apple-icon-57x57.png">
@@ -33,54 +38,34 @@
 <body>
     <header>
         <nav class="topnav">
-            <!-- mgl -->
-
             <img class="logo" src="../images/logo3.png" alt="logo ">
             <a href="../index.html">Home</a>
-
             <a href="#about ">About</a>
             <a href="../www/orderhistory.html ">Order History</a>
-
             <span class="regbut ">
                 <a class="active" href="../www/cart.html ">Cart</a>
-
                 <a href="#register ">Welcome User</a>
-
                 <a href="#logout ">Logout</a>
-
             </span>
-
         </nav>
-
         <nav role="navigation " class="navbar1 ">
-
-
             <img class="logo3 " src="../images/logo3.png " alt="logo">
-
             <span class="mobmenu topnav1" style="float:right">
-                <a href="" class="active bot">Cart</a>
-                <a href="" class="active bot1">Logout</a>
+                <span style="margin-right:15px">
+                    <a href="" i class="fas fa-shopping-cart fas"></a>
+                </span>
+                <span style="margin-right:15px">
+                    <a href="" i class="fas fa-sign-out-alt"></a>
+                </span>
+
             </span>
             <div id="menuToggle">
-                <!--
-                      A fake / hidden checkbox is used as click reciever,
-                      so you can use the :checked selector on it.
-                      -->
                 <input type="checkbox" />
-
-                <!--
-                      Some spans to act as a hamburger.
-                      
-                      They are acting like a real hamburger,
-                    
-                      -->
                 <span></span>
                 <span></span>
                 <span></span>
                 <ul id="menu">
-
                     <a href="../index.html">
-
                         <li>Home</li>
                     </a>
                     <a href="#">
@@ -88,17 +73,15 @@
                     </a>
                 </ul>
             </div>
-
         </nav>
     </header>
     <div class="container">
-
-
-        <div class="body">
-
+        <img class="bg-pics" src="../images/fastfoodfastbg.png" alt="bg-Pics">
+        <div class="caption-div">
+            <h1 class="caption">Order Food Fast!</h1>
+            <p class="caption-small">Get your food in minutes!</p>
         </div>
     </div>
-
     <div>
         <div>
             <h1 class="order">Available Order</h1>
@@ -122,28 +105,65 @@
                     <button id="quant" class="btncomp1"></button>
                 </div>
 
-                <script>
-                    var plus = document.getElementById('plus').value;
-                    var minus = document.getElementById('subtract').value;
-                    var defval = document.getElementById('quant').innerHTML = "0";
-                    var inp = document.getElementById('quant').value;
-                    console.log(inp)
-                    function plsbtn() {
-                        newinp = ++defval
-                        document.getElementById('quant').innerHTML = newinp;
-                        console.log(newinp)
-                    }
+            </div>
 
-                    function subbtn() {
-                        //  document.getElementById("subtract").disabled = true;
-                        newinp = --defval
-                        document.getElementById('quant').innerHTML = newinp;
-                        console.log(newinp)
+            <div class="card griditem">
 
-                        // var sign = Math.sign(newinp)
+                <img class="cardimg " src="../images/bg-img3.jpg " alt="logo ">
 
-                    }
-                </script>
+
+                <div>
+                    <h3>Name: Naija Meal</h3>
+                    <h4>Price: N1300</h4>
+                </div>
+
+                <!-- <h4>Quantity: 2</h4> -->
+                <div style="margin-bottom: 20px;">
+                    <a class="btnaccept ">Add to Cart</a>
+                    <button id="plus" onclick=plsbtn() class="btndeny">+</button>
+                    <button id="subtract" onclick=subbtn() class="btncomp">-</button>
+                    <button id="quant" class="btncomp1">0</button>
+                </div>
+
+            </div>
+
+            <div class="card griditem">
+
+                <img class="cardimg " src="../images/bg-img3.jpg " alt="logo ">
+
+
+                <div>
+                    <h3>Name: Naija Meal</h3>
+                    <h4>Price: N1300</h4>
+                </div>
+
+                <!-- <h4>Quantity: 2</h4> -->
+                <div style="margin-bottom: 20px;">
+                    <a class="btnaccept ">Add to Cart</a>
+                    <button id="plus" onclick=plsbtn() class="btndeny">+</button>
+                    <button id="subtract" onclick=subbtn() class="btncomp">-</button>
+                    <button id="quant" class="btncomp1">0</button>
+                </div>
+
+            </div>
+            <div class="card griditem">
+
+                <img class="cardimg " src="../images/bg-img3.jpg " alt="logo ">
+
+
+                <div>
+                    <h3>Name: Naija Meal</h3>
+                    <h4>Price: N1300</h4>
+                </div>
+
+                <!-- <h4>Quantity: 2</h4> -->
+                <div style="margin-bottom: 20px;">
+                    <a class="btnaccept ">Add to Cart</a>
+                    <button id="plus" onclick=plsbtn() class="btndeny">+</button>
+                    <button id="subtract" onclick=subbtn() class="btncomp">-</button>
+                    <button id="quant" class="btncomp1">0</button>
+                </div>
+
             </div>
         </div>
 
@@ -151,21 +171,13 @@
 
 
     </div>
-
+    <script src="../js/main.js"></script>
 </body>
-<!--<footer class="footer">
-        <div style="color:#474747">
-            <h2>Fast Food Fast</h2>
-        </div>
-        <div>
-            <a href="#">An Andela project</a>
-        </div>
-        <div>
-            <h5 style="color:#474747">© 2018 | Edogbo Sunny</h5>
-        </div>
-    
-    </footer> -->
+<footer class="footer">
+    <div>
+        <h5 style="color:#474747">An Andela project by Edogbo Sunny | © 2018</h5>
+    </div>
 
+</footer>
 
 </html>
-
