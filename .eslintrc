@@ -1,19 +1,33 @@
 {
     "env": {
-		"es6": true,
-		"node": true,
-		"mocha": true
+      "es6": true,
+      "node": true,
+      "mocha": true
     },
-    
+  
     "extends": "airbnb",
     "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module"
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true
+      }
     },
+  
     "rules": {
-        "no-console": 0,
-        "no-unused-vars": 0,
-        "max-len": [2, 80, 4, {"ignoreComments": true}],
-        "valid-jsdoc": "error"
+      "no-console": 0,
+      "no-unused-vars": 0,
+      "max-len": [2, 300, 4],
+      "valid-jsdoc": "error",
+      "linebreak-style": "off",
+      "consistent-return": "off",
+      "no-undef": "off",
+      "no-param-reassign": 0,
+      "arrow-body-style": 0,
+      "object-curly-newline": 0,
+      "avoidEscape": "false",
+      "allowTemplateLiterals": true,
+      "prefer-destructuring":"off"
     }
-}
+  }
+  
