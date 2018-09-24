@@ -4,12 +4,18 @@
   "description": "github pages branch",
   "main": "app.js",
   "scripts": {
-    "start": "babel-node app.js",
+    "clean": "rimraf ./dist",
+    "build:server": "npm run clean && babel server --out-dir dist && babel app.js -d dist --copy-files ",
+    "start": " node dist/app.js",
+    "build": "babel server -d dist/server && babel app.js -d dist",
     "start:dev": "node_modules/.bin/nodemon app.js --exec babel-node -- ",
     "lint": "eslint *.js --fix",
     "test": "nyc mocha test/**/*test.js --exit",
     "coverage": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text --cache mocha test/**/*test.js --exit",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "lint-fix": "eslint --fix ./ --ext .js --color",
+    "postinstall": "npm run build:server"
+
   },
   "nyc": {
     "_comment": "Purpose of this part: to do code coverage within Mocha/Chai using Istanbul",
