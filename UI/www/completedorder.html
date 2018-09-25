@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/addproduct.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <title>Order History</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="../images/fav/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../images/fav/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/fav/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/fav/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/fav/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../images/fav/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../images/fav/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/fav/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../images/fav/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../images/fav/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/fav/favicon-16x16.png">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <div class="bg">
+        <header>
+            <nav class="topnav">
+             
+                <img class="logo" src="../images/logo3.png" alt="logo ">
+
+                <a href="../index.html ">Home</a>
+
+
+                <a href="#about ">About</a>
+
+                <span class="regbut ">
+                    <a href="#logout ">Logout</a>
+
+                </span>
+
+            </nav>
+
+            <nav role="navigation " class="navbar1 ">
+                <img class="logo1 " src="../images/logo3.png " alt="logo">
+                <span class="mobmenu topnav1" style="float:right">
+                    <span style="margin-right:15px">
+                        <a href="" i class="fas fa-shopping-cart fas"></a>
+                    </span>
+                    <span style="margin-right:15px">
+                        <a href="" i class="fas fa-sign-out-alt"></a>
+                    </span>
+
+                </span>
+                <div id="menuToggle">
+
+                    <input type="checkbox" />
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+
+                    <ul id="menu">
+                        <a href="../index.html">
+                            <li>Home</li>
+                        </a>
+
+                        <a href="#">
+                            <li>About</li>
+                        </a>
+
+                        <a href="../www/orderhistory.html">
+                            <li>Order History</li>
+                        </a>
+                        <a href="../www/availableorder.html">
+                            <li>All Order</li>
+                        </a>
+
+
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <div class="aside">
+
+                <img class="foodlogo" src="../images/food.svg" alt="logo">
+                <h1 class="title">Order Food Fast</h1>
+                <!-- <hr style="width:109%; margin-left:-10px;"> -->
+
+                <div align="center" class="btnpad btnmag ">
+                        <a  id="myBtn" class="adminbtn3">Add Order</a>
+                    </div>
+
+                <div align="center" class="btnpad ">
+                        <a href="./adminprodlist.html" class="adminbtn"> Food List</a>
+                    </div>
+                <div align="center" class="btnpad ">
+                    <a href="./declinedorder.html" class="adminbtn4">Declined Order</a>
+                </div>
+
+                <div align="center" class="btnpad ">
+                    <a href="#" class="adminbtn1">Completed Order</a>
+                </div>
+
+
+
+
+            </div>
+            <div class="body">
+
+            </div>
+        </div>
+
+        <!--Taake note cards were here-->
+        <div class="maincontainer">
+            <div style="margin:20px">
+                <div>
+                    <h2 class="disp">All Order</h2>
+                </div>
+                <table>
+                    <thead class="tbg">
+                        <tr>
+                            <th>Food image</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tbg">
+                            <td data-label="food">
+
+
+                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
+
+                            </td>
+                            <td data-label="quantity">1 item</td>
+                            <td data-label="Amount">N2,311</td>
+                            <td data-label="status">Delivered</td>
+                        </tr>
+                        <tr class="tbg">
+                            <td data-label="Payment">
+
+
+                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
+
+                            </td>
+                            <td data-label="quantity">1 item</td>
+                            <td data-label="Amount">N2,311</td>
+                            <td data-label="status">Delivered</td>
+
+                        <tr class="tbg">
+                            <td data-label="Payment">
+
+
+                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
+
+                            </td>
+                            <td data-label="quantity">1 item</td>
+                            <td data-label="Amount">N2,311</td>
+                            <td data-label="status">Delivered</td>
+                        </tr>
+
+                        <tr class="tbg">
+                            <td data-label="Payment">
+
+
+                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
+
+                            </td>
+                            <td data-label="quantity">1 item</td>
+                            <td data-label="Amount">N2,311</td>
+                            <td data-label="status">Delivered</td>
+                        </tr>
+
+                        <tr class="tbg">
+                            <td data-label="Payment">
+
+
+                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
+
+                            </td>
+                            <td data-label="quantity">1 item</td>
+                            <td data-label="Amount">N2,311</td>
+                            <td data-label="status">Delivered</td>
+                        </tr>
+
+                        <tr class="tbg">
+                            <td data-label="Payment">
+
+
+                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
+
+                            </td>
+                            <td data-label="quantity">1 item</td>
+                            <td data-label="Amount">N2,311</td>
+                            <td data-label="status">Delivered</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Add Order</h2>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="divwidth">
+                            <div>
+                                <input class="txtwidth form-style-1" type="text" name="firstname" placeholder="Product Name" />
+    
+                            </div>
+                            <div>
+                                <input type="text" class="txtwidth form-style-1" name="lastname" placeholder="Quantity in Stock" />
+    
+                            </div>
+                            <div>
+    
+                                <input class="txtwidth form-style-1" type="file" name="upload" />
+    
+                            </div>
+    
+    
+                            <div>
+                                <button class="btnSub">Submit</button>
+                            </div>
+    
+                        </div>
+    
+                        <div style="margin-bottom: 30px">
+                        </div>
+                    </form>
+                </div>
+    
+            </div>
+    
+        </div>
+        <script src="../js/addprod.js"></script>
+</body>
+<footer class="footer">
+
+    <div>
+        <h5 style="color:#474747">An Andela project by Edogbo Sunny | © 2018</h5>
+    </div>
+
+</footer>
+
+</html>

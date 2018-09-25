@@ -12,10 +12,7 @@ body {
   background-repeat: no-repeat;
   font-family: "Montserrat", sans-serif !important;
 }
-.blur-me {
-  filter: blur(20px);
-  background-image: url("../images/bg-img.jpg");
-}
+
 .order {
   color: #474747;
   text-align: center;
@@ -222,7 +219,7 @@ a:hover {
 
 @media screen and (max-width: 414px) {
   .card {
-    margin-top: 30% !important;
+    /* margin-top: 30% !important; */
     width: 80% !important;
     margin-top: 10px !important;
   }
@@ -230,6 +227,9 @@ a:hover {
   .cardimg {
     height: 200px;
     width: 305px;
+  }
+  .order{
+    margin-top:0px;
   }
   .button {
     border-radius: none !important;
@@ -240,12 +240,14 @@ a:hover {
 }
 @media screen and (max-width: 411px) {
   .card {
-    margin-top: 30% !important;
+    /* margin-top: 30% !important; */
     width: 80% !important;
     margin-top: 10px !important;
     width: 80% !important;
   }
-
+  .order{
+    margin-top:0px;
+  }
   .cardimg {
     height: 200px;
     width: 303px;
@@ -260,12 +262,12 @@ a:hover {
 
 @media screen and (max-width: 375px) {
   .card {
-    margin-top: 30% !important;
+    /* margin-top: 30% !important; */
     margin-top: 10px !important;
     width: 90% !important;
   }
   .order {
-    margin-top: -20px;
+    margin-top: 0px;
   }
 
   .cardimg {
@@ -285,7 +287,7 @@ a:hover {
     width: 80% !important;
   }
   .order {
-    margin-top: -30px;
+    margin-top: 0px;
   }
   .cardimg {
     height: 200px;
@@ -306,6 +308,9 @@ a:hover {
   .cardimg {
     height: 180px;
     width: 260px;
+  }
+  .order{
+    margin-top:0px;
   }
   .button {
     border-radius: none !important;
