@@ -20,7 +20,9 @@ body {
 
 .regbut {
   float: right;
-  /* margin-right: 50px; */
+
+  margin-right: 50px;
+
 }
 img.cardimg {
   width: 100%;
@@ -544,12 +546,21 @@ a:hover {
   padding-left: 10px;
   padding-right: 10px;
   background: #f2f2f2;
+
+  width: 10px;
+
   padding-top: 12px;
   padding-bottom: 12px;
   border: none;
 }
+-left: -4px;
+
+.cart-btn-mag{
+  margin-bottom: 20px;
+}
 .btncomp {
-  margin-left: -4px;
+  margin-left: 4px;
+
   color: #f2f2f2;
   background: #4caf4f;
   padding-left: 10px;
@@ -653,7 +664,9 @@ a:hover {
 }
 .caption-div {
   position: absolute;
-  top: 30%;
+
+  top: 170px;
+
   color: #474747;
   font-size: 25px;
   font-weight: 900;
@@ -662,3 +675,9 @@ a:hover {
 .caption-small {
   margin-top: -20px;
 }
+
+.sup-cart{
+  padding:10px;
+  margin-top:-3px !important;
+}
+

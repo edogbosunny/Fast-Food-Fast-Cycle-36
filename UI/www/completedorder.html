@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="../css/admin.css">
+
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/addproduct.css">
+
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
     <title>Order History</title>
@@ -42,7 +47,7 @@
                 <a href="#about ">About</a>
 
                 <span class="regbut ">
-                    <a href="#welkm ">Welcome User</a>
+
                     <a href="#logout ">Logout</a>
 
                 </span>
@@ -99,18 +104,22 @@
                 <!-- <hr style="width:109%; margin-left:-10px;"> -->
 
                 <div align="center" class="btnpad btnmag ">
-                    <a href="./addproduct.html" class="adminbtn3">Add Order</a>
-                </div>
+
+                        <a  id="myBtn" class="adminbtn3">Add Order</a>
+                    </div>
 
                 <div align="center" class="btnpad ">
-                    <a href="./availableorder.html" class="adminbtn"> Food List</a>
-                </div>
+                        <a href="./adminprodlist.html" class="adminbtn"> Food List</a>
+                    </div>
+
                 <div align="center" class="btnpad ">
                     <a href="./declinedorder.html" class="adminbtn4">Declined Order</a>
                 </div>
 
                 <div align="center" class="btnpad ">
-                    <a href="" class="adminbtn1">Completed Order</a>
+
+                    <a href="#" class="adminbtn1">Completed Order</a>
+
                 </div>
 
 
@@ -212,6 +221,50 @@
             </div>
         </div>
     </div>
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Add Order</h2>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="divwidth">
+                            <div>
+                                <input class="txtwidth form-style-1" type="text" name="firstname" placeholder="Product Name" />
+    
+                            </div>
+                            <div>
+                                <input type="text" class="txtwidth form-style-1" name="lastname" placeholder="Quantity in Stock" />
+    
+                            </div>
+                            <div>
+    
+                                <input class="txtwidth form-style-1" type="file" name="upload" />
+    
+                            </div>
+    
+    
+                            <div>
+                                <button class="btnSub">Submit</button>
+                            </div>
+    
+                        </div>
+    
+                        <div style="margin-bottom: 30px">
+                        </div>
+                    </form>
+                </div>
+    
+            </div>
+    
+        </div>
+        <script src="../js/addprod.js"></script>
+
 </body>
 <footer class="footer">
 

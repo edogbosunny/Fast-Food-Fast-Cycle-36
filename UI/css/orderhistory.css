@@ -363,9 +363,12 @@ a:hover {
     width: 180px;
   }
   .maincontainer {
-    margin-left: 310px;
+    /* margin-left: 310px; */
     margin-top: 20px;
-    margin-right: 10px;
+
+    margin-right: 30px;
+    margin-left: 30px;
+
   }
 }
 .foodlogo {
@@ -566,7 +569,7 @@ imgt:hover {
 .disp {
   font-size: 2em;
   margin-top: 5px;
-  margin-bottom: 10px;
+op
   text-align: center;
   display: block;
   color: #474747;
@@ -583,3 +586,9 @@ imgt:hover {
   font-size: 25px;
   cursor: pointer;
 }
+
+.sup-cart{
+  padding:10px;
+  margin-top:-3px !important;
+}
+
