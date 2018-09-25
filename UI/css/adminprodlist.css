@@ -571,6 +571,7 @@ a:hover {
 .gridcontainer {
   margin-bottom: 100px;
   display: grid;
+  color:#fff;
   padding: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(200px, 3fr));
   grid-gap: 4rem;
