@@ -3,65 +3,56 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/Fast-Food-Fast-Cycle-36/UI/css/cart.css" />
-    <link rel="stylesheet" href="/Fast-Food-Fast-Cycle-36/UI/css/style.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
 
 <body>
     <header>
         <nav class="topnav">
-            <!-- mgl -->
-            <img class="logo" src="./images/logo3.png" alt="logo ">
-            <a href="#home ">Home</a>
+            <img class="logo" src="../images/logo3.png" alt="logo ">
+            <a href="../index.html ">Home</a>
+
 
             <a href="#about ">About</a>
             <span class="regbut ">
                 <a class="active" href="#cart ">Cart</a>
                 <a href="#register ">Logout</a>
-                <!--<a href="#login ">Login</a> -->
 
             </span>
 
         </nav>
 
         <nav role="navigation " class="navbar1 ">
-            <!-- <img class="logo1 " src="/UI/images/logo3.png " alt="logo"> -->
             <div id="menuToggle">
-                <!--
-                          A fake / hidden checkbox is used as click reciever,
-                          so you can use the :checked selector on it.
-                          -->
                 <input type="checkbox" />
-
-                <!--
-                          Some spans to act as a hamburger.
-                          
-                          They are acting like a real hamburger,
-                        
-                          -->
                 <span></span>
                 <span></span>
                 <span></span>
-
-
-
                 <ul id="menu">
-                    <a href="/">
+
+                    <a href="../index.html">
+
                         <li>Home</li>
                     </a>
 
                     <a href="#">
                         <li>About</li>
                     </a>
-
-
                 </ul>
             </div>
             <span class="mobmenu topnav1">
-                <a href="" class="active bot">Cart</a>
-                <a href="" class="active bot1">Logout</a>
+                <img class="logo5 " src="../images/logo3.png " alt="logo">
+                <span style="margin-right:0px">
 
+                    <a href="" i class="fas fa-shopping-cart fas"></a>
+                </span>
+                <span style="margin-right:15px">
+                    <a href="" i class="fas fa-sign-out-alt"></a>
+                </span>
             </span>
 
 
@@ -79,21 +70,21 @@
                                 <h3>Billing Address</h3>
                                 <label for="fname">
                                     <i class="fa fa-user"></i> Full Name</label>
-                                <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                                <input type="text" id="fname" name="firstname" placeholder="Feliix Adekunle">
                                 <label for="email">
                                     <i class="fa fa-envelope"></i> Email</label>
-                                <input type="text" id="email" name="email" placeholder="john@example.com">
+                                <input type="text" id="email" name="email" placeholder="felix@example.com">
                                 <label for="adr">
                                     <i class="fa fa-address-card-o"></i> Address</label>
-                                <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+                                <input type="text" id="adr" name="address" placeholder="Andela Epic Plaza Ikorodu Rd">
                                 <label for="city">
                                     <i class="fa fa-institution"></i> City</label>
-                                <input type="text" id="city" name="city" placeholder="New York">
+                                <input type="text" id="city" name="city" placeholder="Lagos">
 
                                 <div class="row">
                                     <div class="col-50">
                                         <label for="state">State</label>
-                                        <input type="text" id="state" name="state" placeholder="NY">
+                                        <input type="text" id="state" name="state" placeholder="LG">
                                     </div>
                                     <div class="col-50">
                                         <label for="zip">Zip</label>
@@ -102,19 +93,21 @@
                                 </div>
                             </div>
 
-                            <div class="col-50" >
+
+                            <div class="col-50">
+
                                 <h3>Payment</h3>
                                 <label for="fname">Accepted Cards</label>
                                 <div class="icon-container">
-                                    <i class="fa fa-cc-visa" style="color:navy;"></i>
-                                    <i class="fa fa-cc-amex" style="color:blue;"></i>
-                                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                                    <i class="fa fa-cc-discover" style="color:orange;"></i>
+                                    <i class="fab fa-cc-visa" style="color:navy;"></i>
+                                    <i class="fab fa-cc-amex" style="color:blue;"></i>
+                                    <i class="fab fa-cc-mastercard" style="color:red;"></i>
+                                    <i class="fab fa-cc-discover" style="color:orange;"></i>
                                 </div>
                                 <label for="cname">Name on Card</label>
-                                <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-                                <label for="ccnum">Credit card number</label>
-                                <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                                <input type="text" id="cname" name="cardname" placeholder="Felix Adekunle">
+                                <label for="ccnum">Debit card number</label>
+                                <input type="text" id="ccnum" name="cardnumber" placeholder="1234-1234-1234-1234">
                                 <label for="expmonth">Exp Month</label>
                                 <input type="text" id="expmonth" name="expmonth" placeholder="September">
                                 <div class="row">
@@ -133,10 +126,17 @@
                         <label>
                             <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
                         </label>
+                        <label>
+                            <input type="checkbox" name="sameadr"> Pay on Delivery
+                        </label>
                         <div align="center">
 
+                            <br>
                             <a type="" value="Checkout" class="btn">Checkout </a>
                         </div>
+                        <br>
+                        <br>
+
                     </form>
                 </div>
             </div>
@@ -145,29 +145,26 @@
                     <h4>Cart
                         <span class="price" style="color:black">
                             <i class="fa fa-shopping-cart"></i>
-                            <b>4</b>
+                            <b>3</b>
                         </span>
                     </h4>
                     <p>
-                        <a href="#">Product 1</a>
-                        <span class="price">$15</span>
+                        <a href="#">Naija Meal</a>
+                        <span class="price">N1300</span>
                     </p>
                     <p>
-                        <a href="#">Product 2</a>
-                        <span class="price">$5</span>
+                        <a href="#">Afro Meal</a>
+                        <span class="price">N500</span>
                     </p>
                     <p>
-                        <a href="#">Product 3</a>
-                        <span class="price">$8</span>
+                        <a href="#">African Mello</a>
+                        <span class="price">N200</span>
                     </p>
-                    <p>
-                        <a href="#">Product 4</a>
-                        <span class="price">$2</span>
-                    </p>
+                   
                     <hr>
                     <p>Total
                         <span class="price" style="color:black">
-                            <b>$30</b>
+                            <b>N2000</b>
                         </span>
                     </p>
                 </div>
@@ -175,5 +172,12 @@
         </div>
     </div>
 </body>
+<footer class="footer">
+
+    <div>
+        <h5 style="color:#474747">An Andela project by Edogbo Sunny | © 2018</h5>
+    </div>
+
+</footer>
 
 </html>

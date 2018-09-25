@@ -21,34 +21,32 @@ body {
   border-radius: 5px;
   margin-top: -13px;
   transition: 0.4ms;
-  
 }
-.bot:hover{
-    background-color: #f2f2f2 !important;
-    color:#474747 !important;
-    transition: 0.4ms;
+.bot:hover {
+  background-color: #f2f2f2 !important;
+  color: #474747 !important;
+  transition: 0.4ms;
 }
 
 .bot1 {
-    margin-left:15px;
-    background-color: #4caf50;
-    border: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    color: #f2f2f2;
-    text-align: center;
-    border-radius: 5px;
-    margin-top: -13px;
-    transition: 0.4ms;
-    
-  }
-  .bot1:hover{
-    background-color: #f2f2f2 !important;
-    color:#474747 !important;
-    transition: 0.4ms;
-  }
+  margin-left: 15px;
+  background-color: #4caf50;
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #f2f2f2;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: -13px;
+  transition: 0.4ms;
+}
+.bot1:hover {
+  background-color: #f2f2f2 !important;
+  color: #474747 !important;
+  transition: 0.4ms;
+}
 .topnav1 a {
   transition: 0.4s;
   float: left;
@@ -170,4 +168,29 @@ span.price {
   .col-25 {
     margin-bottom: 20px;
   }
+}
+.footer {
+  text-align: center;
+  background-color: #f2f2f2;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* height: 100px;  */
+  /* Height of the footer */
+}
+.logo1 {
+  float: right;
+
+  padding-right: 7px;
+}
+.fas {
+  margin-top: -15px;
+  color: #fff;
+  font-size: 25px !important;
+  cursor: pointer;
+}
+.logo5 {
+  float: right;
+  padding-right: 7px;
+  margin-top:-5px;
 }
