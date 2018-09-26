@@ -96,8 +96,8 @@
                 <h4>Price: N1300</h4>
             </div>
             <div>
-                <button id="myBtn" class="btnedit ">Edit</button>
-                <a class="btndel ">Delete</a>
+                <button id="myBtn1"  class="btnedit ">Edit</button>
+                <a id="myDelBtn" class="btndel ">Delete</a>
             </div>
         </div>
 
@@ -189,49 +189,38 @@
         </div>
 
     </div>
-     <div id="myDelModal" class="modal">
+    <!-- Del Modal -->
+    <div id="DelModal" class="modal1">
 
-        <!-- Modal content -->
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Edit Product</h2>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="divwidth">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="Delclose">&times;</span>
+                    <h2>Confirm</h2>
+                </div>
+                <div class="modal-body">
+                    <form>
                         <div>
-                            <input class="txtwidth form-style-1" type="text" name="firstname" placeholder="Product Name" />
-
+                            <h3>Are you sure you want to Delete order ?</h3>
                         </div>
-                        <div>
-                            <input type="text" class="txtwidth form-style-1" name="lastname" placeholder="Quantity in Stock" />
-
-                        </div>
-                        <div>
-
-                            <input class="txtwidth form-style-1" type="file" name="upload" />
-
-                        </div>
-
-
                         <div>
                             <button class="btnSub">Submit</button>
+                            <button class="btn-can">Cancel</button>
                         </div>
-
-                    </div>
-
-                    <div style="margin-bottom: 30px">
-                    </div>
-                </form>
+                    </form>
+                </div>
+    
+                <div style="margin-bottom: 30px">
+                </div>
+    
             </div>
-            <div class="modal-footer">
-                
-            </div>
+    
         </div>
-
-    </div>
-
+    
+    
+    
+        <!-- Del Modal -->
+    <script src="../js/delModal.js"></script>
     <script src="../js/app.js"></script>
     
 </body>
