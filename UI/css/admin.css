@@ -581,7 +581,9 @@ table th {
     text-align: center;
   }
 }
+
 .imgt {
+
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
@@ -624,18 +626,22 @@ imgt:hover {
   cursor: pointer;
 }
 .accept-button {
+
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 5px;
   background-color: #4caf4f;
   padding-bottom: 5px;
   color: #f2f2f2;
+
   border-radius: 4px;
   border: none;
 }
 .accept-button:hover {
+
   background-color: whitesmoke;
   color: #474747;
+
   transition: 0.4ms;
   cursor: pointer;
 }
@@ -643,12 +649,14 @@ imgt:hover {
   border-radius: 4px;
   border: none;
   padding-top: 5px;
+
   color: #fff;
   background-color: red;
   padding-bottom: 5px;
 }
 .end-button:hover {
   background-color: #ff6961;
+
   color: #fff;
   transition: 0.4ms;
   cursor: pointer;
@@ -656,14 +664,18 @@ imgt:hover {
 .comp-button {
   border-radius: 4px;
   border: none;
+
   color:#fff;
   background-color: #4caf50;
+
   padding-top: 5px;
   padding-bottom: 5px;
 }
 .comp-button:hover {
+
   background-color: whitesmoke;
   color: #474747;
+
   transition: 0.4ms;
   cursor: pointer;
 }
@@ -673,4 +685,3 @@ imgt:hover {
 .btnmag {
   margin-top: 40px !important;
 }
-

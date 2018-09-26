@@ -8,10 +8,12 @@ body {
   background-repeat: no-repeat;
   font-family: "Montserrat", sans-serif !important;
 }
+
 form {
   padding-top: 30px;
   padding-bottom: 30px;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -32,6 +34,7 @@ a {
 a:hover {
   color: tomato;
 }
+
 
 .form-style-1 {
   padding: 7px 0px 7px 5px;
@@ -59,6 +62,7 @@ a:hover {
 .txtwidth {
   width: 99%;
 }
+
 .btnSub {
   /* margin-left: -5px; */
   padding-top: 7px;
@@ -76,6 +80,7 @@ a:hover {
   color: #474747;
   background: #f2f2f2;
   transition: 0.4s;
+
 }
 .btn-can {
   /* margin-left: -5px; */
