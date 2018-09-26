@@ -312,6 +312,7 @@ a:hover {
   .container {
     margin-top: 0px;
   }
+ 
 }
 .logo1 {
   float: right;
@@ -535,7 +536,8 @@ table tr {
 }
 table th,
 table td {
-  padding: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-weight: 600;
   text-align: center;
 }
@@ -544,9 +546,11 @@ table th {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   table {
-    border: 0;
+    border: 0; 
+    margin-bottom: 50px !important;
+
   }
   table thead {
     display: none;
@@ -684,4 +688,21 @@ imgt:hover {
 }
 .btnmag {
   margin-top: 40px !important;
+}
+.vw-btn{
+  border:none;
+  margin-left:5px;
+  background: #4caf50;
+  color:#fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 400ms;
+}
+.vw-btn:hover{
+  background: #f2f2f2;
+  color: #474747;
+  cursor: pointer;
+  transition: 400ms;
 }
