@@ -511,6 +511,7 @@ a:hover {
 .btnaccept {
   padding-left: 10px;
   padding-right: 10px;
+  margin-right: 4px;
   /* margin-left: -4px; */
   color: #f2f2f2;
   background: #4caf4f;
@@ -525,14 +526,14 @@ a:hover {
 }
 .btndeny {
   /* margin-left: -5px; */
-  padding-top: 12px;
+  padding-top: 13px;
   background-color: #474747;
   padding-bottom: 12px;
   padding-left: 10px;
   padding-right: 10px;
   color: #f2f2f2;
   margin-left: -2px;
-  margin-right: 2px;
+  margin-right: 3px;
   border: none;
 }
 .btndeny:hover {
@@ -549,7 +550,8 @@ a:hover {
 
   width: 10px;
 
-  padding-top: 12px;
+  padding-top: 13px;
+
   padding-bottom: 12px;
   border: none;
 }
@@ -563,9 +565,9 @@ a:hover {
 
   color: #f2f2f2;
   background: #4caf4f;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 12px;
+  padding-left: 11px;
+  padding-right: 11px;
+  padding-top: 13px;
   padding-bottom: 12px;
   border: none;
 }

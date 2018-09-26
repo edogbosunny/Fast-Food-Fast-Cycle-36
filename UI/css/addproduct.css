@@ -2,17 +2,17 @@
 body {
   /* background-image: url("../images/bg-image1.jpg"); */
   height: 100vh;
-  color:#474747 !important;
+  color: #474747 !important;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   font-family: "Montserrat", sans-serif !important;
 }
 
- form{
-   padding-top:30px;
-   padding-bottom:30px;
- }
+form {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 
 body {
   margin: 0;
@@ -81,4 +81,22 @@ a:hover {
   background: #f2f2f2;
   transition: 0.4s;
 
+}
+.btn-can {
+  /* margin-left: -5px; */
+  padding-top: 7px;
+  background-color: rgb(172, 20, 20);
+  padding-bottom: 11px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #f2f2f2;
+  margin-left: -2px;
+  margin-right: 2px;
+  margin-top: 20px;
+  border: none;
+}
+.btn-can:hover {
+  color: #f2f2f2;
+  background: red;
+  transition: 0.4s;
 }
