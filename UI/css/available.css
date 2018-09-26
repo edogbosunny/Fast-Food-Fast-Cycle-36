@@ -576,7 +576,7 @@ a:hover {
   grid-gap: 4rem;
 }
 .griditem {
-  /* padding: 20px; */
+  padding-bottom: 10px;
   /* font-size: 30px; */
   margin-bottom: 40px;
   text-align: center;
