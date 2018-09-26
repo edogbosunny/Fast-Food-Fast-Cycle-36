@@ -22,7 +22,6 @@ body {
   float: right;
 
   margin-right: 50px;
-
 }
 img.cardimg {
   width: 100%;
@@ -322,7 +321,7 @@ a:hover {
   .aside {
     display: none;
   }
- 
+
   .topnav {
     display: none;
   }
@@ -511,12 +510,12 @@ a:hover {
 .btnaccept {
   padding-left: 10px;
   padding-right: 10px;
-  margin-right: 4px;
+  /* margin-right: 3px; */
   /* margin-left: -4px; */
   color: #f2f2f2;
   background: #4caf4f;
   padding-top: 9px;
-  padding-bottom: 11px;
+  padding-bottom: 10px;
   border: none;
 }
 .btnaccept:hover {
@@ -532,8 +531,8 @@ a:hover {
   padding-left: 10px;
   padding-right: 10px;
   color: #f2f2f2;
-  margin-left: -2px;
-  margin-right: 3px;
+  margin-left: 3px;
+  margin-right: 0px;
   border: none;
 }
 .btndeny:hover {
@@ -542,21 +541,21 @@ a:hover {
   transition: 0.4s;
 }
 .btncomp1 {
-  /* margin-left: -4px; */
+  margin-left: 4px;
   color: #232323;
   padding-left: 10px;
   padding-right: 10px;
   background: #f2f2f2;
-
+  margin-right: 1px;
   width: 10px;
 
   padding-top: 13px;
 
-  padding-bottom: 12px;
+  padding-bottom: 11px;
   border: none;
 }
 
-.cart-btn-mag{
+.cart-btn-mag {
   margin-bottom: 20px;
 }
 .btncomp {
@@ -569,6 +568,7 @@ a:hover {
   padding-top: 13px;
   padding-bottom: 12px;
   border: none;
+  /* margin-right: 3px; */
 }
 .btncomp:hover {
   color: #232323;
@@ -677,8 +677,7 @@ a:hover {
   margin-top: -20px;
 }
 
-.sup-cart{
-  padding:10px;
-  margin-top:-3px !important;
+.sup-cart {
+  padding: 10px;
+  margin-top: -3px !important;
 }
-
