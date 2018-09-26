@@ -510,6 +510,8 @@ a:hover {
   padding-left: 25px;
   padding-right: 25px;
   margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 500;
   color: #f2f2f2;
   background: #4caf4f;
   padding-top: 9px;
@@ -523,11 +525,13 @@ a:hover {
 }
 .btndel {
   /* margin-left: -5px; */
-  padding-top: 7px;
-  background-color: red;
-  padding-bottom: 11px;
+  padding-top: 8px;
+  background-color: rgba(255, 0, 0, 0.748);
+  padding-bottom: 9px;
   padding-left: 10px;
   padding-right: 10px;
+  font-size:15px;
+  font-weight:500;
   color: #f2f2f2;
   margin-left: -2px;
   margin-right: 2px;
@@ -536,7 +540,7 @@ a:hover {
 }
 .btndel:hover {
   color: #fff;
-  background: #e63c3c;
+  background: red;
   transition: 0.4s;
 }
 .btncomp1 {

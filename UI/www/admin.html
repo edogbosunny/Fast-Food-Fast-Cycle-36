@@ -78,7 +78,7 @@
             <!-- <hr style="width:109%; margin-left:-10px;"> -->
 
             <div align="center" class="btnpad btnmag ">
-                <a  id="myBtn" class="adminbtn3">Add Order</a>
+                <a id="myBtn" class="adminbtn3">Add Order</a>
             </div>
 
             <div align="center" class="btnpad ">
@@ -117,9 +117,9 @@
                             <td data-label="quantity">1 item</td>
                             <td data-label="Amount">N2,311</td>
                             <td data-label="status">
-                                <button class="accept-button">Accept</button>
-                                <button class="end-button">Decline</button>
-                                <button class="comp-button">Completed</button>
+                                <button id="myAcceptBtn" data-target="hiya" class="accept-button ">Accept</button>
+                                <button id="myDeclineBtn" class="end-button">Decline</button>
+                                <button id="myConfirmBtn" class="comp-button">Completed</button>
                             </td>
                         </tr>
                         <tr class="tbg">
@@ -248,7 +248,98 @@
         </div>
 
     </div>
+
+    <!-- Accept Modal -->
+    <div id="myacceptModal" class="modal1">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closeAccept">&times;</span>
+                <h2>Confirm</h2>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div>
+                        <h3>Are you sure you want to accept order ?</h3>
+                    </div>
+                    <div>
+                        <button class="btnSub">Submit</button>
+                        <button class="btn-can">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div style="margin-bottom: 30px">
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Accept Modal -->
+    <div id="myDeclineModal" class="modal1">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closeDecine">&times;</span>
+                <h2>Confirm</h2>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div>
+                        <h3>Are you sure you want to Decline order ?</h3>
+                    </div>
+                    <div>
+                        <button class="btnSub">Submit</button>
+                        <button class="btn-can">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div style="margin-bottom: 30px">
+            </div>
+
+        </div>
+
+    </div>
+    <!-- End of decline modal -->
+
+     <!-- confirm Modal -->
+     <div id="myConfirmModal" class="modal1">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="closeConfirm">&times;</span>
+                    <h2>Confirm</h2>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div>
+                            <h3>Are you sure you want to Confirm order ?</h3>
+                        </div>
+                        <div>
+                            <button class="btnSub">Submit</button>
+                            <button class="btn-can">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+    
+                <div style="margin-bottom: 30px">
+                </div>
+    
+            </div>
+    
+        </div>
+        <!-- End of confirm moodal -->
     <script src="../js/addprod.js"></script>
+    <script src="../js/acceptmodal.js"></script>
+    <script src="../js/declinemodal.js"></script>
+    <script src="../js/confirmModal.js"></script>
 </body>
 <footer class="footer">
 
