@@ -131,3 +131,13 @@ width: 80%;
 .mod-wd{
     width: 50% !important
 }
+.myOrderCompBtn{
+    float: right;
+    font-size: 25px;
+    cursor: pointer; 
+}
+.closeCompOrder{
+    float: right;
+    font-size: 25px;
+    cursor: pointer;  
+}
