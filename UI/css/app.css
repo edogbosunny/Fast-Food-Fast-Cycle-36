@@ -1,143 +1,159 @@
-
-
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    color: #474747;
-    width: 100%;
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  color: #474747;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 .modal1 {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 100px;
-    left: 0;
-    text-align: center;
-    top: 0;
-    color: #474747;
-    width: 100%;
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  text-align: center;
+  top: 0;
+  color: #474747;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 .modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 70%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 70%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
 }
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 /* The Close Button */
 .close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .modal-header {
-    padding: 20px 10px;
-    background-color: #474747;
-    color: white;
-    text-align: center;
+  padding: 20px 10px;
+  background-color: #474747;
+  color: white;
+  text-align: center;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+  padding: 2px 16px;
+}
 
 .modal-footer {
-  
-    padding: 2px 16px;
-    background-color: #474747;
-    color: white;
+  padding: 2px 16px;
+  background-color: #474747;
+  color: white;
 }
 @media screen and (max-width: 700px) {
-.modal-content{
-width: 80%;
+  .modal-content {
+    width: 80%;
+  }
 }
+.closeAccept {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
 }
-.closeAccept{
-    float: right;
-    font-size: 25px;
-    cursor: pointer;
+.mod-cnt {
+  text-align: center;
 }
-.mod-cnt{
-    text-align: center;
+.closeConfirm {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
 }
-.closeConfirm{
-    float: right;
-    font-size: 25px;
-    cursor: pointer;
+.closeDecine {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
 }
-.closeDecine{
-    float: right;
-    font-size: 25px;
-    cursor: pointer;
+.btm-mag {
+  margin-bottom: 30px;
 }
-.btm-mag{
-    margin-bottom: 30px;
+.Delclose {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
 }
-.Delclose{
-    float: right;
-    font-size: 25px;
-    cursor: pointer;
+.closeOrder {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
 }
-.closeOrder{
-    float: right;
-    font-size: 25px;
-    cursor: pointer;
+.new-modal {
+  width: 90% !important;
 }
-.new-modal{
-    width: 90% !important;
+.pad {
+  margin: 20px;
 }
-.pad{
-    margin:20px;
+.mod-wd {
+  width: 50% !important;
 }
-.mod-wd{
-    width: 50% !important
+.myOrderCompBtn {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
 }
-.myOrderCompBtn{
-    float: right;
-    font-size: 25px;
-    cursor: pointer; 
+.closeCompOrder {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
 }
-.closeCompOrder{
-    float: right;
-    font-size: 25px;
-    cursor: pointer;  
+.closeDecOrder {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
 }
