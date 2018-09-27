@@ -157,3 +157,18 @@
   font-size: 25px;
   cursor: pointer;
 }
+.myDecCompBtn {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
+}
+.closeUserOrder {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
+}
+.closeDeclOrder{
+    float: right;
+    font-size: 25px;
+    cursor: pointer;
+}

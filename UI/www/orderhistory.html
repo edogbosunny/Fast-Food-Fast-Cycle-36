@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="../css/orderhistory.css">
+    <link rel="stylesheet" href="../css/app.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
     <title>Order History</title>
@@ -44,7 +45,11 @@
                 <span class="regbut ">
 
                     <a href="./availableorder.html">Available Order</a>
-                    <a href="../www/cart.html " class="sup-cart" >Cart <span><sup>3</sup></span></a>
+                    <a href="../www/cart.html " class="sup-cart">Cart
+                        <span>
+                            <sup>3</sup>
+                        </span>
+                    </a>
 
                     <a href="#logout ">Logout</a>
 
@@ -109,127 +114,187 @@
                 <div>
                     <h2 class="disp">Order History</h2>
                 </div>
+
+
                 <table>
                     <thead class="tbg">
                         <tr>
-                            <th>Food image</th>
-
-                            <th>Meal</th>
-
-                            <th>Quantity</th>
-                            <th>Amount</th>
+                            <th>Order Id</th>
+                            <th>Ordered item(s)</th>
+                            <th>Total cost</th>
+                            <th>Date Ordered</th>
                             <th>Status</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="tbg">
-                            <td data-label="food">
-
-
-                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
-
+                            <!-- <td data-label="food">
+                                    <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
+                                </td> -->
+                            <td data-label="orderid">1</td>
+                            <td data-label="items">3 item(s)
+                                <button id="myOrderUserCompBtn" class="vw-btn"> View order(s)</button>
                             </td>
-
-                            <td data-label="food">Salad</td>
-
-                            <td data-label="quantity">1 item</td>
-                            <td data-label="Amount">N2,311</td>
-                            <td data-label="status">Delivered</td>
+                            <td data-label="cost">N3000</td>
+                            <td data-label="Amount">11/09/2018 08:55pm</td>
+                            <td data-label="status">Completed</td>
                         </tr>
                         <tr class="tbg">
-                            <td data-label="Payment">
-
-
-                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
-
+                            <!-- <td data-label="Payment">
+                                <img class="imgt img-wid" src="../images/bg-img.jpg" alt="food">
+                                </td> -->
+                            <td data-label="orderid">2</td>
+                            <td data-label="items">3 item(s)
+                                <a href="">
+                                    <button class="vw-btn"> View order(s)</button>
+                                </a>
                             </td>
-
-                            <td data-label="food">Salad</td>
-
-                            <td data-label="quantity">1 item</td>
-                            <td data-label="Amount">N2,311</td>
-                            <td data-label="status">Delivered</td>
+                            <td data-label="cost">N5000</td>
+                            <td data-label="Amount">11/09/2018 08:55pm</td>
+                            <td data-label="status">Completed</td>
                         </tr>
 
                         <tr class="tbg">
-                            <td data-label="Payment">
-
-
-                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
-
+                            <!-- <td data-label="Payment">
+                                    <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
+                                </td> -->
+                            <td data-label="orderid">3</td>
+                            <td data-label="items">3 item(s)
+                                <a href="">
+                                    <button class="vw-btn"> View order(s)</button>
+                                </a>
                             </td>
-
-                            <td data-label="food">Salad</td>
-
-                            <td data-label="quantity">1 item</td>
-                            <td data-label="Amount">N2,311</td>
-                            <td data-label="status">Delivered</td>
+                            <td data-label="cost">N5000</td>
+                            <td data-label="Amount">11/09/2018 08:55pm</td>
+                            <td data-label="status">Completed</td>
                         </tr>
 
                         <tr class="tbg">
-                            <td data-label="Payment">
-
-
-                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
-
+                            <!-- <td data-label="Payment">
+                                    <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
+                                </td> -->
+                            <td data-label="orderid">4</td>
+                            <td data-label="items">3 item(s)
+                                <a href="">
+                                    <button class="vw-btn"> View order(s)</button>
+                                </a>
                             </td>
-
-                            <td data-label="food">Salad</td>
-
-                            <td data-label="quantity">1 item</td>
-                            <td data-label="Amount">N2,311</td>
-                            <td data-label="status">Delivered</td>
+                            <td data-label="cost">N5000</td>
+                            <td data-label="Amount">11/09/2018 08:55pm</td>
+                            <td data-label="status">Completed</td>
                         </tr>
 
                         <tr class="tbg">
-                            <td data-label="Payment">
-
-
-                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
-
+                            <!-- <td data-label="Payment">
+                                    <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
+                                </td> -->
+                            <td data-label="orderid">5</td>
+                            <td data-label="items">3 item(s)
+                                <a href="">
+                                    <button class="vw-btn"> View order(s)</button>
+                                </a>
                             </td>
-
-                            <td data-label="food">Salad</td>
-
-                            <td data-label="quantity">1 item</td>
-                            <td data-label="Amount">N2,311</td>
-                            <td data-label="status">Delivered</td>
+                            <td data-label="cost">N5000</td>
+                            <td data-label="Amount">11/09/2018 08:55pm</td>
+                            <td data-label="status">Completed</td>
                         </tr>
 
                         <tr class="tbg">
-                            <td data-label="Payment">
-
-
-                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
-
+                            <!-- <td data-label="Payment">
+                                    <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
+                                </td> -->
+                            <td data-label="orderid">6</td>
+                            <td data-label="items">3 item(s)
+                                <a href="">
+                                    <button class="vw-btn"> View order(s)</button>
+                                </a>
                             </td>
+                            <td data-label="cost">N5000</td>
+                            <td data-label="Amount">11/09/2018 08:55pm</td>
+                            <td data-label="status">Completed</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                            <td data-label="food">Salad</td>
+            </div>
+        </div>
+    </div>
+    <div id="ordersUserCompModal" class="  modal1 ">
 
-                            <td data-label="quantity">1 item</td>
-                            <td data-label="Amount">N2,311</td>
+        <!-- Modal content -->
+        <div class=" new-modal modal-content">
+            <div class="modal-header">
+                <span class="closeUserOrder">&times;</span>
+                <h2>View Order Items</h2>
+            </div>
+            <div class="pad">
+                <table>
+                    <thead class="tbg">
+                        <tr class="pad">
+                            <th>Order Id</th>
+                            <th>item image</th>
+                            <th>meal</th>
+                            <th>quantity</th>
+                            <th>cost</th>
+                            <th>Date Ordered</th>
+                            <th>status</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tbg">
+
+                            <td data-label="orderid">1</td>
+                            <td data-label="img">
+                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
+                            </td>
+                            <td data-label="food">Salad </td>
+                            <td data-label="quantity">1</td>
+                            <td data-label="cost">N1000</td>
+                            <td data-label="Amount">11/09/2018 08:55pm</td>
                             <td data-label="status">Delivered</td>
                         </tr>
+                    </tbody>
 
+                    <tbody>
                         <tr class="tbg">
-                            <td data-label="Payment">
 
-
+                            <td data-label="orderid">1</td>
+                            <td data-label="img">
                                 <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
-
                             </td>
+                            <td data-label="food">Salad </td>
+                            <td data-label="quantity">1</td>
+                            <td data-label="cost">N1000</td>
+                            <td data-label="Amount">11/09/2018 08:55pm</td>
+                            <td data-label="status">Delivered</td>
+                        </tr>
+                    </tbody>
 
-                            <td data-label="food">Salad</td>
+                    <tbody>
+                        <tr class="tbg">
 
-                            <td data-label="quantity">1 item</td>
-                            <td data-label="Amount">N2,311</td>
+                            <td data-label="orderid">1</td>
+                            <td data-label="img">
+                                <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
+                            </td>
+                            <td data-label="food">Salad </td>
+                            <td data-label="quantity">1</td>
+                            <td data-label="cost">N1000</td>
+                            <td data-label="Amount">11/09/2018 08:55pm</td>
                             <td data-label="status">Delivered</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            <div style="margin-bottom: 30px">
+            </div>
+
         </div>
+
     </div>
+    <script src="../js/userOrderModal.js"></script>
 </body>
 <footer class="footer">
     <div>
