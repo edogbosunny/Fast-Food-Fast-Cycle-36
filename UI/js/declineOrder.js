@@ -5,7 +5,7 @@ var modal7 = document.getElementById('ordersDecModal');
 var btn = document.getElementById("myDecCompBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("closeDecOrder")[0];
+var span = document.getElementsByClassName("closeDeclOrder")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
