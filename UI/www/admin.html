@@ -5,11 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/app.css">
+    <title>Order Food Fast</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="../images/fav/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../images/fav/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/fav/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/fav/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/fav/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../images/fav/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../images/fav/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/fav/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../images/fav/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../images/fav/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/fav/favicon-16x16.png">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="../css/app.css">
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/addproduct.css">
-    <title>Document</title>
+
 </head>
 
 <body>
@@ -31,11 +51,9 @@
 
         <nav role="navigation " class="navbar1 ">
             <img class="logo1 " src="../images/logo3.png " alt="logo">
-            <span class="mobmenu topnav1" style="float:right">
-                <span style="margin-right:15px">
-                    <a href="" i class="fas fa-shopping-cart fas"></a>
-                </span>
-                <span style="margin-right:15px">
+            <span class="mobmenu topnav1 fl-right">
+
+                <span class="mr">
                     <a href="" i class="fas fa-sign-out-alt"></a>
                 </span>
 
@@ -54,15 +72,18 @@
                         <li>About</li>
                     </a>
 
-                    <a href="../www/orderhistory.html">
-                        <li>Order History</li>
+                    <a href="">
+                        <li>Add Product</li>
                     </a>
-                    <a href="../www/availableorder.html">
-                        <li>All Order</li>
+                    <a href="./adminprodlist.html">
+                        <li>Food List</li>
                     </a>
-
-
-
+                    <a href="">
+                        <li>Completed Order</li>
+                    </a>
+                    <a href="">
+                        <li>Declined Order</li>
+                    </a>
                 </ul>
             </div>
         </nav>
@@ -95,7 +116,7 @@
         </div>
 
         <div class="maincontainer">
-            <div style="margin:20px">
+            <div class="c-marg">
                 <div>
                     <h2 class="disp">All Order</h2>
                 </div>
@@ -274,7 +295,7 @@
 
                     </div>
 
-                    <div style="margin-bottom: 30px">
+                    <div class="bm">
                     </div>
                 </form>
             </div>
@@ -304,7 +325,7 @@
                 </form>
             </div>
 
-            <div style="margin-bottom: 30px">
+            <div class="bm">
             </div>
 
         </div>
@@ -334,7 +355,7 @@
                 </form>
             </div>
 
-            <div style="margin-bottom: 30px">
+            <div class="bm">
             </div>
 
         </div>
@@ -363,7 +384,7 @@
                 </form>
             </div>
 
-            <div style="margin-bottom: 30px">
+            <div class="bm">
             </div>
 
         </div>
@@ -380,42 +401,27 @@
                 <span class="closeOrder">&times;</span>
                 <h2>View Order Items</h2>
             </div>
-         <div class="pad">
-            <table >
-                <thead class="tbg">
-                    <tr class="pad">
-                        <th>Order Id</th>
-                        <th>item image</th>
-                        <th>meal</th>
-                        <th>quantity</th>
-                        <th>cost</th>
-                        <th>Date Ordered</th>
-                        <th>status</th>
+            <div class="pad">
+                <table>
+                    <thead class="tbg">
+                        <tr class="pad">
+                            <th>Order Id</th>
+                            <th>item image</th>
+                            <th>meal</th>
+                            <th>quantity</th>
+                            <th>cost</th>
+                            <th>Date Ordered</th>
+                            <th>status</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="tbg">
-                       
-                        <td data-label="orderid">1</td>
-                         <td data-label="img">
-                                    <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
-                                </td>
-                        <td data-label="food">Salad </td>
-                        <td data-label="quantity">1</td>
-                        <td data-label="cost">N1000</td>
-                        <td data-label="Amount">11/09/2018 08:55pm</td>
-                        <td data-label="status">Delivered</td>
-                    </tr>
-                </tbody>
-
-                <tbody>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <tr class="tbg">
-                           
+
                             <td data-label="orderid">1</td>
-                             <td data-label="img">
-                                        <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
-                                    </td>
+                            <td data-label="img">
+                                <img class="imgt img-wd" src="../images/bg-img.jpg" alt="food">
+                            </td>
                             <td data-label="food">Salad </td>
                             <td data-label="quantity">1</td>
                             <td data-label="cost">N1000</td>
@@ -425,22 +431,37 @@
                     </tbody>
 
                     <tbody>
-                            <tr class="tbg">
-                               
-                                <td data-label="orderid">1</td>
-                                 <td data-label="img">
-                                            <img class="imgt" src="../images/bg-img.jpg" alt="food" style="width:150px">
-                                        </td>
-                                <td data-label="food">Salad </td>
-                                <td data-label="quantity">1</td>
-                                <td data-label="cost">N1000</td>
-                                <td data-label="Amount">11/09/2018 08:55pm</td>
-                                <td data-label="status">Delivered</td>
-                            </tr>
-                        </tbody>
-            </table>
-               </div>
-            <div style="margin-bottom: 30px">
+                        <tr class="tbg">
+
+                            <td data-label="orderid">1</td>
+                            <td data-label="img">
+                                <img class="imgt img-wd" src="../images/bg-img.jpg" alt="food">
+                            </td>
+                            <td data-label="food">Salad </td>
+                            <td data-label="quantity">1</td>
+                            <td data-label="cost">N1000</td>
+                            <td data-label="Amount">11/09/2018 08:55pm</td>
+                            <td data-label="status">Delivered</td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr class="tbg">
+
+                            <td data-label="orderid">1</td>
+                            <td data-label="img">
+                                <img class="imgt img-wd" src="../images/bg-img.jpg" alt="food">
+                            </td>
+                            <td data-label="food">Salad </td>
+                            <td data-label="quantity">1</td>
+                            <td data-label="cost">N1000</td>
+                            <td data-label="Amount">11/09/2018 08:55pm</td>
+                            <td data-label="status">Delivered</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="bm">
             </div>
 
         </div>
@@ -458,7 +479,7 @@
 <footer class="footer">
 
     <div>
-        <h5 style="color:#474747">An Andela project by Edogbo Sunny | © 2018</h5>
+        <h5 class="ash">An Andela project by Edogbo Sunny | © 2018</h5>
     </div>
 
 </footer>
