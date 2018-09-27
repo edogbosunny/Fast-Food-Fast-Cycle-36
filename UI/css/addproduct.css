@@ -100,3 +100,6 @@ a:hover {
   background: red;
   transition: 0.4s;
 }
+.sg-out{
+  margin-right:15px;
+}
