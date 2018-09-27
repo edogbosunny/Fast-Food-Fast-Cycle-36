@@ -501,6 +501,8 @@ table td {
   padding: 10px;
   font-weight: 600;
   text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 table th {
   font-size: 18px;
@@ -510,6 +512,7 @@ table th {
 @media screen and (max-width: 600px) {
   table {
     border: 0;
+    margin-bottom: 50px !important;
   }
   table thead {
     display: none;
@@ -526,6 +529,7 @@ table th {
     display: block;
     font-size: 13px;
     text-align: right;
+    
   }
   table td:last-child {
     border-bottom: 0;
@@ -569,7 +573,6 @@ imgt:hover {
 .disp {
   font-size: 2em;
   margin-top: 5px;
-op
   text-align: center;
   display: block;
   color: #474747;
@@ -591,4 +594,20 @@ op
   padding:10px;
   margin-top:-3px !important;
 }
-
+.vw-btn{
+  border:none;
+  margin-left:5px;
+  background: #4caf50;
+  color:#fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 400ms;
+}
+.vw-btn:hover{
+  background: #f2f2f2;
+  color: #474747;
+  cursor: pointer;
+  transition: 400ms;
+}
