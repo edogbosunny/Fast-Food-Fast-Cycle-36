@@ -1,48 +1,51 @@
-import db from '../models/foodList';
-import validateFoodInput from '../validation/foodList';
+import db from '../models/orderDB';
+import validateOrderItem from '../validation/order';
 
 /**
- * Food List Item Class
+ * Order Item Class
  */
 
-class FoodItem {
+class Order {
   /**
-   * Create an FoodItem
+   * Create an order
    * @param {object} req:Request Object
    * @param {object} res: Response Object
    * @returns {object} Order Object
    */
-  static createFoodItem(req, res) {
-    // decopuling
-    const { date, meal, price } = req.body;
-    const { errors, isValid } = validateFoodInput(req.body);
+
+  static createOrder(req, res) {
+    const { date, meal, quantity } = req.body;
+    const price = 500;
+    const { errors, isValid } = validateOrderItem(req.body);
 
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    const foodItem = {
-      foodId: db.length + 1,
+    const orderItem = {
+      orderId: db.length + 1,
       meal,
-      price,
+      price: quantity * price,
+      quantity,
       date: Date(date),
     };
-    db.push(foodItem);
+    db.push(orderItem);
     return res.status(200).json({
       success: true,
-      message: 'Food Created Succesfully',
+      message: 'Order Created Succesfully',
+      orderItem,
     });
   }
-
   /**
-    * Get all food
+    * Get all order
     * @param {object} req:Order
     * @param {object} res:Order
-    * @returns {object} Returns all food
+    * @returns {object} Returns all order
     */
 
-  static getAllFoodItems(req, res) {
+  static getAllOrders(req, res) {
     return res.send(db);
   }
+
   /**
     * Get Single others
     * @param {object} req:Order
@@ -50,22 +53,22 @@ class FoodItem {
     * @returns {object} Returns single others
   */
 
-  static getSingleFoodItem(req, res) {
+  static getSingleOrder(req, res) {
     const id = parseInt(req.params.id, 10);
-    db.map((food) => {
-      console.log(food);
-      if (food.foodId === id) {
+    db.map((order) => {
+    //   console.log(order);
+      if (order.orderId === id) {
         return res.status(200).json({
           success: 'true',
           message: 'order with given id retrieved',
-          food,
+          order,
         });
       }
       return null;
     });
     return res.status(404).send({
       success: 'false',
-      message: 'user order not found',
+      message: ' order not found',
     });
   }
 
@@ -76,40 +79,42 @@ class FoodItem {
       * @param {object} id:id variable
       * @returns {object} Returns updated others
     */
-  static updateFoodItem(req, res) {
-    const { errors, isValid } = validateFoodInput(req.body);
-    const { date, meal, price } = req.body;
+  static updateOrderItem(req, res) {
+    const { date, meal, quantity } = req.body;
+    const price = 500;
+    const { errors, isValid } = validateOrderItem(req.body);
     const id = parseInt(req.params.id, 10);
-    let foodFound;
+    let orderFound;
     let itemIndex;
 
-    db.map((food, index) => {
-      if (food.foodId === id) {
-        foodFound = food;
+    db.map((order, index) => {
+      if (order.orderId === id) {
+        orderFound = order;
         itemIndex = index;
       }
       return null;
     });
-    if (!foodFound) {
+    if (!orderFound) {
       return res.status(404).json({
         success: false,
-        message: 'Food not found',
+        message: 'Order not found',
       });
     }
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    const newUpdatedFood = {
-      foodId: id,
-      meal: meal || food.meal,
-      price: price || food.price,
+    const newUpdatedOrder = {
+      orderId: id,
+      meal: meal || order.meal,
+      price: price || order.price,
+      quantity: quantity || order.quantity,
       date: Date(date),
     };
-    db.splice(itemIndex, 1, newUpdatedFood);
+    db.splice(itemIndex, 1, newUpdatedOrder);
     return res.status(201).send({
       success: 'true',
       message: 'Order Added Succesfully',
-      newUpdatedFood,
+      newUpdatedOrder,
     });
   }
 
@@ -119,22 +124,22 @@ class FoodItem {
     * @param {object} res:Order
     * @returns {object} Returns  others
   */
-  static deleteFood(req, res) {
+  static deleteOrder(req, res) {
     const id = parseInt(req.params.id, 10);
-    db.map((delFood, index) => {
-      if (delFood.foodId === id) {
+    db.map((delOrder, index) => {
+      if (delOrder.orderId === id) {
         db.splice(index, 1);
         return res.status(200).json({
           success: 'true',
-          message: 'Food Deleted Succesfully',
+          message: 'Order Deleted Succesfully',
         });
       }
       return null;
     });
     return res.status(404).send({
       success: 'false',
-      message: 'Food not found',
+      message: 'Order not found',
     });
   }
 }
-export default FoodItem;
+export default Order;
