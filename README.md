@@ -14,7 +14,7 @@ A platform for customers to order good food fast.
 
 ## Project Management
 
-Project is managed here [using](https://www.pivotaltracker.com/n/projects/2195975) the project management tool, Pivotal Tracker.
+Project is managed here [using](https://www.pivotaltracker.com/n/projects/2193604) the project management tool, Pivotal Tracker.
 
 ## Templates
 
@@ -22,13 +22,12 @@ UI templates are hosted on Github pages [here](https://edogbosunny.github.io/Fas
 
 ## Deployment
 
-- API endpoint is hosted [HERE](https://fast-food-fast-app.herokuapp.com/) on Heroku https://fast-food-fast-app.herokuapp.com/
+- API endpoint is hosted [HERE](https://fast-food-fast-app.herokuapp.com/api/v1) on Heroku https://fast-food-fast-app.herokuapp.com/api/v1
 
 ## Technogies Used
 
 - NodeJs - Run time environment.
 - ExpressJs - Web framework.
-- PostgreSQL - Object relational database.
 - Babel - Javascript compiler.
 - Eslint - Javascript linter. Airbnb style guide was followed.
 
@@ -38,26 +37,45 @@ UI templates are hosted on Github pages [here](https://edogbosunny.github.io/Fas
 * Istanbul - Javascript code instrumenter.
 * nyc - Istanbul's command line interface.
 
-## How to Test using Postman
-- To retrieve all order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/getorder and select GET method
-- To retrieve single order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/getorder/:id and select GET method.
-- To Update an order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/getorder/:id select the PUT method and pass in to the body {meal:"rice", quantity:3}
-- To Delete an order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/delorder/:id and select the DELETE method
-- To create an order, enterthis url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/createorder and parse into the body
+## How to Test using Postman for Order 
+- To retrieve all order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/order and select GET method
+- To retrieve single order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/order/:id and select GET method.
+- To Update an order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/order/:id select the PUT method and pass in to the body {meal:"rice", price:3}
+- To Delete an order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/order/:id and select the DELETE method
+- To create an order, enterthis url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/order and parse into the body
+{meal:'rice',price:1} with a POST method
+
+
+## How to Test For Food Item
+- To retrieve all order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/food and select GET method
+- To retrieve single order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/food/:id and select GET method.
+- To Update an order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/food/:id select the PUT method and pass in to the body {meal:"rice", quantity:3}
+- To Delete an order, enter this url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/food/:id and select the DELETE method
+- To create an order, enterthis url endpoint https://fast-food-fast-app.herokuapp.com/api/v1/food and parse into the body
 {meal:'rice',quantity:1} with a POST method
 
 ## Api Endpoints
 ### Get All Order - GET method
-- /api/v1/getorder
+- /api/v1/order
 ### Create Order - POST method
-- /api/v1/createorder
+- /api/v1/order
 ### Get Order by ID - GET method
-- /api/v1/getorder/:id
+- /api/v1/order/:id
 ### Update a Specific Order - PUT method
-- /api/v1/getorder/:id
+- /api/v1/order/:id
 ### Delete a Specific Order - DELETE method
-- /api/v1/delorder/:id
+- /api/v1/order/:id
 
+### Get All Food Item - GET method
+- /api/v1/food
+### Create Food Item - POST method
+- /api/v1/food
+### Get Food Item by ID - GET method
+- /api/v1/food/:id
+### Update a Specific Food Item - PUT method
+- /api/v1/food/:id
+### Delete a Specific Food - DELETE method
+- /api/v1/order/:id
 ### Authors
 * Edogbo Sunny
 
