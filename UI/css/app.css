@@ -172,3 +172,30 @@
     font-size: 25px;
     cursor: pointer;
 }
+.img-wd {
+    width: 150px;
+  }
+  .ash {
+    color: #474747;
+  }
+  .bm {
+    margin-bottom: 30px;
+  }
+  .tm {
+    margin-top: 30px;
+  }
+  .fl-right {
+    float: right;
+  }
+  .mr {
+    margin-right: 15px;
+  }
+  .c-marg{
+    margin: 10px;
+  }
+  .mt{
+    margin-top:50px;
+  }
+  .mgbot{
+      margin-bottom: 20px;
+  }

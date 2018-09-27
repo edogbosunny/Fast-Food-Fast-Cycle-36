@@ -113,7 +113,7 @@ a:hover {
   -webkit-touch-callout: none;
 }
 .navbar1 {
-  background-color: #33333399;
+  background-color: #474747;
   color: white;
   padding: 20px 0;
 }
@@ -610,4 +610,22 @@ imgt:hover {
   color: #474747;
   cursor: pointer;
   transition: 400ms;
+}
+.img-wd {
+  width: 150px;
+}
+.ash {
+  color: #474747;
+}
+.bm {
+  margin-bottom: 30px;
+}
+.fl-right {
+  float: right;
+}
+.mr {
+  margin-right: 15px;
+}
+.c-marg{
+  margin: 10px;
 }

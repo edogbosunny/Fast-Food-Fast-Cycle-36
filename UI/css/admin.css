@@ -111,7 +111,7 @@ a:hover {
   -webkit-touch-callout: none;
 }
 .navbar1 {
-  background-color: #33333399;
+  background-color: #474747;
   color: white;
   padding: 20px 0;
 }
@@ -312,7 +312,6 @@ a:hover {
   .container {
     margin-top: 0px;
   }
- 
 }
 .logo1 {
   float: right;
@@ -548,9 +547,8 @@ table th {
 }
 @media screen and (max-width: 800px) {
   table {
-    border: 0; 
+    border: 0;
     margin-bottom: 50px !important;
-
   }
   table thead {
     display: none;
@@ -587,7 +585,6 @@ table th {
 }
 
 .imgt {
-
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
@@ -630,7 +627,6 @@ imgt:hover {
   cursor: pointer;
 }
 .accept-button {
-
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 5px;
@@ -642,7 +638,6 @@ imgt:hover {
   border: none;
 }
 .accept-button:hover {
-
   background-color: whitesmoke;
   color: #474747;
 
@@ -669,14 +664,13 @@ imgt:hover {
   border-radius: 4px;
   border: none;
 
-  color:#fff;
+  color: #fff;
   background-color: #4caf50;
 
   padding-top: 5px;
   padding-bottom: 5px;
 }
 .comp-button:hover {
-
   background-color: whitesmoke;
   color: #474747;
 
@@ -689,20 +683,38 @@ imgt:hover {
 .btnmag {
   margin-top: 40px !important;
 }
-.vw-btn{
-  border:none;
-  margin-left:5px;
+.vw-btn {
+  border: none;
+  margin-left: 5px;
   background: #4caf50;
-  color:#fff;
+  color: #fff;
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 5px;
   cursor: pointer;
   transition: 400ms;
 }
-.vw-btn:hover{
+.vw-btn:hover {
   background: #f2f2f2;
   color: #474747;
   cursor: pointer;
   transition: 400ms;
+}
+.img-wd {
+  width: 150px;
+}
+.ash {
+  color: #474747;
+}
+.bm {
+  margin-bottom: 30px;
+}
+.fl-right {
+  float: right;
+}
+.mr {
+  margin-right: 15px;
+}
+.c-marg{
+  margin: 10px;
 }
