@@ -162,3 +162,8 @@
   font-size: 25px;
   cursor: pointer;
 }
+.closeUserOrder {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
+}
