@@ -56,7 +56,7 @@ describe('PUT api/v1/order/1', () => {
     chai
       .request(app)
       .put('/api/v1/order/2')
-      .send({ price: '123', quantity: '123' })
+      .send({ meal: '123', quantity: '123' })
       .end((err, res) => {
         if (err) done(err);
         // expect(res.body.success).to.deep.equals('true');
@@ -84,7 +84,7 @@ describe('CREATE api/v1/order', () => {
     chai
       .request(app)
       .post('/api/v1/order')
-      .send({ price: '1', quantity: '123' })
+      .send({ meal: '1', quantity: '123' })
       .end((err, res) => {
         if (err) done(err);
         expect(res).to.have.status(200);
