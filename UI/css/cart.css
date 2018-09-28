@@ -233,3 +233,12 @@ margin-bottom:50px
 .mg-up{
   margin-top: -20px;
 }
+.topnav{
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+.mg-top1{
+  margin-top :100px;
+  margin-bottom :50px;
+}
