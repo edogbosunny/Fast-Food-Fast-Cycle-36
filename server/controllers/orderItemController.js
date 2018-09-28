@@ -17,16 +17,24 @@ class Order {
     const { date, meal, quantity } = req.body;
     const price = 500;
     const { errors, isValid } = validateOrderItem(req.body);
+    const items = [];
+    let itemsObj = {};
+    const randNumb = Math.floor(Math.random() * 1000);
 
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    const orderItem = {
-      orderId: db.length + 1,
+    itemsObj = { itemId: randNumb,
       meal,
       price: quantity * price,
       quantity,
       date: Date(date),
+    };
+    items.push(itemsObj);
+    const orderItem = {
+      orderId: db.length + 1,
+      status: 'pending',
+      items,
     };
     db.push(orderItem);
     return res.status(200).json({
