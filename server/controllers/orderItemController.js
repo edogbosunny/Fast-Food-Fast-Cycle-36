@@ -14,7 +14,7 @@ class Order {
    */
 
   static createOrder(req, res) {
-    const { date, meal, quantity } = req.body;
+    const { meal, quantity } = req.body;
     const price = 500;
     const { errors, isValid } = validateOrderItem(req.body);
     const items = [];
@@ -28,7 +28,7 @@ class Order {
       meal,
       price: quantity * price,
       quantity,
-      date: Date(date),
+      date: Date(),
     };
     items.push(itemsObj);
     const orderItem = {
