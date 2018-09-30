@@ -101,8 +101,8 @@ class FoodItem {
     }
     const newUpdatedFood = {
       foodId: id,
-      meal: meal || food.meal,
-      price: price || food.price,
+      meal: meal || foodFound.meal,
+      price: price || foodFound.price,
       date: Date(date),
     };
     db.splice(itemIndex, 1, newUpdatedFood);
@@ -121,7 +121,7 @@ class FoodItem {
   */
   static deleteFood(req, res) {
     const id = parseInt(req.params.id, 10);
-    db.map((delFood, index) => {
+    const del = db.map((delFood, index) => {
       if (delFood.foodId === id) {
         db.splice(index, 1);
         return res.status(200).json({
@@ -129,7 +129,7 @@ class FoodItem {
           message: 'Food Deleted Succesfully',
         });
       }
-      return null;
+      return del;
     });
     return res.status(404).send({
       success: 'false',

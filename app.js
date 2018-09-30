@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import routes from './server/routes/routes';
+import routes from './server/routes';
 
 const port = process.env.PORT || 4000;
 const app = express();
@@ -14,4 +14,4 @@ app.listen(port, () => {
   console.log(`connected on port ${port}`);
 });
 
-module.exports = app;
+export default app;

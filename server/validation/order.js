@@ -1,12 +1,12 @@
-import Validator from 'validator';
+// import Validator from 'validator';
 import isEmpty from './is-empty';
 
 const validateOrderInput = (data) => {
   const errors = {};
 
-  if (isEmpty(data.id)) {
-    errors.price = 'id field is empty';
-  }
+  // if (isEmpty(data.id)) {
+  //   errors.price = 'id field is empty';
+  // }
   // if (isEmpty(data.quantity)) {
   //   errors.quantity = 'quantity field is empty';
   // }
@@ -19,9 +19,13 @@ const validateOrderInput = (data) => {
   //   errors.meal = 'meal field is not defined';
   // }
 
-  // if (Validator.isEmpty(data.quantity)) {
-  //   errors.quantity = 'product quantity field is undefined';
+  // if ((data.status) !== 'pending' || (data.status) !== 'completed') {
+  //   errors.status = 'incorrect status entered';
   // }
+  if (isEmpty(data.status)) {
+    errors.status = 'status field is Empty';
+  }
+
   return {
     errors,
     isValid: isEmpty(errors),

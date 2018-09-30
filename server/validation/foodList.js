@@ -1,4 +1,4 @@
-import Validator from 'validator';
+// import Validator from 'validator';
 import isEmpty from './is-empty';
 
 const validateOrderInput = (data) => {
