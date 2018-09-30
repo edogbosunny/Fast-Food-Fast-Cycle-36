@@ -1,12 +1,19 @@
 import db from '../models/orderDB';
-import validateOrderItem from '../validation/order';
+import validateOrderInput from '../validation/order';
+import foodList from '../models/foodList';
 
 /**
  * Order Item Class
  */
 
 class Order {
+  static getOrdersForCart(id) {
+    const orderValues = foodList.find(food => food.foodId === id);
+    return orderValues;
+    // refractor to return error response if not found.
+  }
   /**
+   * Factor the logic here to check to see if foodid === id then return error
    * Create an order
    * @param {object} req:Request Object
    * @param {object} res: Response Object
@@ -14,94 +21,78 @@ class Order {
    */
 
   static createOrder(req, res) {
-    const { date, meal, quantity } = req.body;
-    const price = 500;
-    const { errors, isValid } = validateOrderItem(req.body);
-    const items = [];
-    let itemsObj = {};
-    const randNumb = Math.floor(Math.random() * 1000);
-
+    const { errors, isValid } = validateOrderInput(req.body);
+    const { id, quantity } = req.body;
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    itemsObj = { itemId: randNumb,
-      meal,
-      price: quantity * price,
-      quantity,
-      date: Date(date),
-    };
-    items.push(itemsObj);
-    const orderItem = {
+
+    const reqId = Array.isArray(id) ? id : [id];
+    // console.log(reqId);
+    const orderFromDb = reqId.map(val => Order.getOrdersForCart(parseInt(val, 10)));
+    const foodBasket = {
       orderId: db.length + 1,
+      quantity,
       status: 'pending',
-      items,
+      orderFromDb,
     };
-    db.push(orderItem);
-    return res.status(200).json({
-      success: true,
-      message: 'Order Created Succesfully',
-      orderItem,
+    db.push(foodBasket);
+    // orderFromDbArr.push(orderFromDb)
+    res.status(200).json({
+      foodBasket,
     });
   }
-  /**
-    * Get all order
-    * @param {object} req:Order
-    * @param {object} res:Order
-    * @returns {object} Returns all order
-    */
 
+  /**
+  * Get all order
+  * @param {object} req:Order
+  * @param {object} res:Order
+  * @returns {object} Returns all order
+  */
   static getAllOrders(req, res) {
     return res.send(db);
   }
 
   /**
-    * Get Single others
-    * @param {object} req:Order
-    * @param {object} res:Order
-    * @returns {object} Returns single others
-  */
-
+  * Get Single others
+  * @param {object} req:Order
+  * @param {object} res:Order
+  * @returns {object} Returns single others
+*/
   static getSingleOrder(req, res) {
     const id = parseInt(req.params.id, 10);
-    db.map((order) => {
-    //   console.log(order);
-      if (order.orderId === id) {
-        return res.status(200).json({
-          success: 'true',
-          message: 'order with given id retrieved',
-          order,
-        });
-      }
-      return null;
-    });
-    return res.status(404).send({
+    const singleOrder = db.find(order => order.orderId === id);
+    // console.log(singleOrder);
+    if (singleOrder) {
+      return res.status(200).json({
+        success: 'true',
+        message: 'order with given id retrieved',
+        singleOrder,
+      });
+    }
+    return res.status(400).json({
       success: 'false',
-      message: ' order not found',
+      message: `Order with order-id ${id} does not exist`,
     });
   }
 
   /**
-      * Update Single others
-      * @param {object} req:Order
-      * @param {object} res:Order
-      * @param {object} id:id variable
-      * @returns {object} Returns updated others
-    */
+    * Update Single others
+    * @param {object} req:Order
+    * @param {object} res:Order
+    * @param {object} id:id variable
+    * @returns {object} Returns updated others
+  */
   static updateOrderItem(req, res) {
-    const { date, meal, quantity } = req.body;
-    const price = 500;
-    const { errors, isValid } = validateOrderItem(req.body);
+    // const stat = db[0].status;
+    const { errors, isValid } = validateOrderInput(req.body);
+    const { status } = req.body;
+    console.log(typeof status);
     const id = parseInt(req.params.id, 10);
-    let orderFound;
-    let itemIndex;
-
-    db.map((order, index) => {
-      if (order.orderId === id) {
-        orderFound = order;
-        itemIndex = index;
-      }
-      return null;
-    });
+    const orderFound = db.find(order => order.orderId === id, 10);
+    const orderIndex = db.findIndex((orderInd => orderInd.orderId === id));
+    console.log(orderIndex);
+    console.log(orderFound.status);
     if (!orderFound) {
       return res.status(404).json({
         success: false,
@@ -111,27 +102,32 @@ class Order {
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    const newUpdatedOrder = {
-      orderId: id,
-      meal: meal || order.meal,
-      price: price || order.price,
-      quantity: quantity || order.quantity,
-      date: Date(date),
-    };
-    db.splice(itemIndex, 1, newUpdatedOrder);
-    return res.status(201).send({
-      success: 'true',
-      message: 'Order Added Succesfully',
-      newUpdatedOrder,
+    // const newUpdatedOrder = {
+    //   status: status || orderFound.status,
+    // };
+
+    if (status === 'pending' || status === 'completed' || status === 'accepted') {
+      // db.splice(orderFound, 1, newUpdatedOrder);
+      const newUpdatedOrder = db[orderIndex].status = status || orderFound.status;
+      return res.status(201).send({
+        success: 'true',
+        message: 'Order Added Succesfully',
+        newUpdatedOrder,
+
+      });
+    }
+    return res.status(404).json({
+      error: 'true',
+      message: 'invalid text entered',
     });
   }
 
   /**
-    * Delete Single others
-    * @param {object} req:Order
-    * @param {object} res:Order
-    * @returns {object} Returns  others
-  */
+  * Delete Single others
+  * @param {object} req:Order
+  * @param {object} res:Order
+  * @returns {object} Returns  others
+*/
   static deleteOrder(req, res) {
     const id = parseInt(req.params.id, 10);
     db.map((delOrder, index) => {
@@ -150,4 +146,8 @@ class Order {
     });
   }
 }
+
 export default Order;
+
+
+// export default Order;

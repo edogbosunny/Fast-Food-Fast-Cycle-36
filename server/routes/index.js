@@ -69,5 +69,4 @@ router.post('/order', foodOrderController.createOrder);
 // @access public
 router.delete('/order/:id', foodOrderController.deleteOrder);
 
-
 export default router;
