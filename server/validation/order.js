@@ -4,12 +4,13 @@ import isEmpty from './is-empty';
 const validateOrderInput = (data) => {
   const errors = {};
 
-  if (isEmpty(data.meal)) {
-    errors.price = 'meal field is empty';
+  if (isEmpty(data.id)) {
+    errors.price = 'id field is empty';
   }
-  if (isEmpty(data.quantity)) {
-    errors.quantity = 'quantity field is empty';
-  }
+  // if (isEmpty(data.quantity)) {
+  //   errors.quantity = 'quantity field is empty';
+  // }
+
 
   // data.meal = !isEmpty(data.meal) ? data.meal : '';
   // data.quantity = !isEmpty(data.quantity) ? data.quantity : '';

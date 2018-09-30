@@ -5,24 +5,15 @@ const userOrder = [
 
     items: [
       {
-        itemId: '466',
-        meal: 'Jollof Rice',
-        price: '500',
-        quantity: 1,
-        cost: 500,
+        foodId: '3',
+        meal: 'Shaki',
+        price: 400,
         date: 'Wed Aug 22 2018 13:07:44 GMT+0100 (W. Central Africa Standard Time)',
       },
-    ],
-  },
-  {
-    itemId: '486',
-    orderId: 2,
-    status: 'pending',
-    items: [
       {
-        meal: 'Jollof Rice',
-        price: '500',
-        quantity: 1,
+        foodId: '4',
+        meal: 'Shaki',
+        price: 400,
         date: 'Wed Aug 22 2018 13:07:44 GMT+0100 (W. Central Africa Standard Time)',
       },
     ],

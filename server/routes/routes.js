@@ -47,17 +47,17 @@ router.delete('/food/:id', foodListController.deleteFood);
 // @route GET /api/v1/getorder
 // @desc  get all order
 // @access public
-router.get('/order', foodOrderController.getAllOrders);
+// router.get('/order', foodOrderController.getAllOrders);
 
 // @route GET /api/v1/getorder/:id
 // @desc  get single food by id
 // @access public
-router.get('/order/:id', foodOrderController.getSingleOrder);
+// router.get('/order/:id', foodOrderController.getSingleOrder);
 
 // @route PUT /api/v1/getorder/:id
 // @desc  update single food by id
 // @access public
-router.put('/order/:id', foodOrderController.updateOrderItem);
+// router.put('/order/:id', foodOrderController.updateOrderItem);
 
 // @route POST /api/v1/createorder
 // @desc  creates order route
@@ -67,7 +67,7 @@ router.post('/order', foodOrderController.createOrder);
 // @route DELETE /api/v1/getorder/:id
 // @desc  delete single order by id
 // @access public
-router.delete('/order/:id', foodOrderController.deleteOrder);
+// router.delete('/order/:id', foodOrderController.deleteOrder);
 
 
 export default router;
