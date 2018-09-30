@@ -34,9 +34,6 @@ describe('Delete api/v1/order/1', () => {
         done();
       });
   });
-});
-
-describe('Delete api/v1/order/1', () => {
   it('should return response 200 after PUT', (done) => {
     chai
       .request(app)
@@ -50,6 +47,7 @@ describe('Delete api/v1/order/1', () => {
       });
   });
 });
+
 
 describe('PUT api/v1/order/1', () => {
   it('should return response 201 after PUT', (done) => {
