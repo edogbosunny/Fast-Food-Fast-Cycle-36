@@ -31,9 +31,9 @@ router.post('/auth/login', signinController.signinCtr);
 
 // -------Menu Routes below ---------//
 
-// @route GET /api/v1/getorder
+// @route POST /api/v1/menu
 // @desc  get all order
-// @access public
+// @access private
 router.post('/menu', [isAuthenticated.authenticationCheck,
   foodmealController.addMealTooMenu]);
 
@@ -47,10 +47,10 @@ router.post('/menu', [isAuthenticated.authenticationCheck,
 // @access public
 // router.put('/food/:id', foodListController.updateFoodItem);
 
-// @route POST /api/v1/createorder
-// @desc  creates order route
+// @route GET /api/v1/menu
+// @desc  get Available order
 // @access public
-// router.post('/menu', foodListController.createFoodItem);
+router.get('/menu', foodmealController.getAllMeal);
 
 // @route DELETE /api/v1/getorder/:id
 // @desc  delete single order by id
