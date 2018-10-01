@@ -1,6 +1,8 @@
 import express from 'express';
 import foodListController from '../controllers/foodListController';
 import foodOrderController from '../controllers/orderItemController';
+import signupController from '../controllers/signupController';
+import signinController from '../controllers/signinController';
 
 const router = express.Router();
 
@@ -15,6 +17,19 @@ router.get('/', (req, res) => {
     repoUrl: 'http://???',
   });
 });
+
+// @route Post /api/v1/auth/signup
+// @desc  signup route
+// @access public
+router.post('/auth/signup', signupController.signUpCtrl);
+
+// @route Post /api/v1/auth/login
+// @desc  login route
+// @access public
+router.post('/auth/login', signinController.signinCtr);
+
+// -------Menu Routes below ---------//
+
 // @route GET /api/v1/getorder
 // @desc  get all order
 // @access public

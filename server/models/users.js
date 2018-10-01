@@ -9,7 +9,8 @@ const createUsersTable = async () => {
   try {
     const query = `CREATE TABLE IF NOT EXISTS users (
           user_id SERIAL UNIQUE,
-          username VARCHAR NOT NULL,
+          firstname VARCHAR NOT NULL,
+          lastname VARCHAR NOT NULL,
           email VARCHAR NOT NULL,
           hashpassword VARCHAR NOT NULL, 
           user_role VARCHAR NOT NULL, 
