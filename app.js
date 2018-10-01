@@ -10,7 +10,7 @@ const port = process.env.PORT || 4000;
   try {
     await createTables();
   } catch (e) {
-    // throw e;
+    console.log(e);
   }
 })().catch((err) => {
   console.log(err);

@@ -1,8 +1,9 @@
 import express from 'express';
-import foodListController from '../controllers/foodListController';
+import foodmealController from '../controllers/foodmealController';
 import foodOrderController from '../controllers/orderItemController';
 import signupController from '../controllers/signupController';
 import signinController from '../controllers/signinController';
+import isAuthenticated from '../policy/isAuthenticated';
 
 const router = express.Router();
 
@@ -33,27 +34,28 @@ router.post('/auth/login', signinController.signinCtr);
 // @route GET /api/v1/getorder
 // @desc  get all order
 // @access public
-router.get('/food', foodListController.getAllFoodItems);
+router.post('/menu', [isAuthenticated.authenticationCheck,
+  foodmealController.addMealTooMenu]);
 
 // @route GET /api/v1/getorder/:id
 // @desc  get single food by id
 // @access public
-router.get('/food/:id', foodListController.getSingleFoodItem);
+// router.get('/food/:id', foodListController.getSingleFoodItem);
 
 // @route PUT /api/v1/getorder/:id
 // @desc  update single food by id
 // @access public
-router.put('/food/:id', foodListController.updateFoodItem);
+// router.put('/food/:id', foodListController.updateFoodItem);
 
 // @route POST /api/v1/createorder
 // @desc  creates order route
 // @access public
-router.post('/food', foodListController.createFoodItem);
+// router.post('/menu', foodListController.createFoodItem);
 
 // @route DELETE /api/v1/getorder/:id
 // @desc  delete single order by id
 // @access public
-router.delete('/food/:id', foodListController.deleteFood);
+// router.delete('/food/:id', foodListController.deleteFood);
 
 
 // Order Item Routes Starts Here
