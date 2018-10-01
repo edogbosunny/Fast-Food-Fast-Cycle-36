@@ -148,6 +148,3 @@ class Order {
 }
 
 export default Order;
-
-
-// export default Order;

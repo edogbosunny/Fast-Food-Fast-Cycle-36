@@ -5,7 +5,7 @@ const validateOrderInput = (data) => {
   const errors = {};
 
   if (isEmpty(data.price)) {
-    errors.price = 'product price field is empty';
+    errors.price = 'Meal price field is empty';
   }
   if (isEmpty(data.meal)) {
     errors.meal = 'meal field is empty';

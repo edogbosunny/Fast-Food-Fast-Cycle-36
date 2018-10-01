@@ -14,7 +14,7 @@ class FoodItem {
    */
   static createFoodItem(req, res) {
     // decopuling
-    const { date, meal, price } = req.body;
+    const { meal, price } = req.body;
     const { errors, isValid } = validateFoodInput(req.body);
 
     if (!isValid) {
@@ -24,7 +24,7 @@ class FoodItem {
       foodId: db.length + 1,
       meal,
       price,
-      date: Date(date),
+      date: Date(),
     };
     db.push(foodItem);
     return res.status(200).json({
