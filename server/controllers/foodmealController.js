@@ -27,7 +27,7 @@ class Foodmeal {
         const resp = await db.query(query, [meal, price]);
         res.status(200).json({
           message: 'product Uploaded Succesfully',
-          data: { createdOn: Date.now(), meal: resp.rows[0].meal, price: resp.rows[0].price, meal_id: resp.rows[0].meal_id },
+          data: { createdOn: Date.now(), meal: resp.rows[0].meal, price: resp.rows[0].price },
         });
       } catch (e) {
         console.log(e);
