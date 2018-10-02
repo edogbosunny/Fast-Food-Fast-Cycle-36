@@ -4,6 +4,7 @@ import foodOrderController from '../controllers/orderController';
 import signupController from '../controllers/signupController';
 import signinController from '../controllers/signinController';
 import isAuthenticated from '../policy/isAuthenticated';
+import isAdmin from '../policy/isAdmin';
 
 const router = express.Router();
 
@@ -35,6 +36,7 @@ router.post('/auth/login', signinController.signinCtr);
 // @desc  get all order
 // @access public
 router.post('/menu', [isAuthenticated.authenticationCheck,
+  isAdmin.isAdmin,
   foodmealController.addMealTooMenu]);
 
 // @route GET /api/v1/menu
@@ -69,7 +71,9 @@ router.get('/menu', foodmealController.getAllMeal);
 // @route GET /api/v1/getorder
 // @desc  get all order
 // @access public
-// router.get('/order', foodOrderController.getAllOrders);
+router.get('/orders', [isAuthenticated.authenticationCheck,
+  isAdmin.isAdmin,
+  foodOrderController.getAllOrders]);
 
 // @route GET /api/v1/getorder/:id
 // @desc  get single food by id
