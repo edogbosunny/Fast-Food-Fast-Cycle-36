@@ -136,5 +136,45 @@ class FoodOrder {
       console.log(e);
     }
   }
+
+  static getSingleOrder(req, res) {
+    const { id } = req.params;
+    const userId = req.app.get('userId');
+    if (!userId) {
+      console.log('User Id is not Set');
+      return res.status(401).json({
+        message: 'User Not Authenticated',
+      });
+    }
+    const singleOrderQuery = `SELECT o.order_id, o.mealitem,o.created_on, o.quantity, o.cost, o.status, u.user_id, u.lastname, u.firstname  FROM orders as o
+    INNER JOIN users AS u ON o.user_id = u.user_id WHERE o.order_id = $1`;
+    (async () => {
+      try {
+        const resp = await db.query(singleOrderQuery, [id]);
+        // console.log('resp====>', resp);
+        const response = resp.rows[0];
+        const stringifyMealdata = response.mealitem;
+        const newConvertedData = JSON.parse(stringifyMealdata);
+        res.status(200).json({
+          message: 'Single User order Retrieved Succesfully',
+          orderId: response.order_id,
+          quantity: response.quantity,
+          cost: response.cost,
+          userId: response.user_id,
+          lastName: response.lastname,
+          firstName: response.sunny,
+          mealItem: newConvertedData,
+        });
+      } catch (e) {
+        throw e;
+      }
+    })().catch((err) => {
+      console.log('err======', err);
+      return res.status(500).json({
+        message: 'An error encountered on the server',
+        // success: false
+      });
+    });
+  }
 }
 export default FoodOrder;

@@ -78,7 +78,9 @@ router.get('/orders', [isAuthenticated.authenticationCheck,
 // @route GET /api/v1/getorder/:id
 // @desc  get single food by id
 // @access public
-// router.get('/order/:id', foodOrderController.getSingleOrder);
+router.get('/orders/:id', [isAuthenticated.authenticationCheck,
+  isAdmin.isAdmin,
+  foodOrderController.getSingleOrder]);
 
 // @route PUT /api/v1/getorder/:id
 // @desc  update single food by id

@@ -23,11 +23,11 @@ class Foodmeal {
     }
     (async () => {
       try {
-        const query = 'INSERT INTO meal (user_id, meal, price) VALUES ($1, $2, $3) RETURNING meal_id';
-        const resp = await db.query(query, [userId, meal, price]);
+        const query = 'INSERT INTO meal (meal, price) VALUES ($1, $2) RETURNING *';
+        const resp = await db.query(query, [meal, price]);
         res.status(200).json({
           message: 'product Uploaded Succesfully',
-          data: { createdOn: Date.now(), meal_id: resp.rows[0].meal_id, meal, price },
+          data: { createdOn: Date.now(), meal: resp.rows[0].meal, price: resp.rows[0].price, meal_id: resp.rows[0].meal_id },
         });
       } catch (e) {
         console.log(e);

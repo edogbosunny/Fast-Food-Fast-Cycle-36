@@ -10,7 +10,6 @@ const createMealTable = async () => {
   try {
     const query = `CREATE TABLE IF NOT EXISTS meal (
             meal_id SERIAL UNIQUE,
-            user_id SERIAL NOT NULL REFERENCES users (user_id),
             meal VARCHAR NOT NULL,
             price VARCHAR NOT NULL,
             created_on TIMESTAMPTZ DEFAULT NOW (),
