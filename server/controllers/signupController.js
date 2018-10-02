@@ -16,7 +16,13 @@ class signUp {
  */
   static signUpCtrl(req, res) {
     const { firstName, lastName, email, password } = req.body;
-    let { userRole } = req.body;
+    let userRole;
+    let token;
+    let userId;
+    // const { userRole } = req.body;
+
+    // userRole = req.body.userRole;
+    // console.log(userRole);
 
     const { errors, isValid } = validateSignup(req.body);
     if (!isValid) {
@@ -35,13 +41,33 @@ class signUp {
         if (userExist.rowCount > 0) {
           return res.status(400).json({ message: 'user already exists in database' });
         }
+
+        // seed first user to the db as an admin
+        const adminQuery = 'SELECT * FROM users';
+        const adminResp = await db.query(adminQuery);
+        const adminRows = adminResp.rows[0];
+        // console.log('=========>', adminRows.length);
+        if (adminRows === undefined || adminRows.length === 0) {
+          userRole = 'admin';
+          const adminInsQuery = 'INSERT INTO users(email, hashpassword, firstname, lastname, user_role) VALUES ($1, $2, $3, $4, $5) RETURNING user_id ';
+          const resp = await db.query(adminInsQuery, [email, hashPassword, firstName, lastName, userRole]);
+          userId = resp.rows[0].user_id;
+          token = jwt.sign({ id: userId }, config.tokenSecret, { expiresIn: 86400 });
+          return res.status(200).json({ message: 'Signup Succesful', auth: true, token });
+        }
+        // console.log(adminResp);
+
         // save user data to database
         userRole = 'user';
         const query = 'INSERT INTO users(email, hashpassword, firstname, lastname, user_role) VALUES ($1, $2, $3, $4, $5) RETURNING user_id ';
         const resp = await db.query(query, [email, hashPassword, firstName, lastName, userRole]);
-        const userId = resp.rows[0].user_id;
-        const token = jwt.sign({ id: userId }, config.tokenSecret, { expiresIn: 86400 });
+        userId = resp.rows[0].user_id;
+        token = jwt.sign({ id: userId }, config.tokenSecret, { expiresIn: 86400 });
         return res.status(200).json({ message: 'Signup Succesful', auth: true, token });
+
+        // seed first user to have admin role
+        // const adminQuery = 'INSERT INTO USERS'
+        // const adminResp = await db.query()
       } catch (err) {
         console.log('error ==>', err);
       }
