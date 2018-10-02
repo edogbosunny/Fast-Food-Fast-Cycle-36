@@ -106,5 +106,35 @@ class FoodOrder {
       });
     });
   }
+
+  /**
+   * get All Food MEnu Meals
+   */
+
+  static getAllOrders(req, res) {
+    const query = 'SELECT * FROM orders';
+
+    /**
+     * Async Dm method here
+     */
+    try {
+      (async () => {
+        const resp = await db.query(query);
+        res.status(200).json({
+          message: 'Food Order Retrieved succesfully',
+          count: resp.rowCount,
+          data: resp.rows,
+        });
+      })().catch((err) => {
+        console.log(err);
+        return res.status(500).json({
+          message: 'An error encountered on the server',
+          success: false,
+        });
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
 }
 export default FoodOrder;
