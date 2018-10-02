@@ -1,6 +1,6 @@
 import express from 'express';
 import foodmealController from '../controllers/foodmealController';
-import foodOrderController from '../controllers/orderItemController';
+import foodOrderController from '../controllers/orderController';
 import signupController from '../controllers/signupController';
 import signinController from '../controllers/signinController';
 import isAuthenticated from '../policy/isAuthenticated';
@@ -37,6 +37,11 @@ router.post('/auth/login', signinController.signinCtr);
 router.post('/menu', [isAuthenticated.authenticationCheck,
   foodmealController.addMealTooMenu]);
 
+// @route GET /api/v1/menu
+// @desc  get Available order
+// @access public
+router.get('/menu', foodmealController.getAllMeal);
+
 // @route GET /api/v1/getorder/:id
 // @desc  get single food by id
 // @access public
@@ -64,26 +69,27 @@ router.post('/menu', [isAuthenticated.authenticationCheck,
 // @route GET /api/v1/getorder
 // @desc  get all order
 // @access public
-router.get('/order', foodOrderController.getAllOrders);
+// router.get('/order', foodOrderController.getAllOrders);
 
 // @route GET /api/v1/getorder/:id
 // @desc  get single food by id
 // @access public
-router.get('/order/:id', foodOrderController.getSingleOrder);
+// router.get('/order/:id', foodOrderController.getSingleOrder);
 
 // @route PUT /api/v1/getorder/:id
 // @desc  update single food by id
 // @access public
-router.put('/order/:id', foodOrderController.updateOrderItem);
+// router.put('/order/:id', foodOrderController.updateOrderItem);
 
-// @route POST /api/v1/createorder
+// @route POST /api/v1/orders
 // @desc  creates order route
 // @access public
-router.post('/order', foodOrderController.createOrder);
+router.post('/orders', [isAuthenticated.authenticationCheck,
+  foodOrderController.addOrder]);
 
 // @route DELETE /api/v1/getorder/:id
 // @desc  delete single order by id
 // @access public
-router.delete('/order/:id', foodOrderController.deleteOrder);
+// router.delete('/order/:id', foodOrderController.deleteOrder);
 
 export default router;
