@@ -13,6 +13,8 @@ class FoodOrder {
   static addOrder(req, res) {
     const userId = req.app.get('userId');
     const { mealId, quantity } = req.body;
+    const status = 'New';
+    // console.log(quantity)
     const reqId = Array.isArray(mealId) ? mealId : [mealId];
 
     const { errors, isValid } = validateOrder(req.body);
@@ -51,10 +53,16 @@ class FoodOrder {
         // console.log(quantity);
         // const cost = (parseInt(findPrice, 10) * quantity);
         const arrQuant = Array.isArray(quantity) ? quantity : [quantity];
-        const findQuant = quantity.map(val => parseInt(val, 10));
+        // console.log('====================>', arrQuant);
+        const findQuant = arrQuant.map(val => parseInt(val, 10));
+        // console.log('====================>', arrQuant);
         // let xpr = arrQuant;
         console.log('quantity===>', findQuant);
-    
+        if ((findPrice).length !== (findQuant).length) {
+          res.status(500).json({
+            message: 'Unable to process request. make sure menu id and quantity params match',
+          });
+        }
         const strigifiedOrder = JSON.stringify(newOrderFromDb);
 
         console.log('Strigified==>', strigifiedOrder);
@@ -68,20 +76,31 @@ class FoodOrder {
           arrQuantVal = arrQuant[i];
           Amount = findPrice[i] * arrQuant[i];
           totalAmount = Amount + totalAmount;
-        //   return arrQuantVal;
+          console.log(arrQuantVal);
         }
-        let sum = findQuant.reduce((a, b) => a + b, 0);
-        console.log(sum); // 6
+        const totalQuantity = findQuant.reduce((a, b) => a + b, 0);
+        console.log('tq=====>', totalQuantity); // 6
 
         console.log(totalAmount);
-        const orderQuery = 'INSERT INTO orders (user_id, status, quantity, cost) VALUES ($1, $2, $3, $4) RETURNING order_id';
-        // const resp = await db.query(orderQuery, [userId, status]);
+        const orderQuery = 'INSERT INTO orders (user_id, status, quantity, cost, mealitem) VALUES ($1, $2, $3, $4, $5) RETURNING order_id';
+        const resp = await db.query(orderQuery, [userId, status, totalQuantity, totalAmount, strigifiedOrder]);
+        console.log('===rows===>', resp.rows[0].order_id);
+
+        return res.status(201).json({
+          message: 'Order Succesfull',
+          status,
+          OrderId: resp.rows[0].order_id,
+          quantuty: totalQuantity,
+          TotalCost: totalAmount,
+          newOrderFromDb,
+        });
       } catch (err) {
         console.log(err);
       }
     })().catch((err) => {
       return res.status(500).json({
         success: false,
+
         message: 'Server encountered an error',
         err,
       });
