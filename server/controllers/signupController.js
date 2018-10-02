@@ -54,7 +54,8 @@ class signUp {
           userId = resp.rows[0].user_id;
           token = jwt.sign({ id: userId }, config.tokenSecret,
             { expiresIn: 86400 });
-          return res.status(200).json({ message: 'Signup Succesful', auth: true, token });
+          return res.status(200).json({ message: 'Signup Succesful', 
+            auth: true, token });
         }
         // console.log(adminResp);
 
