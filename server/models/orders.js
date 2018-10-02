@@ -9,13 +9,13 @@ const createOrdersTable = async () => {
   try {
     const query = `CREATE TABLE IF NOT EXISTS orders (
           order_id SERIAL UNIQUE,
-          user_id SERIAL UNIQUE NOT NULL REFERENCES users (user_id),
+          user_id SERIAL NOT NULL REFERENCES users (user_id),
           status VARCHAR NOT NULL,
           quantity VARCHAR NOT NULL,
           cost VARCHAR NOT NULL,
           mealitem VARCHAR NOT NULL, 
           created_on TIMESTAMPTZ DEFAULT NOW (),
-          PRIMARY KEY(user_id)
+          PRIMARY KEY(order_id)
       );`;
 
     await client.query(query);
