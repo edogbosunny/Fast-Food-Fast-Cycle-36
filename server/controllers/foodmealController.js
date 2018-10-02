@@ -40,5 +40,34 @@ class Foodmeal {
       });
     });
   }
+  /**
+   * get All Food MEnu Meals
+   */
+
+  static getAllMeal(req, res) {
+    const query = 'SELECT m.meal_id, m.price, m.meal FROM meal as m';
+
+    /**
+     * Async Dm method here
+     */
+    try {
+      (async () => {
+        const resp = await db.query(query);
+        res.status(200).json({
+          message: 'Food Menu Retrieved succesfully',
+          count: resp.rowCount,
+          data: resp.rows,
+        });
+      })().catch((err) => {
+        console.log(err);
+        return res.status(500).json({
+          message: 'An error encountered on the server',
+          success: false,
+        });
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
 }
 export default Foodmeal;
