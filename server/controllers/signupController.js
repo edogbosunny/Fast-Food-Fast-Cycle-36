@@ -42,7 +42,7 @@ class signUp {
           return res.status(400).json({ message: 'user already exists in database' });
         }
 
-        // seed first user to the db as an admin
+        // seed first user to the db as an admind
         const adminQuery = 'SELECT * FROM users';
         const adminResp = await db.query(adminQuery);
         const adminRows = adminResp.rows[0];
@@ -52,7 +52,8 @@ class signUp {
           const adminInsQuery = 'INSERT INTO users(email, hashpassword, firstname, lastname, user_role) VALUES ($1, $2, $3, $4, $5) RETURNING user_id ';
           const resp = await db.query(adminInsQuery, [email, hashPassword, firstName, lastName, userRole]);
           userId = resp.rows[0].user_id;
-          token = jwt.sign({ id: userId }, config.tokenSecret, { expiresIn: 86400 });
+          token = jwt.sign({ id: userId }, config.tokenSecret,
+            { expiresIn: 86400 });
           return res.status(200).json({ message: 'Signup Succesful', auth: true, token });
         }
         // console.log(adminResp);
