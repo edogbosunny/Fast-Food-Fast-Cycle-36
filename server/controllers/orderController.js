@@ -37,8 +37,9 @@ class FoodOrder {
         const mealQuery = 'SELECT * FROM meal';
         const mealResp = await db.query(mealQuery);
         const mealR = mealResp.rows;
-        // console.log(mealR);
-
+        if (mealR.length === 0) {
+          return res.status(400).json({ message: 'Meal not Availabe at the moment please try again later' });
+        }
         const getOrderForCart = (id) => {
           const orderValues = mealR.find(meal => meal.meal_id === id);
           //   console.log(orderValues);
@@ -47,10 +48,10 @@ class FoodOrder {
 
         // res.json(mealResp);
         const orderFromDb = reqId.map(val => getOrderForCart(parseInt(val, 10)));
-        console.log('OrderfromDb===>', orderFromDb);
+        // console.log('OrderfromDb===>', orderFromDb);
         const newOrderFromDb = orderFromDb;
         const findPrice = newOrderFromDb.map(val => parseInt(val.price, 10));
-        console.log('price ===>', findPrice);
+        // console.log('price ===>', findPrice);
         // console.log(quantity);
         // const cost = (parseInt(findPrice, 10) * quantity);
         const arrQuant = Array.isArray(quantity) ? quantity : [quantity];
@@ -151,12 +152,18 @@ class FoodOrder {
         message: 'Error! cannot view order History - Incorrect user Id entered',
       });
     }
-    const userHistoryQuery = 'SELECT o.order_id, o.mealitem,o.created_on, o.quantity, o.cost, o.status, u.user_id, u.lastname, u.firstname  FROM orders as o INNER JOIN users AS u ON o.user_id = u.user_id WHERE u.user_id = $1';
+    const userHistoryQuery = `SELECT o.order_id, o.mealitem,o.created_on, o.quantity, o.cost, o.status, u.user_id, u.lastname, u.firstname  FROM orders
+     as o INNER JOIN users AS u ON o.user_id = u.user_id WHERE u.user_id = $1`;
     (async () => {
       try {
         const resp = await db.query(userHistoryQuery, [id]);
-        // console.log('resp====>', resp);
+        // console.log('=====>', resp);
         const response = resp.rows[0];
+        if (response === undefined) {
+          return res.status(400).json({
+            message: 'User order history does not exist for this user',
+          });
+        }
         const stringifyMealdata = response.mealitem;
         const newConvertedData = JSON.parse(stringifyMealdata);
         res.status(200).json({
