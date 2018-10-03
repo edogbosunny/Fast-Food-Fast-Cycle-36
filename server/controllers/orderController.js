@@ -179,6 +179,7 @@ class FoodOrder {
     });
   }
 
+
   static updateOrder(req, res) {
     // console.log(req.params);
     const { id } = req.params;
@@ -193,23 +194,63 @@ class FoodOrder {
     (async () => {
       try {
         const resp = await db.query(updateQuery, [status, id]);
+
+  static getUserOrderHistory(req, res) {
+    const { id } = req.params;
+    const userId = req.app.get('userId');
+    if (!userId) {
+      console.error('User id was not set');
+      return res.status(500).json({
+        message: 'An error encountered on the server' });
+    }
+    if (parseInt(id, 10) !== userId) {
+      return res.status(400).json({
+        message: 'Error! cannot view order History - Incorrect user Id entered',
+      });
+    }
+    const userHistoryQuery = `SELECT o.order_id, o.mealitem,o.created_on, o.quantity, o.cost, o.status, u.user_id, u.lastname, u.firstname  FROM orders as o
+    INNER JOIN users AS u ON o.user_id = u.user_id WHERE u.user_id = $1`;
+    (async () => {
+      try {
+        const resp = await db.query(userHistoryQuery, [id]);
+        // console.log('resp====>', resp);
+
         const response = resp.rows[0];
         const stringifyMealdata = response.mealitem;
         const newConvertedData = JSON.parse(stringifyMealdata);
         res.status(200).json({
+
           message: 'success',
           orderId: response.order_id,
           status: response.status,
+
+          message: 'User order History Retrieved Succesfully',
+          orderId: response.order_id,
+
           quantity: response.quantity,
           cost: response.cost,
           userId: response.user_id,
           lastName: response.lastname,
           firstName: response.sunny,
+
           mealItem: newConvertedData });
       } catch (e) { console.log(e); }
     })().catch((err) => {
       console.log(err);
       return res.status(500).json({ statuc: 'failed', message: 'server error' });
+
+          mealItem: newConvertedData,
+        });
+      } catch (e) {
+        throw e;
+      }
+    })().catch((err) => {
+      console.log('err======', err);
+      return res.status(500).json({
+        message: 'An error encountered on the server',
+        // success: false
+      });
+
     });
   }
 }
