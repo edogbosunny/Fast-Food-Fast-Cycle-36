@@ -1,4 +1,5 @@
 import validateOrder from '../validation/foodOrder';
+import validateStatusInput from '../validation/status';
 import db from '../config/db';
 
 /**
@@ -158,6 +159,7 @@ class FoodOrder {
         res.status(200).json({
           message: 'Single User order Retrieved Succesfully',
           orderId: response.order_id,
+          status: response.status,
           quantity: response.quantity,
           cost: response.cost,
           userId: response.user_id,
@@ -176,6 +178,22 @@ class FoodOrder {
       });
     });
   }
+
+
+  static updateOrder(req, res) {
+    // console.log(req.params);
+    const { id } = req.params;
+    const { errors, isValid } = validateStatusInput(req.body);
+    const { status } = req.body;
+    // const userId = req.app.get('userId');
+
+    const updateQuery = 'UPDATE orders SET status = $1 WHERE order_id = $2 RETURNING *';
+    if (!isValid) {
+      return res.status(400).json({ status: 'failed', token: null, error: errors });
+    }
+    (async () => {
+      try {
+        const resp = await db.query(updateQuery, [status, id]);
 
   static getUserOrderHistory(req, res) {
     const { id } = req.params;
@@ -196,17 +214,31 @@ class FoodOrder {
       try {
         const resp = await db.query(userHistoryQuery, [id]);
         // console.log('resp====>', resp);
+
         const response = resp.rows[0];
         const stringifyMealdata = response.mealitem;
         const newConvertedData = JSON.parse(stringifyMealdata);
         res.status(200).json({
+
+          message: 'success',
+          orderId: response.order_id,
+          status: response.status,
+
           message: 'User order History Retrieved Succesfully',
           orderId: response.order_id,
+
           quantity: response.quantity,
           cost: response.cost,
           userId: response.user_id,
           lastName: response.lastname,
           firstName: response.sunny,
+
+          mealItem: newConvertedData });
+      } catch (e) { console.log(e); }
+    })().catch((err) => {
+      console.log(err);
+      return res.status(500).json({ statuc: 'failed', message: 'server error' });
+
           mealItem: newConvertedData,
         });
       } catch (e) {
@@ -218,6 +250,7 @@ class FoodOrder {
         message: 'An error encountered on the server',
         // success: false
       });
+
     });
   }
 }
