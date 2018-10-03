@@ -82,10 +82,11 @@ router.get('/orders/:id', [isAuthenticated.authenticationCheck,
   isAdmin.isAdmin,
   foodOrderController.getSingleOrder]);
 
-// @route PUT /api/v1/getorder/:id
+// @route PUT /api/v1/orders/:id
 // @desc  update single food by id
 // @access public
-// router.put('/order/:id', foodOrderController.updateOrderItem);
+router.put('/orders/:id', [isAuthenticated.authenticationCheck,
+  isAdmin.isAdmin, foodOrderController.updateOrder]);
 
 // @route POST /api/v1/orders
 // @desc  creates order route
