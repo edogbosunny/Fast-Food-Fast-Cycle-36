@@ -44,26 +44,6 @@ router.post('/menu', [isAuthenticated.authenticationCheck,
 // @access public
 router.get('/menu', foodmealController.getAllMeal);
 
-// @route GET /api/v1/getorder/:id
-// @desc  get single food by id
-// @access public
-// router.get('/food/:id', foodListController.getSingleFoodItem);
-
-// @route PUT /api/v1/getorder/:id
-// @desc  update single food by id
-// @access public
-// router.put('/food/:id', foodListController.updateFoodItem);
-
-// @route POST /api/v1/createorder
-// @desc  creates order route
-// @access public
-// router.post('/menu', foodListController.createFoodItem);
-
-// @route DELETE /api/v1/getorder/:id
-// @desc  delete single order by id
-// @access public
-// router.delete('/food/:id', foodListController.deleteFood);
-
 
 // Order Item Routes Starts Here
 
@@ -94,9 +74,10 @@ router.put('/orders/:id', [isAuthenticated.authenticationCheck,
 router.post('/orders', [isAuthenticated.authenticationCheck,
   foodOrderController.addOrder]);
 
-// @route DELETE /api/v1/getorder/:id
-// @desc  delete single order by id
-// @access public
-// router.delete('/order/:id', foodOrderController.deleteOrder);
+// @route PUT /api/v1/users/:id/orders
+// @desc  return user history
+// @access private
+router.get('/users/:id/orders', [isAuthenticated.authenticationCheck,
+  foodOrderController.getUserOrderHistory]);
 
 export default router;
