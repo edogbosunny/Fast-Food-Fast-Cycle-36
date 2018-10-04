@@ -115,33 +115,3 @@ describe('#Testing for  food items ', () => {
       });
   });
 });
-// describe('#orderCnrtoler Test', () => {
-//   it('#Users should add food to menu', (done) => {
-//     chai
-//       .request(app)
-//       .post('/api/v1/menu')
-//       .set('x-access-token', token)
-//       .send({ meal: 'pie', price: '100' })
-//       .end((err, res) => {
-//         console.log(err);
-//         expect(res).to.be.an('object');
-//         expect(res).to.have.status(201);
-//         done();
-//       });
-//   });
-// });
-// describe('#test order', () => {
-//   it('#should be able to add order /POST', (done) => {
-//     chai
-//       .request(app)
-//       .post('/api/v1/orders')
-//       .set('x-access-token', token)
-//       .send({ mealId: '1', quantity: '1' })
-//       .end((err, res) => {
-//         // console.log(err);
-//         expect(res).to.be.an('object');
-//         expect(res).to.have.status(201);
-//         done();
-//       });
-//   });
-// });
