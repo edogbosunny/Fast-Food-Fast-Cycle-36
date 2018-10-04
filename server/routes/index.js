@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import foodmealController from '../controllers/foodmealController';
 import foodOrderController from '../controllers/orderController';
 import signupController from '../controllers/signupController';
@@ -8,6 +9,7 @@ import isAuthenticated from '../policy/isAuthenticated';
 import isAdmin from '../policy/isAdmin';
 
 const router = express.Router();
+router.use(cors());
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 

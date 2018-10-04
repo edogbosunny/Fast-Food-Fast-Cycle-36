@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import routes from './server/routes/index';
 import createTables from './server/models/index';
 
@@ -18,7 +19,7 @@ const port = process.env.PORT || 4000;
 
 
 const app = express();
-
+app.use(cors());
 // middleware
 app.use('/api/v1', routes);
 app.use(bodyParser.urlencoded({ extended: true }));
