@@ -50,8 +50,14 @@ class FoodOrder {
         const orderFromDb = reqId.map(val => getOrderForCart(parseInt(val, 10)));
         // console.log('OrderfromDb===>', orderFromDb);
         const newOrderFromDb = orderFromDb;
+
         const findPrice = newOrderFromDb.map(val => parseInt(val.price, 10));
-        // console.log('price ===>', findPrice);
+        // if (val.price === undefined) {
+        //   return res.status(400).json({
+        //     message: 'product not available',
+        //   });
+        // }
+        console.log('price ===>', findPrice);
         // console.log(quantity);
         // const cost = (parseInt(findPrice, 10) * quantity);
         const arrQuant = Array.isArray(quantity) ? quantity : [quantity];
@@ -59,6 +65,9 @@ class FoodOrder {
         const findQuant = arrQuant.map(val => parseInt(val, 10));
         // console.log('====================>', arrQuant);
         // let xpr = arrQuant;
+        if (findPrice.length !== findQuant.length) {
+          return res.status(400).json({ message: 'No of meal id does not match quantity selected' });
+        }
         console.log('quantity===>', findQuant);
         if ((findPrice).length !== (findQuant).length) {
           res.status(500).json({
