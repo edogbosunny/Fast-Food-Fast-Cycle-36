@@ -30,7 +30,7 @@ class Foodmeal {
           data: { createdOn: Date.now(), meal: resp.rows[0].meal, price: resp.rows[0].price },
         });
       } catch (e) {
-        console.log(e);
+        // console.log(e);
       }
     })().catch((err) => {
       return res.status(500).json({
@@ -59,14 +59,14 @@ class Foodmeal {
           data: resp.rows,
         });
       })().catch((err) => {
-        console.log(err);
+        // console.log(err);
         return res.status(500).json({
           message: 'An error encountered on the server',
           success: false,
         });
       });
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   }
 }

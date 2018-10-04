@@ -24,7 +24,8 @@
       "object-curly-newline": 0,
       "no-multi-assign":"off",
       "allowTemplateLiterals": true,
-      "prefer-destructuring":"off"
+      "prefer-destructuring":"off",
+      "no-unused-vars":"off"
     }
   }
   

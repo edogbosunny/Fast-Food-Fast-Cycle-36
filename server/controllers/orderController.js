@@ -45,20 +45,12 @@ class FoodOrder {
           //   console.log(orderValues);
           return orderValues;
         };
-
         // res.json(mealResp);
         const orderFromDb = reqId.map(val => getOrderForCart(parseInt(val, 10)));
         // console.log('OrderfromDb===>', orderFromDb);
         const newOrderFromDb = orderFromDb;
 
         const findPrice = newOrderFromDb.map(val => parseInt(val.price, 10));
-        // if (val.price === undefined) {
-        //   return res.status(400).json({
-        //     message: 'product not available',
-        //   });
-        // }
-        console.log('price ===>', findPrice);
-        // console.log(quantity);
         // const cost = (parseInt(findPrice, 10) * quantity);
         const arrQuant = Array.isArray(quantity) ? quantity : [quantity];
         // console.log('====================>', arrQuant);
@@ -68,7 +60,7 @@ class FoodOrder {
         if (findPrice.length !== findQuant.length) {
           return res.status(400).json({ message: 'No of meal id does not match quantity selected' });
         }
-        console.log('quantity===>', findQuant);
+        // console.log('quantity===>', findQuant);
         if ((findPrice).length !== (findQuant).length) {
           res.status(500).json({
             message: 'Unable to process request. make sure menu id and quantity params match',
@@ -76,7 +68,7 @@ class FoodOrder {
         }
         const strigifiedOrder = JSON.stringify(newOrderFromDb);
 
-        console.log('Strigified==>', strigifiedOrder);
+        // console.log('Strigified==>', strigifiedOrder);
         let Amount;
         let totalAmount = 0;
         let arrQuantVal;
@@ -87,15 +79,15 @@ class FoodOrder {
           arrQuantVal = arrQuant[i];
           Amount = findPrice[i] * arrQuant[i];
           totalAmount = Amount + totalAmount;
-          console.log(arrQuantVal);
+          // console.log(arrQuantVal);
         }
         const totalQuantity = findQuant.reduce((a, b) => a + b, 0);
-        console.log('tq=====>', totalQuantity); // 6
+        // console.log('tq=====>', totalQuantity); // 6
 
-        console.log(totalAmount);
+        // console.log(totalAmount);
         const orderQuery = 'INSERT INTO orders (user_id, status, quantity, cost, mealitem) VALUES ($1, $2, $3, $4, $5) RETURNING order_id';
         const resp = await db.query(orderQuery, [userId, status, totalQuantity, totalAmount, strigifiedOrder]);
-        console.log('===rows===>', resp.rows[0].order_id);
+        // console.log('===rows===>', resp.rows[0].order_id);
 
         return res.status(201).json({
           message: 'Order Succesfull',
@@ -106,7 +98,7 @@ class FoodOrder {
           newOrderFromDb,
         });
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     })().catch((err) => {
       return res.status(500).json({
@@ -137,14 +129,14 @@ class FoodOrder {
           data: resp.rows,
         });
       })().catch((err) => {
-        console.log(err);
+        // console.log(err);
         return res.status(500).json({
           message: 'An error encountered on the server',
           success: false,
         });
       });
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   }
 
@@ -152,7 +144,7 @@ class FoodOrder {
     const { id } = req.params;
     const userId = req.app.get('userId');
     if (!userId) {
-      console.error('User id was not set');
+      // console.error('User id was not set');
       return res.status(500).json({
         message: 'An error encountered on the server' });
     }
@@ -189,7 +181,7 @@ class FoodOrder {
         throw e;
       }
     })().catch((err) => {
-      console.log('err======', err);
+      // console.log('err======', err);
       return res.status(500).json({
         message: 'An error encountered on the server',
         // success: false
@@ -201,7 +193,7 @@ class FoodOrder {
     const { id } = req.params;
     const userId = req.app.get('userId');
     if (!userId) {
-      console.log('User Id is not Set');
+      // console.log('User Id is not Set');
       return res.status(401).json({
         message: 'User Not Authenticated',
       });
@@ -229,7 +221,7 @@ class FoodOrder {
         throw e;
       }
     })().catch((err) => {
-      console.log('err======', err);
+      // console.log('err======', err);
       return res.status(500).json({
         message: 'An error encountered on the server',
         // success: false
@@ -264,9 +256,11 @@ class FoodOrder {
           lastName: response.lastname,
           firstName: response.sunny,
           mealItem: newConvertedData });
-      } catch (e) { console.log(e); }
+      } catch (e) {
+        // console.log(e);
+      }
     })().catch((err) => {
-      console.log(err);
+      // console.log(err);
       return res.status(500).json({ statuc: 'failed', message: 'server error' });
     });
   }
