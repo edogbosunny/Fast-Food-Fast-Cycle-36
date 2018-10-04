@@ -38,6 +38,7 @@ class signUp {
         const userQuery = 'SELECT * FROM users WHERE email = $1';
         // checck to see if email exists
         const userExist = await db.query(userQuery, [email]);
+        // console.log('===>usereqist==>', userExist);
         if (userExist.rowCount > 0) {
           return res.status(400).json({ message: 'user already exists in database' });
         }
@@ -54,7 +55,7 @@ class signUp {
           userId = resp.rows[0].user_id;
           token = jwt.sign({ id: userId }, config.tokenSecret,
             { expiresIn: 86400 });
-          return res.status(200).json({ message: 'Signup Succesful', auth: true, token });
+          return res.status(201).json({ message: 'Signup Succesful', auth: true, token });
         }
         // console.log(adminResp);
 
@@ -64,7 +65,7 @@ class signUp {
         const resp = await db.query(query, [email, hashPassword, firstName, lastName, userRole]);
         userId = resp.rows[0].user_id;
         token = jwt.sign({ id: userId }, config.tokenSecret, { expiresIn: 86400 });
-        return res.status(200).json({ message: 'Signup Succesful', auth: true, token });
+        return res.status(201).json({ message: 'Signup Succesful', auth: true, token });
 
         // seed first user to have admin role
         // const adminQuery = 'INSERT INTO USERS'

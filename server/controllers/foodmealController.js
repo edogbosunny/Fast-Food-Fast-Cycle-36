@@ -15,8 +15,8 @@ class Foodmeal {
 
     if (!userId) {
       console.error('User id was not set');
-      return res.status(500).json({
-        message: 'An error encountered on the server' });
+      return res.status(401).json({
+        message: 'Unautorized Access please login' });
     }
     if (!isValid) {
       return res.status(400).json(errors);
@@ -25,7 +25,7 @@ class Foodmeal {
       try {
         const query = 'INSERT INTO meal (meal, price) VALUES ($1, $2) RETURNING *';
         const resp = await db.query(query, [meal, price]);
-        res.status(200).json({
+        res.status(201).json({
           message: 'product Uploaded Succesfully',
           data: { createdOn: Date.now(), meal: resp.rows[0].meal, price: resp.rows[0].price },
         });
