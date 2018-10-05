@@ -18,7 +18,7 @@ const validateOrderInput = (data) => {
   //   errors.quantity = 'Invalid quantity character entered';
   // }
   if (isEmpty(data.quantity)) {
-    errors.quantity = 'status field is Empty';
+    errors.quantity = 'quantity field is Empty';
   }
   return {
     errors,
