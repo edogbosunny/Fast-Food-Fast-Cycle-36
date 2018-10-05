@@ -8,21 +8,6 @@ const { expect } = chai;
 chai.use(chaiHttp);
 let token;
 
-before('Clean up Db befor test', async () => {
-  const client = await db.connect();
-  try {
-    await createTables();
-    await client.query('DELETE FROM orders;');
-    await client.query('DELETE FROM users;');
-    await client.query('DELETE FROM meal;');
-    //  console.log('i ran')
-  } catch (e) {
-    console.log(e);
-  } finally {
-    client.release();
-  }
-});
-
 after('Clean up Db befor test', async () => {
   const client = await db.connect();
   try {
