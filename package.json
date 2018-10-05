@@ -10,8 +10,8 @@
     "build": "babel server -d dist/server && babel app.js -d dist",
     "start:dev": "node_modules/.bin/nodemon app.js --exec babel-node -- ",
     "lint": "eslint *.js --fix",
-    "test": "nyc mocha --timeout 20000 test/**/*test.js  --exit",
-    "coverage": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text --cache mocha test/**/*test.js --exit",
+    "test": "nyc mocha  test/**/*test.js --timeout 20000 --exit",
+    "coverage": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text --cache mocha test/**/*test.js --timeout 60000 --exit",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint-fix": "eslint --fix ./ --ext .js --color",
     "postinstall": "npm run build:server"
