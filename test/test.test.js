@@ -7,10 +7,10 @@ import app from '../app';
 const { expect } = chai;
 chai.use(chaiHttp);
 let token; let token1;
+const token2 = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTM4NjkyNTAxLCJleHAiOjE1Mzg3Nzg5MDF9.tTzcOTlMRXA_xIV4cNdVRdI92dycV4b7W3oxeZfLhr';
 
-// clean db after every test
 
-after('Clean up Db befor test', async () => {
+describe('Clean up Db befor test', async () => {
   const client = await db.connect();
   try {
     await createTables();
@@ -34,32 +34,19 @@ describe('User should be able to Signup', () => {
       .send({
         email: 'test@test.com',
         password: '123456',
-        password2: '123456',
+        confirmPassword: '123456',
         firstName: 'test',
         lastName: 'user',
       })
       .end((err, res) => {
-        token = res.body.token;
+        token = res.body.data.token;
         expect(res).to.be.an('object');
         expect(res).to.have.status(201);
         // console.log(token);
         done();
       });
   });
-  it('#return error 400', (done) => {
-    chai
-      .request(app)
-      .post('/api/v1/menu')
-      .set('x-access-token', token)
-      .send({ meal: '', price: '' })
-      .end((err, res) => {
-        // console.log(err);
-        console.log('---->', token);
-        expect(res).to.be.an('object');
-        expect(res).to.have.status(400);
-        done();
-      });
-  });
+
 
   it('#should return status 400 user exists', (done) => {
     chai
@@ -68,7 +55,7 @@ describe('User should be able to Signup', () => {
       .send({
         email: 'test@test.com',
         password: '123456',
-        password2: '123456',
+        confirmPassword: '123456',
         firstName: 'test',
         lastName: 'user',
       })
@@ -87,7 +74,7 @@ describe('User should be able to Signup', () => {
       .send({
         email: 'test5@test.com',
         password: '123456',
-        password2: '1234556',
+        confirmPassword: '1234556',
         firstName: 'test',
         lastName: 'user',
       })
@@ -108,7 +95,7 @@ describe('User should be able to Signup', () => {
       .send({
         email: '',
         password: '',
-        password2: '',
+        confirmPassword: '',
         firstName: '',
         lastName: '',
       })
@@ -122,6 +109,28 @@ describe('User should be able to Signup', () => {
 });
 
 describe('Login Route POST', () => {
+
+  it('#should return status 201 password do not match exists', (done) => {
+    chai
+      .request(app)
+      .post('/api/v1/auth/signup')
+      .send({
+        email: 'test@test.com',
+        password: '123456',
+        confirmPassword: '123456',
+        firstName: 'test',
+        lastName: 'user',
+      })
+      .end((err, res) => {
+        token1 = res.body.data.token;
+        expect(res).to.be.an('object');
+        expect(res).to.have.status(201);
+        console.log(res);
+        done();
+      });
+  });
+
+
   it('user should be able to login', (done) => {
     chai
       .request(app)
@@ -131,8 +140,8 @@ describe('Login Route POST', () => {
         password: '123456',
       })
       .end((err, res) => {
-        token1 = res.body.token;
-        console.log(token1);
+        // token1 = res.body;
+        console.log(res);
         expect(res).to.have.status(201);
         done();
       });
@@ -180,105 +189,198 @@ describe('Login Route POST', () => {
   });
 });
 
-Zz
+describe('#food menu test', () => {
+  it('#return error 400', (done) => {
+    chai
+      .request(app)
+      .post('/api/v1/menu')
+      .set('x-access-token', token1)
+      .send({ meal: '', price: '' })
+      .end((err, res) => {
+        // console.log(err);
+        // console.log('---->', token);
+        expect(res).to.be.an('object');
+        expect(res).to.have.status(400);
+        done();
+      });
 
-// });
+    it('# return status 200 after geting all menu', () => {
+      chai
+        .request(app)
+        .get('/api/v1/menu')
+        .set('x-access-token', token1)
+        .end((err, res) => {
+          console.log(err);
+          expect(res).to.have.status(200);
+          expect(res).to.be.an('object');
+        });
+    });
 
-//   it('# return status 200 after geting all menu', () => {
-//     chai
-//       .request(app)
-//       .get('/api/v1/menu')
-//       .set('x-access-token', token)
-//       .end((err, res) => {
-//         console.log(err);
-//         expect(res).to.have.status(200);
-//         expect(res).to.be.an('object');
-//       });
-//   });
-//   it('#shoulld return error 401 when no token', (done) => {
-//     chai
-//       .request(app)
-//       .post('/api/v1/menu')
-//     //   .set('x-access-token', token)
-//       .send({ meal: 'pie', price: '100' })
-//       .end((err, res) => {
-//         // console.log(err);
-//         expect(res).to.be.an('object');
-//         expect(res).to.have.status(401);
-//         done();
-//       });
-//   });
-//   it('#shoulld return error 400', (done) => {
-//     chai
-//       .request(app)
-//       .post('/api/v1/orders')
-//       .set('x-access-token', token)
-//       .send({ mealId: '', quantity: '' })
-//       .end((err, res) => {
-//         // console.log(err);
-//         expect(res).to.be.an('object');
-//         expect(res).to.have.status(400);
-//         // console.log(res);
-//         done();
-//       });
-//   });
+    it('# return status 200 posting food to menu', () => {
+      chai
+        .request(app)
+        .post('/api/v1/menu')
+        .set('x-access-token', token1)
+        .send({ price: '20', meal: 'rice' })
+        .end((err, res) => {
+          console.log(err);
+          expect(res).to.have.status(200);
+          expect(res).to.be.an('object');
+        });
+    });
+  });
+  it('#should return error 401 when no token is available', (done) => {
+    chai
+      .request(app)
+      .post('/api/v1/menu')
+    //   .set('x-access-token', token)
+      .send({ meal: 'pie', price: '100' })
+      .end((err, res) => {
+        // console.log(err);
+        expect(res).to.be.an('object');
+        expect(res).to.have.status(401);
+        done();
+      });
+  });
+  it('#should return error 400 when empty string is parsed', (done) => {
+    chai
+      .request(app)
+      .post('/api/v1/orders')
+      .set('x-access-token', token1)
+      .send({ mealId: '', quantity: '' })
+      .end((err, res) => {
+        // console.log(err);
+        expect(res).to.be.an('object');
+        expect(res).to.have.status(400);
+        // console.log(res);
+        done();
+      });
+  });
+});
 
-//   it('#shoulld post new order', (done) => {
-//     chai
-//       .request(app)
-//       .post('/api/v1/orders')
-//       .set('x-access-token', token)
-//       .send({ mealId: '1', quantity: '1' })
-//       .end((err, res) => {
-//         console.log(err);
-//         expect(res).to.be.an('object');
-//         expect(res).to.have.status(400);
-//         // console.log(res);
-//         done();
-//       });
-//   });
+describe('#Order  Test', () => {
+  it('#shoulld post new order', (done) => {
+    chai
+      .request(app)
+      .post('/api/v1/orders')
+      .set('x-access-token', token1)
+      .send({ mealId: '1', quantity: '1' })
+      .end((err, res) => {
+        console.log(err);
+        expect(res).to.be.an('object');
+        expect(res).to.have.status(400);
+        // console.log(res);
+        done();
+      });
+  });
+  it('#should edit new order', (done) => {
+    chai
+      .request(app)
+      .put('/api/v1/orders/1')
+      .set('x-access-token', token1)
+      .send({ status: 9 })
+      .end((err, res) => {
+        console.log(err);
+        expect(res).to.be.an('object');
+        expect(res).to.have.status(400);
+        // console.log(res);
+        done();
+      });
+  });
+  it('#should return error 404 when testing with string not predefined', (done) => {
+    chai
+      .request(app)
+      .put('/api/v1/orders/1')
+      .set('x-access-token', token1)
+      .send({ status: 'heheheh' })
+      .end((err, res) => {
+        console.log(err);
+        expect(res).to.be.an('object');
+        expect(res).to.have.status(400);
+        // console.log(res);
+        done();
+      });
+  });
+  it('#should edit new order', (done) => {
+    chai
+      .request(app)
+      .get('/api/v1/orders')
+      .set('x-access-token', token1)
+      .end((err, res) => {
+        console.log(err);
+        expect(res).to.be.an('object');
+        expect(res).to.have.status(200);
+        // console.log(res);
+        done();
+      });
+  });
+  it('#should edit new order', (done) => {
+    chai
+      .request(app)
+      .put('/api/v1/orders/1')
+      .set('x-access-token', token1)
+      .send({ status: 9 })
+      .end((err, res) => {
+        console.log(err);
+        expect(res).to.be.an('object');
+        expect(res).to.have.status(400);
+        // console.log(res);
+        done();
+      });
+  });
+  it('#should return error 404 when testing with string not predefined', (done) => {
+    chai
+      .request(app)
+      .put('/api/v1/orders/1')
+      .set('x-access-token', token1)
+      .send({ status: 'heheheh' })
+      .end((err, res) => {
+        console.log(err);
+        expect(res).to.be.an('object');
+        expect(res).to.have.status(400);
+        // console.log(res);
+        done();
+      });
+  });
+  it('#should return status 200 on updating status', (done) => {
+    chai
+      .request(app)
+      .put('/api/v1/orders/1')
+      .set('x-access-token', token1)
+      .send({ status: '' })
+      .end((err, res) => {
+        console.log(err);
+        expect(res).to.be.an('object');
+        expect(res).to.have.status(400);
+        // console.log(res);
+        done();
+      });
+  });
+  it('#should greturn error 401 invalid token', (done) => {
+    chai
+      .request(app)
+      .get('/api/v1/orders')
+      .set('x-access-token', token2)
+      .end((err, res) => {
+        console.log(err);
+        expect(res).to.be.an('object');
+        expect(res).to.have.status(401);
+        // console.log(res);
+        done();
+      });
+  });
+  it('#should retur error 200', (done) => {
+    chai
+      .request(app)
+      .get('/api/v1/orders')
+      .set('x-access-token', token1)
+      .end((err, res) => {
+        console.log(err);
+        expect(res).to.be.an('object');
+        expect(res).to.have.status(200);
+        // console.log(res);
+        done();
+      });
+  });
 
-//   it('#shoulld edit new order', (done) => {
-//     chai
-//       .request(app)
-//       .put('/api/v1/orders/1')
-//       .set('x-access-token', token)
-//       .send({ status: 9 })
-//       .end((err, res) => {
-//         console.log(err);
-//         expect(res).to.be.an('object');
-//         expect(res).to.have.status(400);
-//         // console.log(res);
-//         done();
-//       });
-//   });
-
-//   it('#shoulld edit new order', (done) => {
-//     chai
-//       .request(app)
-//       .put('/api/v1/orders/1')
-//       .set('x-access-token', token)
-//       .send({ status: 'heheheh' })
-//       .end((err, res) => {
-//         console.log(err);
-//         expect(res).to.be.an('object');
-//         expect(res).to.have.status(400);
-//         // console.log(res);
-//         done();
-//       });
-//   });
-//   it('#shoulld edit new order', (done) => {
-//     chai
-//       .request(app)
-//       .get('/api/v1/orders')
-//       .set('x-access-token', token)
-//       .end((err, res) => {
-//         console.log(err);
-//         expect(res).to.be.an('object');
-//         expect(res).to.have.status(200);
-//         // console.log(res);
-//         done();
-//       });
-//   });
-// });
-// // });
+});
