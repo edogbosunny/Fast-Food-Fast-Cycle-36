@@ -18,7 +18,10 @@ class FoodItem {
     const { errors, isValid } = validateFoodInput(req.body);
 
     if (!isValid) {
-      return res.status(400).json(errors);
+      return res.status(400).json({ status: false,
+        data: {
+          errors,
+        } });
     }
     const foodItem = {
       foodId: db.length + 1,
