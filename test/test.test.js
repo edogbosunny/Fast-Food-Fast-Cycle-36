@@ -9,7 +9,6 @@ chai.use(chaiHttp);
 let token; let token1;
 const token2 = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTM4NjkyNTAxLCJleHAiOjE1Mzg3Nzg5MDF9.tTzcOTlMRXA_xIV4cNdVRdI92dycV4b7W3oxeZfLhr';
 
-// clean db after every test
 
 after('Clean up Db befor test', async () => {
   const client = await db.connect();
