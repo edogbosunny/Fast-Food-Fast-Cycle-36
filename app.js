@@ -1,6 +1,5 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import cors from 'cors';
 import routes from './server/routes/index';
 import createTables from './server/models/index';
 
@@ -19,16 +18,26 @@ const port = process.env.PORT || 4000;
 
 
 const app = express();
-app.use(cors());
-// middleware
+
 app.use('/api/v1', routes);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ strict: false }));
-app.use(bodyParser.raw());
 
-app.get('/', (req, res) => {
-  return res.status(200).json({
-    message: 'succesful',
+
+app.get('/*', (req, res) => {
+  return res.status(404).json({
+    status: false,
+    Data: {
+      message: 'Page not Found',
+    },
+  });
+});
+app.post('/*', (req, res) => {
+  return res.status(404).json({
+    status: false,
+    Data: {
+      message: 'Page not Found',
+    },
   });
 });
 

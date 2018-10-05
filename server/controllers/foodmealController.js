@@ -16,27 +16,27 @@ class Foodmeal {
     if (!userId) {
       console.error('User id was not set');
       return res.status(401).json({
-        message: 'Unautorized Access please login' });
+        status: false,
+        data: {
+          message: 'Unauthorized access please login',
+        },
+      });
     }
     if (!isValid) {
-      return res.status(400).json(errors);
+      return res.status(400).json({
+        status: false,
+        data: {
+          error: errors,
+        },
+      });
     }
-    (async () => {
-      try {
-        const query = 'INSERT INTO meal (meal, price) VALUES ($1, $2) RETURNING *';
-        const resp = await db.query(query, [meal, price]);
-        res.status(201).json({
-          message: 'product Uploaded Succesfully',
-          data: { createdOn: Date.now(), meal: resp.rows[0].meal, price: resp.rows[0].price },
-        });
-      } catch (e) {
-        // console.log(e);
-      }
-    })().catch((err) => {
-      return res.status(500).json({
-        success: false,
-        message: 'Server encountered an error',
-        err,
+
+
+    const query = 'INSERT INTO meal (meal, price) VALUES ($1, $2) RETURNING *';
+    db.query(query, [meal, price]).then((resp) => {
+      return res.status(201).json({
+        message: 'Your product has been uploaded successfully',
+        data: { createdOn: Date.now(), meal: resp.rows[0].meal, price: resp.rows[0].price },
       });
     });
   }
@@ -50,24 +50,21 @@ class Foodmeal {
     /**
      * Async Dm method here
      */
-    try {
-      (async () => {
-        const resp = await db.query(query);
-        res.status(200).json({
-          message: 'Food Menu Retrieved succesfully',
-          count: resp.rowCount,
-          data: resp.rows,
-        });
-      })().catch((err) => {
-        // console.log(err);
-        return res.status(500).json({
-          message: 'An error encountered on the server',
-          success: false,
-        });
+    db.query(query).then((resp) => {
+      res.status(200).json({
+        message: 'Food menu has been retrieved succesfully',
+        count: resp.rowCount,
+        data: resp.rows,
       });
-    } catch (e) {
-      // console.log(e);
-    }
+    })().catch((err) => {
+      // console.log(err);
+      return res.status(500).json({
+        status: false,
+        data: {
+          message: 'An error encountered on the server',
+        },
+      });
+    });
   }
 }
 export default Foodmeal;

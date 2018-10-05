@@ -15,29 +15,48 @@ class signin {
 
     if (!isValid) {
       return res.status(400).json({
-        status: 'failed', token: null, error: errors });
+        status: false,
+        data: {
+          token: null,
+          error: errors,
+        },
+      });
     }
-    (async () => {
-      try {
-        const userQuery = 'SELECT * FROM users WHERE email = $1';
-        const user = await db.query(userQuery, [email]);
-        // console.log(user)
-        if (user.rows.length < 1) {
-          res.status(401).json({
-            auth: false, token: null, message: 'User does not exist' });
-        } else if (!bcrypt.compareSync(password, user.rows[0].hashpassword)) {
-          res.status(401).json({ auth: false, token: null, message: 'Password  incorrect' });
-        } else {
-          const userId = user.rows[0].user_id;
-          const token = jwt.sign({ id: userId }, config.tokenSecret, { expiresIn: 86400 });
-          res.status(201).json({ auth: true, message: 'Login Successful', token });
-        }
-      } catch (e) {
-        console.log(e);
+
+    const userQuery = 'SELECT * FROM users WHERE email = $1';
+    db.query(userQuery, [email]).then((user) => {
+      // console.log(user)
+      if (user.rows.length < 1) {
+        res.status(401).json({
+          status: false,
+          data: {
+            message: 'This user does not exist',
+            token: null,
+          } });
+      } else if (!bcrypt.compareSync(password, user.rows[0].hashpassword)) {
+        res.status(401).json({ status: false,
+          data: {
+            message: 'you have entered invalid credentials. please try again',
+            token: null,
+          } });
+      } else {
+        const userId = user.rows[0].user_id;
+        const token = jwt.sign({ id: userId }, config.tokenSecret, { expiresIn: 86400 });
+        res.status(201).json({ status: true,
+          data: {
+            message: 'You have logged in successfully',
+            token,
+          } });
       }
-    })().catch((err) => {
+    }).catch((err) => {
       console.log(err);
-      res.status(501).json({ auth: false, token: null, messsage: 'The Server encountered a problem' });
+      res.status(501).json({
+        status: false,
+        data: {
+          messsage: 'The server encountered a problem',
+          token: null,
+        },
+      });
     });
   }
 }
