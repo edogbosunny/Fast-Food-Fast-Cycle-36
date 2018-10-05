@@ -41,7 +41,7 @@ class signin {
           } });
       } else {
         const userId = user.rows[0].user_id;
-        const token = jwt.sign({ id: userId }, config.tokenSecret, { expiresIn: 86400 });
+        const token = jwt.sign({ id: userId }, config.tokenSecret, { expiresIn: 864456700 });
         res.status(201).json({ status: true,
           data: {
             message: 'You have logged in successfully',
