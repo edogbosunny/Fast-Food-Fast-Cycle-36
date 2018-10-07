@@ -132,7 +132,7 @@ describe('seed admin user', () => {
       .set('x-access-token', token)
       .send({ status: 888 })
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.have.status(400);
         done();
       });
   });
@@ -142,7 +142,7 @@ describe('seed admin user', () => {
       .set('x-access-token', token)
       .send({ status: '' })
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        expect(res).to.have.status(400);
         done();
       });
   });
