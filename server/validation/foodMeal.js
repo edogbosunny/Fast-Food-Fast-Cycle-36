@@ -3,6 +3,7 @@ import isEmpty from './is-empty';
 
 // const mealValidation = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,}$/;
 const mealValidation = /^([a-zA-Z0-9 _-]+)$/;
+const reg = /^\d+$/;
 const validateOrderInput = (data) => {
   const errors = {};
 
@@ -14,7 +15,7 @@ const validateOrderInput = (data) => {
   }
 
 
-  if (data.price !== Number) {
+  if (!reg.test(data.price)) {
     errors.price = 'Price must be a Number';
   }
   if (isEmpty(data.price)) {

@@ -38,6 +38,13 @@ class Foodmeal {
         message: 'Your product has been uploaded successfully',
         data: { createdOn: Date.now(), meal: resp.rows[0].meal, price: resp.rows[0].price },
       });
+    }).catch((err) => {
+      return res.status(500).json({
+        status: false,
+        data: {
+          error: err,
+        },
+      });
     });
   }
   /**
@@ -51,17 +58,18 @@ class Foodmeal {
      * Async Dm method here
      */
     db.query(query).then((resp) => {
+      // console.log(resp);
       res.status(200).json({
         message: 'Food menu has been retrieved succesfully',
         count: resp.rowCount,
         data: resp.rows,
       });
-    })().catch((err) => {
-      // console.log(err);
+    }).catch((err) => {
+      console.log(err);
       return res.status(500).json({
         status: false,
         data: {
-          message: 'An error encountered on the server',
+          error: err,
         },
       });
     });

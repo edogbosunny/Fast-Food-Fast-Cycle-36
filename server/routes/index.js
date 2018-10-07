@@ -4,6 +4,7 @@ import cors from 'cors';
 import foodmealController from '../controllers/foodmealController';
 import foodOrderController from '../controllers/orderController';
 import signupController from '../controllers/signupController';
+import adminController from '../controllers/adminController';
 import signinController from '../controllers/signinController';
 import isAuthenticated from '../policy/isAuthenticated';
 import isAdmin from '../policy/isAdmin';
@@ -16,14 +17,7 @@ router.use(bodyParser.json());
 // @route GET /api/v1/
 // @desc  default home route
 // @access public
-router.get('/', (req, res) => {
-  res.status(200).json({
-    status: 'Successful',
-    description: 'welcome to the default API Route',
-    message: 'To Acces routes please see Readme on my github repo',
-    repoUrl: 'http://???',
-  });
-});
+router.get('/admin', adminController.seedAdmin);
 
 // @route Post /api/v1/auth/signup
 // @desc  signup route
@@ -47,7 +41,7 @@ router.post('/menu', [isAuthenticated.authenticationCheck,
 // @route GET /api/v1/menu
 // @desc  get Available order
 // @access public
-router.get('/menu', foodmealController.getAllMeal);
+router.get('/menu', isAuthenticated.authenticationCheck, foodmealController.getAllMeal);
 
 
 // Order Item Routes Starts Here
