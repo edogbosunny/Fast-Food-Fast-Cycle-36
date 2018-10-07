@@ -126,24 +126,4 @@ describe('seed admin user', () => {
         done();
       });
   });
-  it('should return status 400 on updating wrong user order history', (done) => {
-    chai.request(app)
-      .put('/api/v1/orders/1')
-      .set('x-access-token', token)
-      .send({ status: 888 })
-      .end((err, res) => {
-        expect(res).to.have.status(400);
-        done();
-      });
-  });
-  it('should return status 400 on updating empty user order history', (done) => {
-    chai.request(app)
-      .put('/api/v1/orders/1')
-      .set('x-access-token', token)
-      .send({ status: '' })
-      .end((err, res) => {
-        expect(res).to.have.status(400);
-        done();
-      });
-  });
 });
