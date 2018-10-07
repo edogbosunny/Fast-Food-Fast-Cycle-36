@@ -25,7 +25,8 @@
       "no-multi-assign":"off",
       "allowTemplateLiterals": true,
       "prefer-destructuring":"off",
-      "no-unused-vars":"off"
+      "no-unused-vars":"off",
+      "no-dupe-keys":"warn"
     }
   }
   

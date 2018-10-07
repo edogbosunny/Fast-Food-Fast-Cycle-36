@@ -1,43 +1,21 @@
-import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import db from '../config/db';
 import config from '../config/default';
-import validateSignup from '../validation/signup';
 
-/**
- * Signup Validation class
- */
-
-class signUp {
-/**
- *
- * @param {object} req Takes signup Request
- * @param {object} res Responds to Signup Request
- */
-  static signUpCtrl(req, res) {
-    const { firstName, lastName, email, password } = req.body;
-    let userRole;
+class Admin {
+  static seedAdmin(req, res) {
     let token;
     let userId;
-    const { errors, isValid } = validateSignup(req.body);
-    if (!isValid) {
-      return res.status(400).json({
-        status: false,
-        data: {
-          error: errors,
-          token: null,
-        },
-      });
-    }
-    /**
-     * Async Conneection to DB
-     */
-    const genSalt = bcrypt.genSaltSync(8);
-    const hashPassword = bcrypt.hashSync(password, genSalt);
+    const email = 'admin@admin.com';
+    const hashPassword = '$2y$12$5r0xbtBNJjDyCJzEJ0uARuWMnvPOvedJkgZYHL77tH9aRwg6kZFe2';
+    const firstName = 'admin';
+    const lastName = 'admin';
+    const userRole = 'admin';
+
     const userQuery = 'SELECT * FROM users WHERE email = $1';
     // checck to see if email exists
+
     db.query(userQuery, [email]).then((userExist) => {
-      // console.log('===>usereqist==>', userExist);
       if (userExist.rowCount > 0) {
         return res.status(400).json({
           status: true,
@@ -47,7 +25,6 @@ class signUp {
           },
         });
       }
-      userRole = 'user';
       const query = 'INSERT INTO users(email, hashpassword, firstname, lastname, user_role) VALUES ($1, $2, $3, $4, $5) RETURNING user_id ';
       db.query(query, [email, hashPassword, firstName, lastName, userRole]).then((resp) => {
         userId = resp.rows[0].user_id;
@@ -71,4 +48,5 @@ class signUp {
   }
 }
 
-export default signUp;
+
+export default Admin;

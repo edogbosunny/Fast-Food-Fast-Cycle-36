@@ -2,6 +2,7 @@ import { isNumber } from 'util';
 import validateOrder from '../validation/foodOrder';
 import validateStatusInput from '../validation/status';
 import db from '../config/db';
+import validateParams from '../validation/params';
 
 /**
  * Food ORder Class
@@ -53,8 +54,10 @@ class FoodOrder {
           return orderValues;
         };
         const orderFromDb = reqId.map(val => getOrderForCart(parseInt(val, 10)));
+        console.log('-------->', orderFromDb);
         const newOrderFromDb = orderFromDb;
         const findPrice = newOrderFromDb.map(val => parseInt(val.price, 10));
+        console.log('====>', findPrice);
         const arrQuant = Array.isArray(quantity) ? quantity : [quantity];
         const findQuant = arrQuant.map(val => parseInt(val, 10));
         if (findPrice.length !== findQuant.length) {
@@ -95,6 +98,8 @@ class FoodOrder {
             },
           });
         });
+      }).catch((err) => {
+        console.log(err);
       });
   }
 
@@ -137,6 +142,7 @@ class FoodOrder {
 
   static getUserOrderHistory(req, res) {
     const { id } = req.params;
+    // console.log('jdjdjd', typeof id);
     const userId = req.app.get('userId');
     if (!userId) {
       return res.status(403).json({
@@ -187,6 +193,13 @@ class FoodOrder {
 
   static getSingleOrder(req, res) {
     const { id } = req.params;
+    const { errors, isValid } = validateParams(req.params);
+    if (!isValid) {
+      return res.status(400).json({
+        status: false,
+        data: { errors },
+      });
+    }
     const userId = req.app.get('userId');
     if (!userId) {
       return res.status(401).json({
@@ -201,7 +214,13 @@ class FoodOrder {
 
 
     db.query(singleOrderQuery, [id]).then((resp) => {
-      // console.log('resp====>', resp);
+      // console.log('resp====>', resp.rows.length);
+      if (resp.rows.length === 0) {
+        return res.status(400).json({
+          status: false,
+          data: 'requested order does not exist',
+        });
+      }
       const response = resp.rows[0];
       const stringifyMealdata = response.mealitem;
       const newConvertedData = JSON.parse(stringifyMealdata);
@@ -223,7 +242,13 @@ class FoodOrder {
 
   static updateOrder(req, res) {
     const { id } = req.params;
-    const { errors, isValid } = validateStatusInput(req.body);
+    const { errors, isValid } = validateParams(req.params);
+    if (!isValid) {
+      return res.status(400).json({
+        status: false,
+        data: { errors },
+      });
+    }
     const { status } = req.body;
     // const userId = req.app.get('userId');
 
