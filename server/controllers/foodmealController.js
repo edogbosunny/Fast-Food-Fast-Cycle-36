@@ -4,10 +4,10 @@ import db from '../config/db';
 
 class Foodmeal {
   /**
-     *
-     * @param {object} req req: data from body
-     * @param {object } res res: ddata from body
-     */
+   *
+   * @param {object} req req: data from body
+   * @param {object } res res: ddata from body
+   */
   static addMealTooMenu(req, res) {
     const userId = req.app.get('userId');
     const { meal, price } = req.body;
@@ -31,21 +31,23 @@ class Foodmeal {
       });
     }
 
-
     const query = 'INSERT INTO meal (meal, price) VALUES ($1, $2) RETURNING *';
-    db.query(query, [meal, price]).then((resp) => {
-      return res.status(201).json({
+    db.query(query, [meal, price])
+      .then(resp => res.status(201).json({
         message: 'Your product has been uploaded successfully',
-        data: { createdOn: Date.now(), meal: resp.rows[0].meal, price: resp.rows[0].price },
-      });
-    }).catch((err) => {
-      return res.status(500).json({
+        data: {
+          createdOn: Date.now(),
+          meal: resp.rows[0].meal,
+          price: resp.rows[0].price,
+        },
+      }))
+      .catch(err => res.status(500).json({
         status: false,
         data: {
           error: err,
         },
-      });
-    });
+      }));
+    return null;
   }
   /**
    * get All Food MEnu Meals
@@ -57,22 +59,24 @@ class Foodmeal {
     /**
      * Async Dm method here
      */
-    db.query(query).then((resp) => {
-      // console.log(resp);
-      res.status(200).json({
-        message: 'Food menu has been retrieved succesfully',
-        count: resp.rowCount,
-        data: resp.rows,
+    db.query(query)
+      .then((resp) => {
+        // console.log(resp);
+        res.status(200).json({
+          message: 'Food menu has been retrieved succesfully',
+          count: resp.rowCount,
+          data: resp.rows,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        return res.status(500).json({
+          status: false,
+          data: {
+            error: err,
+          },
+        });
       });
-    }).catch((err) => {
-      console.log(err);
-      return res.status(500).json({
-        status: false,
-        data: {
-          error: err,
-        },
-      });
-    });
   }
 }
 export default Foodmeal;

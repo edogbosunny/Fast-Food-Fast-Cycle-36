@@ -29,11 +29,13 @@ pool.on('connect', () => {
  */
 process.on('SIGINT', () => {
   console.log('Closing Database ==> Connection');
-  pool.end()
-  // callback to make sure that the close was succesful
+  pool
+    .end()
+    // callback to make sure that the close was succesful
     .then(() => {
       console.log('Database Closed Succesfully ==> ');
-    }).catch((err) => {
+    })
+    .catch((err) => {
       console.log(err);
     });
 });

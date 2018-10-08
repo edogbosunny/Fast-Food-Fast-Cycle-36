@@ -6,8 +6,8 @@ import app from '../app';
 
 const { expect } = chai;
 chai.use(chaiHttp);
-let token; let userToken;
-
+let token;
+let userToken;
 
 before('Clean up Db befor test', async () => {
   const client = await db.connect();

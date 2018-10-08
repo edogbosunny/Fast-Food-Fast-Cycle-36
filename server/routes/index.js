@@ -34,49 +34,64 @@ router.post('/auth/login', signinController.signinCtr);
 // @route GET /api/v1/getorder
 // @desc  get all order
 // @access public
-router.post('/menu', [isAuthenticated.authenticationCheck,
+router.post('/menu', [
+  isAuthenticated.authenticationCheck,
   isAdmin.isAdmin,
-  foodmealController.addMealTooMenu]);
+  foodmealController.addMealTooMenu,
+]);
 
 // @route GET /api/v1/menu
 // @desc  get Available order
 // @access public
-router.get('/menu', isAuthenticated.authenticationCheck, foodmealController.getAllMeal);
-
+router.get(
+  '/menu',
+  isAuthenticated.authenticationCheck,
+  foodmealController.getAllMeal,
+);
 
 // Order Item Routes Starts Here
-
 
 // @route GET /api/v1/getorder
 // @desc  get all order
 // @access public
-router.get('/orders', [isAuthenticated.authenticationCheck,
+router.get('/orders', [
+  isAuthenticated.authenticationCheck,
   isAdmin.isAdmin,
-  foodOrderController.getAllOrders]);
+  foodOrderController.getAllOrders,
+]);
 
 // @route GET /api/v1/getorder/:id
 // @desc  get single food by id
 // @access public
-router.get('/orders/:id', [isAuthenticated.authenticationCheck,
+router.get('/orders/:id', [
+  isAuthenticated.authenticationCheck,
   isAdmin.isAdmin,
-  foodOrderController.getSingleOrder]);
+  foodOrderController.getSingleOrder,
+]);
 
 // @route PUT /api/v1/orders/:id
 // @desc  update single food by id
 // @access public
-router.put('/orders/:id', [isAuthenticated.authenticationCheck,
-  isAdmin.isAdmin, foodOrderController.updateOrder]);
+router.put('/orders/:id', [
+  isAuthenticated.authenticationCheck,
+  isAdmin.isAdmin,
+  foodOrderController.updateOrder,
+]);
 
 // @route POST /api/v1/orders
 // @desc  creates order route
 // @access public
-router.post('/orders', [isAuthenticated.authenticationCheck,
-  foodOrderController.addOrder]);
+router.post('/orders', [
+  isAuthenticated.authenticationCheck,
+  foodOrderController.addOrder,
+]);
 
 // @route PUT /api/v1/users/:id/orders
 // @desc  return user history
 // @access private
-router.get('/users/:id/orders', [isAuthenticated.authenticationCheck,
-  foodOrderController.getUserOrderHistory]);
+router.get('/users/:id/orders', [
+  isAuthenticated.authenticationCheck,
+  foodOrderController.getUserOrderHistory,
+]);
 
 export default router;

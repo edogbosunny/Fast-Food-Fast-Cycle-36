@@ -9,7 +9,11 @@ const validateSigninInput = (data) => {
   if (!nameValidation.test(data.firstName)) {
     errors.firstName = 'Only underscore (_) and dash (-) special characters are allowed';
   }
-  if ((isEmpty(data.firstName)) || (data.firstName).length < 2 || (data.firstName).length > 15) {
+  if (
+    isEmpty(data.firstName)
+    || data.firstName.length < 2
+    || data.firstName.length > 15
+  ) {
     errors.firstName = 'First name must contain a min of 2 characters and max 15 characters';
   }
   if (isEmpty(data.firstName)) {
@@ -19,7 +23,11 @@ const validateSigninInput = (data) => {
   if (!nameValidation.test(data.lastName)) {
     errors.lastName = 'Only underscore (_) and dash (-) special characters are allowed';
   }
-  if ((isEmpty(data.lastName)) || (data.lastName).length < 2 || (data.lastName).length > 15) {
+  if (
+    isEmpty(data.lastName)
+    || data.lastName.length < 2
+    || data.lastName.length > 15
+  ) {
     errors.lastName = 'Last name must contain a min of 2 characters and max 15 characters';
   }
   if (isEmpty(data.lastName)) {
@@ -33,7 +41,11 @@ const validateSigninInput = (data) => {
     errors.email = 'Email field is empty';
   }
 
-  if ((isEmpty(data.password)) || (data.password).length <= 5 || (data.password).length >= 15) {
+  if (
+    isEmpty(data.password)
+    || data.password.length <= 5
+    || data.password.length >= 15
+  ) {
     errors.password = 'Password name must contain a min of 5 characters and max 15 characters';
   }
   if (isEmpty(data.password)) {

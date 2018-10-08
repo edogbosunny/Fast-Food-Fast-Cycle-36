@@ -6,7 +6,8 @@ import app from '../app';
 
 const { expect } = chai;
 chai.use(chaiHttp);
-let token; let token1;
+let token;
+let token1;
 const token2 = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTM4NjkyNTAxLCJleHAiOjE1Mzg3Nzg5MDF9.tTzcOTlMRXA_xIV4cNdVRdI92dycV4b7W3oxeZfLhr';
 
 before('Clean up Db befor test', async () => {
@@ -80,7 +81,8 @@ describe('User should be able to Signup', () => {
 // Login Route
 describe('User should login in wiyh a response of 201', () => {
   it('`should signup an admin user by default', (done) => {
-    chai.request(app)
+    chai
+      .request(app)
       .get('/api/v1/admin')
       .end((err, res) => {
         expect(res).to.be.an('object');

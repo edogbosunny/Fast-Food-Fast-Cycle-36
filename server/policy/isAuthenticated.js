@@ -18,14 +18,23 @@ class isAuthenticated {
       if (err) {
         // console.log(err);
         return res.status(401).json({ err });
-      } if (decoded) {
+      }
+      if (decoded) {
         // console.log('dc=====>', decoded);
         req.app.set('userId', decoded.id); // controllers would need this
         next();
       } else {
-        return res.status(402).json({ auth: false, token: null, message: 'Failed to authenticate token.' });
+        return res
+          .status(402)
+          .json({
+            auth: false,
+            token: null,
+            message: 'Failed to authenticate token.',
+          });
       }
+      return null;
     });
+    return null;
   }
 }
 

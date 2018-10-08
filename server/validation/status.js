@@ -5,7 +5,6 @@ import isIncorrect from './is-incorrect';
 const validateStatusInput = (data) => {
   const errors = {};
 
-
   if (!isIncorrect(data.status)) {
     errors.status = 'incorrect status format';
   }
