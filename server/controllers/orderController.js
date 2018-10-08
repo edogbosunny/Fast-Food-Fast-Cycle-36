@@ -128,15 +128,12 @@ class FoodOrder {
           },
         });
       }
-      // let newArr;
       const dataArr = resp.rows;
-
       const response = dataArr.map((product, i) => {
         const parsedRes = JSON.parse(product.mealitem);
         product.mealitem = parsedRes;
         return product;
       });
-
       res.status(200).json({
         status: true,
         data: {
@@ -152,7 +149,6 @@ class FoodOrder {
 
   static getUserOrderHistory(req, res) {
     const { id } = req.params;
-    // console.log('jdjdjd', typeof id);
     const userId = req.app.get('userId');
     if (!userId) {
       return res.status(403).json({
@@ -176,7 +172,6 @@ class FoodOrder {
      as o INNER JOIN users AS u ON o.user_id = u.user_id WHERE u.user_id = $1`;
 
     db.query(userHistoryQuery, [id]).then((resp) => {
-      // console.log('=====>', resp);
       const response = resp.rows[0];
       if (response === undefined) {
         return res.status(400).json({
