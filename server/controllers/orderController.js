@@ -3,6 +3,7 @@ import validateOrder from '../validation/foodOrder';
 import validateStatusInput from '../validation/status';
 import db from '../config/db';
 import validateParams from '../validation/params';
+import sendResponse from '../helpers/returnStatus';
 
 /**
  * Food ORder Class
@@ -35,15 +36,8 @@ class FoodOrder {
       .then((mealResp) => {
         const mealR = mealResp.rows;
         if (mealR.length === 0) {
-          return res
-            .status(400)
-            .json({
-              status: false,
-              data: {
-                message:
-                  'Meal not Availabe at the moment please try again later',
-              },
-            });
+          const message = 'Meal not Availabe at the moment please try again later';
+          return sendResponse.sendResponse400(res, 400, message, false);
         }
         const getOrderForCart = (id) => {
           const orderValues = mealR.find(meal => meal.meal_id === id);

@@ -6,4 +6,10 @@ const sendResponse = (response, statusCode, message, status, token) => response.
   },
 });
 
-export default sendResponse;
+const sendResponse400 = (response, statusCode, message, status) => response.status(statusCode).send({
+  status,
+  data: {
+    message,
+  },
+});
+export default { sendResponse, sendResponse400 };

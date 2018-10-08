@@ -30,7 +30,7 @@ class signin {
         // console.log(user)
         if (user.rows.length < 1) {
           const message = 'This user does not exists';
-          sendResponse(res, 401, message, false, null);
+          sendResponse.sendResponse(res, 401, message, false, null);
           // res.status(401).json({
           //   status: false,
           //   data: {
