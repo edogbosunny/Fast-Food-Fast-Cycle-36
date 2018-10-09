@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import db from '../config/db';
 import config from '../config/default';
 import validateSignup from '../validation/signup';
+import resonseStatus from '../helpers/returnStatus';
 
 /**
  * Signup Validation class
@@ -18,18 +19,10 @@ class signUp {
     const {
       firstName, lastName, email, password,
     } = req.body;
-    let userRole;
-    let token;
-    let userId;
+    let userRole; let token; let userId;
     const { errors, isValid } = validateSignup(req.body);
     if (!isValid) {
-      return res.status(400).json({
-        status: false,
-        data: {
-          error: errors,
-          token: null,
-        },
-      });
+      return resonseStatus.sendResponse(res, 400, errors, false, null);
     }
     /**
      * Async Conneection to DB
