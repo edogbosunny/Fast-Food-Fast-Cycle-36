@@ -3,19 +3,22 @@ import isEmpty from './is-empty';
 import isIncorrect from './is-incorrect';
 
 const validateStatusInput = (data) => {
-  const errors = {};
+  const statusError = {};
 
   if (!isIncorrect(data.status)) {
-    errors.status = 'incorrect status format';
+    statusError.status = 'incorrect status format';
+  }
+  if (data.status === undefined) {
+    statusError.status = 'status field is undefined';
   }
 
   if (isEmpty(data.status)) {
-    errors.status = 'status field is Empty';
+    statusError.status = 'status field is Empty';
   }
 
   return {
-    errors,
-    isValid: isEmpty(errors),
+    statusError,
+    isVeryValid: isEmpty(statusError),
   };
 };
 
