@@ -14,7 +14,6 @@ const validateOrderInput = (data) => {
     errors.meal = 'meal field is empty';
   }
 
-
   if (!reg.test(data.price)) {
     errors.price = 'Price must be a Number';
   }

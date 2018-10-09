@@ -15,18 +15,11 @@
     },
   
     "rules": {
-      "no-console": 0,
+      "no-console": "warn",
       "max-len": [2, 300, 4],
-      "linebreak-style": "off",
-      "consistent-return": "off",
-      "no-param-reassign": 0,
-      "arrow-body-style": 0,
-      "object-curly-newline": 0,
-      "no-multi-assign":"off",
-      "allowTemplateLiterals": true,
       "prefer-destructuring":"off",
       "no-unused-vars":"off",
-      "no-dupe-keys":"warn"
+      "no-param-reassign": 0
     }
   }
   

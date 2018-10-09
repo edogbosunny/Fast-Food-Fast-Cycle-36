@@ -6,7 +6,8 @@ import app from '../app';
 
 const { expect } = chai;
 chai.use(chaiHttp);
-let token; let userToken;
+let token;
+let userToken;
 
 after('Clean up Db befor test', async () => {
   const client = await db.connect();
@@ -53,7 +54,8 @@ describe('seed admin user', () => {
   });
 
   it('should return status 201 on adding order', (done) => {
-    chai.request(app)
+    chai
+      .request(app)
       .post('/api/v1/orders')
       .set('x-access-token', token)
       .send({ mealId: '1', quantity: '1' })
@@ -65,7 +67,8 @@ describe('seed admin user', () => {
   });
 
   it('should return status 400 on adding empty order', (done) => {
-    chai.request(app)
+    chai
+      .request(app)
       .post('/api/v1/orders')
       .set('x-access-token', token)
       .send({ mealId: '', quantity: '' })
@@ -77,7 +80,8 @@ describe('seed admin user', () => {
   });
 
   it('should return status 201 on getting order', (done) => {
-    chai.request(app)
+    chai
+      .request(app)
       .get('/api/v1/orders')
       .set('x-access-token', token)
       .end((err, res) => {
@@ -87,7 +91,8 @@ describe('seed admin user', () => {
       });
   });
   it('should return status 201 on geting user order history', (done) => {
-    chai.request(app)
+    chai
+      .request(app)
       .get('/api/v1/users/2/orders')
       .set('x-access-token', token)
       .end((err, res) => {
@@ -97,7 +102,8 @@ describe('seed admin user', () => {
       });
   });
   it('should return status 2000 on geting single user order', (done) => {
-    chai.request(app)
+    chai
+      .request(app)
       .get('/api/v1/orders/1')
       .set('x-access-token', token)
       .end((err, res) => {
@@ -107,7 +113,8 @@ describe('seed admin user', () => {
       });
   });
   it('should return status 400 on for invalid params in the url', (done) => {
-    chai.request(app)
+    chai
+      .request(app)
       .get('/api/v1/orders/h')
       .set('x-access-token', token)
       .end((err, res) => {
@@ -117,7 +124,8 @@ describe('seed admin user', () => {
       });
   });
   it('should return status 201 on updating user order history', (done) => {
-    chai.request(app)
+    chai
+      .request(app)
       .put('/api/v1/orders/1')
       .set('x-access-token', token)
       .send({ status: 'new' })

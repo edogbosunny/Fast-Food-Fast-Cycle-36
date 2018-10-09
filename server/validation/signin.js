@@ -13,7 +13,11 @@ const validateSigninInput = (data) => {
     errors.email = 'Email field is Empty';
   }
 
-  if ((isEmpty(data.password)) || (data.password).length <= 5 || (data.password).length >= 15) {
+  if (
+    isEmpty(data.password)
+    || data.password.length <= 5
+    || data.password.length >= 15
+  ) {
     errors.password = 'password must be more than 6 characters';
   }
   if (isEmpty(data.password)) {

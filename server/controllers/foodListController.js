@@ -18,10 +18,12 @@ class FoodItem {
     const { errors, isValid } = validateFoodInput(req.body);
 
     if (!isValid) {
-      return res.status(400).json({ status: false,
+      return res.status(400).json({
+        status: false,
         data: {
           errors,
-        } });
+        },
+      });
     }
     const foodItem = {
       foodId: db.length + 1,
@@ -37,21 +39,21 @@ class FoodItem {
   }
 
   /**
-    * Get all food
-    * @param {object} req:Order
-    * @param {object} res:Order
-    * @returns {object} Returns all food
-    */
+   * Get all food
+   * @param {object} req:Order
+   * @param {object} res:Order
+   * @returns {object} Returns all food
+   */
 
   static getAllFoodItems(req, res) {
     return res.send(db);
   }
   /**
-    * Get Single others
-    * @param {object} req:Order
-    * @param {object} res:Order
-    * @returns {object} Returns single others
-  */
+   * Get Single others
+   * @param {object} req:Order
+   * @param {object} res:Order
+   * @returns {object} Returns single others
+   */
 
   static getSingleFoodItem(req, res) {
     const id = parseInt(req.params.id, 10);
@@ -73,12 +75,12 @@ class FoodItem {
   }
 
   /**
-      * Update Single others
-      * @param {object} req:Order
-      * @param {object} res:Order
-      * @param {object} id:id variable
-      * @returns {object} Returns updated others
-    */
+   * Update Single others
+   * @param {object} req:Order
+   * @param {object} res:Order
+   * @param {object} id:id variable
+   * @returns {object} Returns updated others
+   */
   static updateFoodItem(req, res) {
     const { errors, isValid } = validateFoodInput(req.body);
     const { date, meal, price } = req.body;
@@ -117,11 +119,11 @@ class FoodItem {
   }
 
   /**
-    * Delete Single others
-    * @param {object} req:Order
-    * @param {object} res:Order
-    * @returns {object} Returns  others
-  */
+   * Delete Single others
+   * @param {object} req:Order
+   * @param {object} res:Order
+   * @returns {object} Returns  others
+   */
   static deleteFood(req, res) {
     const id = parseInt(req.params.id, 10);
     const del = db.map((delFood, index) => {

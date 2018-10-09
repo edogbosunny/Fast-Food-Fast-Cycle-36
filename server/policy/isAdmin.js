@@ -30,6 +30,7 @@ class Admin {
       } catch (e) {
         // console.log(e);
       }
+      return null;
     })().catch((err) => {
       console.log(err);
       return res.status(500).json({
