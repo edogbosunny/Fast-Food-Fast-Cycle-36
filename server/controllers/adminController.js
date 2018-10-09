@@ -27,25 +27,20 @@ class Admin {
           });
         }
         const query = 'INSERT INTO users(email, hashpassword, firstname, lastname, user_role) VALUES ($1, $2, $3, $4, $5) RETURNING user_id ';
-        db.query(query, [
-          email,
-          hashPassword,
-          firstName,
-          lastName,
-          userRole,
-        ]).then((resp) => {
-          userId = resp.rows[0].user_id;
-          token = jwt.sign({ id: userId }, config.tokenSecret, {
-            expiresIn: 86400,
+        db.query(query, [email, hashPassword, firstName, lastName, userRole])
+          .then((resp) => {
+            userId = resp.rows[0].user_id;
+            token = jwt.sign({ id: userId }, config.tokenSecret, {
+              expiresIn: 86400,
+            });
+            return res.status(201).json({
+              status: true,
+              data: {
+                message: 'User account created successfully',
+                token,
+              },
+            });
           });
-          return res.status(201).json({
-            status: true,
-            data: {
-              message: 'User account created successfully',
-              token,
-            },
-          });
-        });
         return null;
       })
       .catch(err => res.status(500).json({
