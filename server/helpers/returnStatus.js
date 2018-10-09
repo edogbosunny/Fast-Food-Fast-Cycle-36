@@ -61,6 +61,13 @@ const sendResponse2xx = (response, statusCode, status, message, count, data) => 
     data,
   },
 });
+const isAutenticationResponse = (response, statusCode, status, message, token) => response.status(statusCode).send({
+  status,
+  data: {
+    message,
+    token,
+  },
+});
 export default {
-  sendResponse, sendResponse40x, updateHistoryResponse, sendResponseErr, sendResponse20x, sendResponse2xx, sendUserHistoryResponse,
+  sendResponse, sendResponse40x, isAutenticationResponse, updateHistoryResponse, sendResponseErr, sendResponse20x, sendResponse2xx, sendUserHistoryResponse,
 };
