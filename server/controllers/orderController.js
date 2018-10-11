@@ -18,17 +18,11 @@ class FoodOrder {
     const { mealId, quantity } = req.body;
     const orderStatus = 'new';
     const reqId = Array.isArray(mealId) ? mealId : [mealId];
-    const { errors, isValid } = validateOrder(req.body);
+    // const { errors, isValid } = validateOrder(req.body);
     if (!userId) {
       const message = 'User Not Authenticated';
       return sendResponse.sendResponse40x(res, 401, message, false);
     }
-    if (!isValid) {
-      return res.status(400).json({ status: false, data: { errors } });
-    }
-    /**
-     * Async method to connect to db
-     */
     const mealQuery = 'SELECT * FROM meal';
     db.query(mealQuery)
       .then((mealResp) => {
@@ -50,10 +44,6 @@ class FoodOrder {
           const message = 'No of meal id does not match quantity selected';
           return sendResponse.sendResponse40x(res, 400, message, false);
         }
-        if (findPrice.length !== findQuant.length) {
-          const message = 'Unable to process request. make sure menu id and quantity params match';
-          return sendResponse.sendResponse40x(res, 500, message, false);
-        }
         const strigifiedOrder = JSON.stringify(newOrderFromDb);
         let Amount;
         let totalAmount = 0;
@@ -66,12 +56,27 @@ class FoodOrder {
         const totalQuantity = findQuant.reduce((a, b) => a + b, 0);
         const orderQuery = 'INSERT INTO orders (user_id, status, quantity, cost, mealitem) VALUES ($1, $2, $3, $4, $5) RETURNING order_id';
         const message = 'Your order has been successfully created';
-        db.query(orderQuery, [userId, orderStatus, totalQuantity, totalAmount, strigifiedOrder])
-          .then((resp) => {
-            sendResponse.sendResponse20x(res, 201, true, message, orderStatus, resp.rows[0].order_id, quantity, totalAmount, newOrderFromDb);
-          });
+        db.query(orderQuery, [
+          userId,
+          orderStatus,
+          totalQuantity,
+          totalAmount,
+          strigifiedOrder,
+        ]).then(resp => sendResponse.sendResponse20x(
+          res,
+          201,
+          true,
+          message,
+          orderStatus,
+          resp.rows[0].order_id,
+          quantity,
+          totalAmount,
+          newOrderFromDb,
+        ));
+
         return null;
-      }).catch((err) => {
+      })
+      .catch((err) => {
         console.log(err);
       });
     return null;
@@ -97,7 +102,14 @@ class FoodOrder {
         return product;
       });
       const message = 'Food order retrieved succesfully';
-      return sendResponse.sendResponse2xx(res, 200, true, message, resp.rowCount, response);
+      return sendResponse.sendResponse2xx(
+        res,
+        200,
+        true,
+        message,
+        resp.rowCount,
+        response,
+      );
     });
     return null;
   }
@@ -135,7 +147,18 @@ class FoodOrder {
       const stringifyMealdata = response.mealitem;
       const newConvertedData = JSON.parse(stringifyMealdata);
       const message = 'User order history retrieved successfully';
-      return sendResponse.sendUserHistoryResponse(res, 200, true, message, response.status, response.order_id, response.quantity, response.cost, newConvertedData, response.user_id);
+      return sendResponse.sendUserHistoryResponse(
+        res,
+        200,
+        true,
+        message,
+        response.status,
+        response.order_id,
+        response.quantity,
+        response.cost,
+        newConvertedData,
+        response.user_id,
+      );
     });
     return null;
   }
@@ -166,7 +189,18 @@ class FoodOrder {
       const stringifyMealdata = response.mealitem;
       const newConvertedData = JSON.parse(stringifyMealdata);
       const message = 'Single user order retrieved successfully';
-      return sendResponse.sendUserHistoryResponse(res, 200, true, message, response.status, response.order_id, response.quantity, response.cost, newConvertedData, response.user_id);
+      return sendResponse.sendUserHistoryResponse(
+        res,
+        200,
+        true,
+        message,
+        response.status,
+        response.order_id,
+        response.quantity,
+        response.cost,
+        newConvertedData,
+        response.user_id,
+      );
     });
     return null;
   }
@@ -197,7 +231,18 @@ class FoodOrder {
       const stringifyMealdata = response.mealitem;
       const newConvertedData = JSON.parse(stringifyMealdata);
       const message = 'User order has been updated succesfully';
-      return sendResponse.sendUserHistoryResponse(res, 200, true, message, response.status, response.order_id, response.quantity, response.cost, newConvertedData, response.user_id);
+      return sendResponse.sendUserHistoryResponse(
+        res,
+        200,
+        true,
+        message,
+        response.status,
+        response.order_id,
+        response.quantity,
+        response.cost,
+        newConvertedData,
+        response.user_id,
+      );
     });
     return null;
   }
