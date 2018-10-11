@@ -535,11 +535,11 @@ a:hover {
 }
 .footer {
   text-align: center;
-  bottom: 0%;
-  position: fixed;
+  /* bottom: 0%; */
+  position: sticky !important;
   display: table;
   width: 100%;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 1);
   height: 60px; /* Height of the footer */
   /* margin-top: -100px; */
 }

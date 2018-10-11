@@ -58,7 +58,6 @@ class FoodItem {
   static getSingleFoodItem(req, res) {
     const id = parseInt(req.params.id, 10);
     db.map((food) => {
-      console.log(food);
       if (food.foodId === id) {
         return res.status(200).json({
           success: 'true',
