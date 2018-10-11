@@ -101,7 +101,7 @@ describe('seed admin user', () => {
         done();
       });
   });
-  it('should return status 2000 on geting single user order', (done) => {
+  it('should return status 200 on geting single user order', (done) => {
     chai
       .request(app)
       .get('/api/v1/orders/1')
@@ -131,6 +131,39 @@ describe('seed admin user', () => {
       .send({ status: 'new' })
       .end((err, res) => {
         expect(res).to.have.status(200);
+        done();
+      });
+  });
+  it('should return status 400 on updating user order history', (done) => {
+    chai
+      .request(app)
+      .put('/api/v1/orders/1')
+      .set('x-access-token', token)
+      .send({ status: 'wrong' })
+      .end((err, res) => {
+        expect(res).to.have.status(400);
+        done();
+      });
+  });
+  it('should return status 400 undefined field on updating user order history', (done) => {
+    chai
+      .request(app)
+      .put('/api/v1/orders/1')
+      .set('x-access-token', token)
+      // .send({ status: 'wrong' })
+      .end((err, res) => {
+        expect(res).to.have.status(400);
+        done();
+      });
+  });
+  it('should return status 400 empty field on updating user order history', (done) => {
+    chai
+      .request(app)
+      .put('/api/v1/orders/1')
+      .set('x-access-token', token)
+      .send({ status: '' })
+      .end((err, res) => {
+        expect(res).to.have.status(400);
         done();
       });
   });
