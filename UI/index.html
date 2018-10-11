@@ -5,9 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+    <title>Availabe Order</title>
+
+    <link rel="stylesheet" href="./css/ind.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+
+
+
     <title>Order Food Fast</title>
+
     <link rel="apple-touch-icon" sizes="57x57" href="./images/fav/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./images/fav/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="./images/fav/apple-icon-72x72.png">
@@ -21,84 +29,179 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./images/fav/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="./images/fav/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/fav/favicon-16x16.png">
-    <link rel="manifest" href="./images/fav/manifest.json">
+    <link rel="manifest" href="./manifest.json">
+
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="./ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
-    <div class="bg">
-        <header>
-            <nav class="topnav">
+    <header>
+        <nav class="topnav">
+            <img class="logo" src="./images/logo3.png" alt="logo ">
+            <a href="./index.html">Home</a>
+            <a href="#about ">About</a>
 
-                <img class="logo" src="./images/logo3.png" alt="logo ">
-                <a href="./index.html">Home</a>
+            
+            <span class="regbut ">
+                    <a href="./www/login.html">Login</a>
+              
+                <a href="./www/register.html ">Register</a>
+            </span>
+        </nav>
+        <nav role="navigation " class="navbar1 ">
+            <img class="logo3 " src="./images/logo3.png " alt="logo">
+            <span class="mobmenu topnav1 fl-right">
+                <span class="mr">
 
-                <a href="#contact ">Contact</a>
-                <a href="#about ">About</a>
-                <span class="regbut ">
-                    <a href="./www/register.html ">Register</a>
-                    <a href="./www/login.html ">Login</a>
+                    <a href="./www/cart.html" i class="fas fa-shopping-cart fas"><span class="sup-cart"><sup>3</sup></span></a>
 
                 </span>
+                <span class="mr">
+                    <a href="" i class="fas fa-sign-out-alt"></a>
+                </span>
 
-            </nav>
-
-            <nav role="navigation " class="navbar1 ">
-
-               
-                <div id="menuToggle">
-
-                    <input type="checkbox" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <ul id="menu">
-                        <a href="./index.html">
-                            <li>Home</li>
-                        </a>
-                        <a href="#">
-                            <li>About</li>
-                        </a>
-                        <a href="#">
-                            <li>Contact</li>
-                        </a>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <div>
-
-
-            <div class="Aligner ">
-                <div class="card">
-                    <div class="aligncnt">
-                        <h1>Order Food Fast ! </h1>
-                        <h4 style="margin-top:-25px; padding-bottom:20px;">Get your food in minutes</h4>
-                        <div style="margin-bottom: 30px;padding-bottom:30px;">
-
-                            <a href="./www/login.html" class="a4">Login</a>
-                            <a href="./www/register.html" class="a3">Register</a>
-
-
-
-                        </div>
-                    </div>
-                </div>
+            </span>
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <a href="./index.html">
+                        <li>Home</li>
+                    </a>
+                    <!-- <a href="./www/orderhistory.html">
+                            <li>Order History</li>
+                        </a> -->
+                    <a href="#">
+                        <li>About</li>
+                    </a>
+                </ul>
             </div>
+        </nav>
+    </header>
+    <div class="container">
+        <img class="bg-pics" src="./images/fastfoodfastbg.png" alt="bg-Pics">
+        <div class="caption-div">
+            <h1 class="caption">Order Food Fast!</h1>
+            <p class="caption-small">Get your food in minutes!</p>
+        </div>
+        <div class="search-form">
+        <form action="">
+            <input type="text" class="search-bar" placeholder="Search for food">
+            <i class="fas fa-search faz"></i>
+        </form>
         </div>
     </div>
+    <div>
+        <div>
+            <h1 class="order">Available Order</h1>
+        </div>
+        <div align="center" class="gridcontainer">
+            <div class="card griditem">
+
+                <img class="cardimg " src="./images/bg-img3.jpg " alt="logo ">
+
+
+                <div>
+                    <h3>Name: Naija Meal</h3>
+                    <h4>Price: N1300</h4>
+                </div>
+
+                <div class="cart-btn-mag">
+                    <a class="btnaccept ">Add to Cart</a>
+                   
+                    <button id="subtract" onclick=subbtn() class="btncomp">-</button>
+                    <input type="text" id="quant" class="btncomp1" value="0"/>
+                    <button id="plus" onclick=plsbtn() class="btndeny">+</button>
+                    
+
+                </div>
+
+            </div>
+
+            <div class="card griditem">
+
+                <img class="cardimg " src="./images/bg-img3.jpg " alt="logo ">
+
+
+                <div>
+                    <h3>Name: Naija Meal</h3>
+                    <h4>Price: N1300</h4>
+                </div>
+
+
+                <div class="cart-btn-mag">
+                        <a class="btnaccept ">Add to Cart</a>
+                        <button id="subtract" onclick=subbtn() class="btncomp">-</button>
+                    <input type="text" id="quant" class="btncomp1" value="0"/>
+                    <button id="plus" onclick=plsbtn() class="btndeny">+</button>
+                    
+                    </div>
+
+
+            </div>
+
+            <div class="card griditem">
+
+                <img class="cardimg " src="./images/bg-img3.jpg " alt="logo ">
+
+
+                <div>
+                    <h3>Name: Naija Meal</h3>
+                    <h4>Price: N1300</h4>
+                </div>
+
+                <!-- <h4>Quantity: 2</h4> -->
+
+            
+                <div class="cart-btn-mag">
+                        <a class="btnaccept ">Add to Cart</a>
+                        <button id="subtract" onclick=subbtn() class="btncomp">-</button>
+                        <input type="text" id="quant" class="btncomp1" value="0"/>
+                        <button id="plus" onclick=plsbtn() class="btndeny">+</button>
+                        
+                    </div>
+
+
+            </div>
+            <div class="card griditem">
+
+                <img class="cardimg " src="./images/bg-img3.jpg " alt="logo ">
+
+
+                <div>
+                    <h3>Name: Naija Meal</h3>
+                    <h4>Price: N1300</h4>
+                </div>
+
+                <!-- <h4>Quantity: 2</h4> -->
+
+              
+                <div class="cart-btn-mag">
+                        <a class="btnaccept ">Add to Cart</a>
+                        <button id="subtract" onclick=subbtn() class="btncomp">-</button>
+                        <input type="text" id="quant" class="btncomp1" value="0"/>
+                        <button id="plus" onclick=plsbtn() class="btndeny">+</button>
+                        
+                    </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <script src="./js/main.js"></script>
 </body>
-
-
-
 <footer class="footer">
     <div>
-        <h5 style="color:#474747">An Andela project by Edogbo Sunny | © 2018</h5>
+        <h5 class="ash">An Andela project by Edogbo Sunny | © 2018</h5>
     </div>
 
 </footer>
-
 
 </html>

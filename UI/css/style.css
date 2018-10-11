@@ -455,6 +455,7 @@ a {
   padding: 3% 15%;
   text-align: center;
   font-weight: 600;
+  width: 100%;
   display: grid;
   font-size: 20px;
   border-radius: 8px;
@@ -594,11 +595,13 @@ a {
 }
 .footer {
   text-align: center;
-  background-color: #f2f2f2;
-  position: fixed;
-  bottom: 0;
+  /* bottom: 0%; */
+  position: sticky !important;
+  display: table;
   width: 100%;
-  /* height: 100px; */
+  background: rgba(255, 255, 255, 1);
+  height: 60px; /* Height of the footer */
+  /* margin-top: -100px; */
 }
 .img-wd {
   width: 150px;
