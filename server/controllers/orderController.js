@@ -18,17 +18,11 @@ class FoodOrder {
     const { mealId, quantity } = req.body;
     const orderStatus = 'new';
     const reqId = Array.isArray(mealId) ? mealId : [mealId];
-    const { errors, isValid } = validateOrder(req.body);
+    // const { errors, isValid } = validateOrder(req.body);
     if (!userId) {
       const message = 'User Not Authenticated';
       return sendResponse.sendResponse40x(res, 401, message, false);
     }
-    if (!isValid) {
-      return res.status(400).json({ status: false, data: { errors } });
-    }
-    /**
-     * Async method to connect to db
-     */
     const mealQuery = 'SELECT * FROM meal';
     db.query(mealQuery)
       .then((mealResp) => {
@@ -50,10 +44,6 @@ class FoodOrder {
           const message = 'No of meal id does not match quantity selected';
           return sendResponse.sendResponse40x(res, 400, message, false);
         }
-        if (findPrice.length !== findQuant.length) {
-          const message = 'Unable to process request. make sure menu id and quantity params match';
-          return sendResponse.sendResponse40x(res, 500, message, false);
-        }
         const strigifiedOrder = JSON.stringify(newOrderFromDb);
         let Amount;
         let totalAmount = 0;
@@ -67,11 +57,10 @@ class FoodOrder {
         const orderQuery = 'INSERT INTO orders (user_id, status, quantity, cost, mealitem) VALUES ($1, $2, $3, $4, $5) RETURNING order_id';
         const message = 'Your order has been successfully created';
         db.query(orderQuery, [userId, orderStatus, totalQuantity, totalAmount, strigifiedOrder])
-          .then((resp) => {
-            sendResponse.sendResponse20x(res, 201, true, message, orderStatus, resp.rows[0].order_id, quantity, totalAmount, newOrderFromDb);
-          });
+          .then(resp => sendResponse.sendResponse20x(res, 201, true, message, orderStatus, resp.rows[0].order_id, quantity, totalAmount, newOrderFromDb));
         return null;
-      }).catch((err) => {
+      })
+      .catch((err) => {
         console.log(err);
       });
     return null;
@@ -97,7 +86,14 @@ class FoodOrder {
         return product;
       });
       const message = 'Food order retrieved succesfully';
-      return sendResponse.sendResponse2xx(res, 200, true, message, resp.rowCount, response);
+      return sendResponse.sendResponse2xx(
+        res,
+        200,
+        true,
+        message,
+        resp.rowCount,
+        response,
+      );
     });
     return null;
   }
@@ -115,13 +111,8 @@ class FoodOrder {
       });
     }
     if (parseInt(id, 10) !== userId) {
-      return res.status(400).json({
-        status: false,
-        data: {
-          message:
-            'Error! cannot view order History - Incorrect parameter entered',
-        },
-      });
+      const message = 'Error! cannot view order History - Incorrect parameter entered';
+      return sendResponse.sendResponse40x(res, 400, message, false);
     }
     const userHistoryQuery = `SELECT o.order_id, o.mealitem,o.created_on, o.quantity, o.cost, o.status, u.user_id, u.lastname, u.firstname  FROM orders
      as o INNER JOIN users AS u ON o.user_id = u.user_id WHERE u.user_id = $1`;

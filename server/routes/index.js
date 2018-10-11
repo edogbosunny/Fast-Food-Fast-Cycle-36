@@ -8,6 +8,7 @@ import adminController from '../controllers/adminController';
 import signinController from '../controllers/signinController';
 import isAuthenticated from '../policy/isAuthenticated';
 import isAdmin from '../policy/isAdmin';
+import validateFoodOrder from '../validation/foodOrder';
 
 const router = express.Router();
 router.use(cors());
@@ -83,6 +84,7 @@ router.put('/orders/:id', [
 // @access public
 router.post('/orders', [
   isAuthenticated.authenticationCheck,
+  validateFoodOrder.validateOrderInput,
   foodOrderController.addOrder,
 ]);
 
