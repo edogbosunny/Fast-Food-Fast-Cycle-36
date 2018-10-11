@@ -56,24 +56,8 @@ class FoodOrder {
         const totalQuantity = findQuant.reduce((a, b) => a + b, 0);
         const orderQuery = 'INSERT INTO orders (user_id, status, quantity, cost, mealitem) VALUES ($1, $2, $3, $4, $5) RETURNING order_id';
         const message = 'Your order has been successfully created';
-        db.query(orderQuery, [
-          userId,
-          orderStatus,
-          totalQuantity,
-          totalAmount,
-          strigifiedOrder,
-        ]).then(resp => sendResponse.sendResponse20x(
-          res,
-          201,
-          true,
-          message,
-          orderStatus,
-          resp.rows[0].order_id,
-          quantity,
-          totalAmount,
-          newOrderFromDb,
-        ));
-
+        db.query(orderQuery, [userId, orderStatus, totalQuantity, totalAmount, strigifiedOrder])
+          .then(resp => sendResponse.sendResponse20x(res, 201, true, message, orderStatus, resp.rows[0].order_id, quantity, totalAmount, newOrderFromDb));
         return null;
       })
       .catch((err) => {
@@ -127,13 +111,8 @@ class FoodOrder {
       });
     }
     if (parseInt(id, 10) !== userId) {
-      return res.status(400).json({
-        status: false,
-        data: {
-          message:
-            'Error! cannot view order History - Incorrect parameter entered',
-        },
-      });
+      const message = 'Error! cannot view order History - Incorrect parameter entered';
+      return sendResponse.sendResponse40x(res, 400, message, false);
     }
     const userHistoryQuery = `SELECT o.order_id, o.mealitem,o.created_on, o.quantity, o.cost, o.status, u.user_id, u.lastname, u.firstname  FROM orders
      as o INNER JOIN users AS u ON o.user_id = u.user_id WHERE u.user_id = $1`;
@@ -147,18 +126,7 @@ class FoodOrder {
       const stringifyMealdata = response.mealitem;
       const newConvertedData = JSON.parse(stringifyMealdata);
       const message = 'User order history retrieved successfully';
-      return sendResponse.sendUserHistoryResponse(
-        res,
-        200,
-        true,
-        message,
-        response.status,
-        response.order_id,
-        response.quantity,
-        response.cost,
-        newConvertedData,
-        response.user_id,
-      );
+      return sendResponse.sendUserHistoryResponse(res, 200, true, message, response.status, response.order_id, response.quantity, response.cost, newConvertedData, response.user_id);
     });
     return null;
   }
@@ -189,18 +157,7 @@ class FoodOrder {
       const stringifyMealdata = response.mealitem;
       const newConvertedData = JSON.parse(stringifyMealdata);
       const message = 'Single user order retrieved successfully';
-      return sendResponse.sendUserHistoryResponse(
-        res,
-        200,
-        true,
-        message,
-        response.status,
-        response.order_id,
-        response.quantity,
-        response.cost,
-        newConvertedData,
-        response.user_id,
-      );
+      return sendResponse.sendUserHistoryResponse(res, 200, true, message, response.status, response.order_id, response.quantity, response.cost, newConvertedData, response.user_id);
     });
     return null;
   }
@@ -231,18 +188,7 @@ class FoodOrder {
       const stringifyMealdata = response.mealitem;
       const newConvertedData = JSON.parse(stringifyMealdata);
       const message = 'User order has been updated succesfully';
-      return sendResponse.sendUserHistoryResponse(
-        res,
-        200,
-        true,
-        message,
-        response.status,
-        response.order_id,
-        response.quantity,
-        response.cost,
-        newConvertedData,
-        response.user_id,
-      );
+      return sendResponse.sendUserHistoryResponse(res, 200, true, message, response.status, response.order_id, response.quantity, response.cost, newConvertedData, response.user_id);
     });
     return null;
   }
