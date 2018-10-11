@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import path from 'path';
 import foodmealController from '../controllers/foodmealController';
 import foodOrderController from '../controllers/orderController';
 import signupController from '../controllers/signupController';
