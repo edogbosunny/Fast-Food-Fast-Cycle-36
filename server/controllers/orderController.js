@@ -176,9 +176,6 @@ class FoodOrder {
     // const userId = req.app.get('userId');
 
     const updateQuery = 'UPDATE orders SET status = $1 WHERE order_id = $2 RETURNING *';
-    if (!isValid) {
-      return sendResponse.sendResponseErr(res, 400, false, errors);
-    }
     db.query(updateQuery, [status, id]).then((resp) => {
       const response = resp.rows[0];
       if (response === undefined) {
