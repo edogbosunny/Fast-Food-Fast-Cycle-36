@@ -196,7 +196,7 @@ a {
 }
 @media screen and (max-width: 414px) {
   .card {
-    margin-top: 30%;
+    /* margin-top: 30%; */
     width: 80%;
   }
   .button {
@@ -221,7 +221,7 @@ a {
 }
 @media screen and (max-width: 411px) {
   .card {
-    margin-top: 20% !important;
+    /* margin-top: 20% !important; */
     width: 80%;
   }
   .button {
@@ -247,7 +247,7 @@ a {
 
 @media screen and (max-width: 375px) {
   .card {
-    margin-top: 30%;
+    /* margin-top: 30%; */
     width: 80%;
   }
   .button {
@@ -299,7 +299,7 @@ a {
     padding-top: 1%;
     padding-bottom: 2%;
     width: 95%;
-    margin-top: 20%;
+    /* margin-top: 20%; */
     background-color: rgba(255, 255, 255, 0.8);
     color: #474747;
   }
@@ -310,7 +310,7 @@ a {
 
 @media screen and (max-width: 320px) {
   .card {
-    margin-top: 30%;
+    /* margin-top: 30%; */
     width: 80%;
   }
   .button {
@@ -364,6 +364,7 @@ a {
   }
   .card {
     background-color: #4747477b;
+    margin-top:30% !important;
   }
   .cardrg {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -626,4 +627,16 @@ a {
 }
 .tm {
   margin-top: 30px;
+}
+.ErrMsg{
+margin-top:2px;
+margin-bottom: -8px;
+font-size: 13px;
+color:red;
+text-align: left;
+padding-left: 5px;
+}
+.mg-top{
+  margin-top:40px;
+  margin-bottom:40px;
 }

@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import path from 'path';
 import foodmealController from '../controllers/foodmealController';
 import foodOrderController from '../controllers/orderController';
 import signupController from '../controllers/signupController';
@@ -14,6 +15,7 @@ const router = express.Router();
 router.use(cors());
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
+router.use(express.static(path.resolve(__dirname, '../../UI/')));
 
 // @route GET /api/v1/
 // @desc  default home route
