@@ -15,6 +15,7 @@ const router = express.Router();
 router.use(cors());
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
+router.use(express.static('UI'));
 router.use(express.static(path.resolve(__dirname, '../../UI/')));
 
 // @route GET /api/v1/
