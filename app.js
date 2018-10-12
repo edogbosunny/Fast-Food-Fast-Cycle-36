@@ -23,6 +23,7 @@ app.use(cors());
 app.use('/api/v1', routes);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ strict: false }));
+app.use(express.static('UI'));
 app.use(express.static(path.resolve(__dirname, '../../UI/')));
 
 app.get('*', (req, res) => res.status(404).json({
