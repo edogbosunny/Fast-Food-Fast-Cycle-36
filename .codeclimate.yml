@@ -17,4 +17,5 @@ exclude_patterns:
   - "**/test/"
   - "**/__tests__/"
   - "**/tests/"
+  - "**/UI/"
  
