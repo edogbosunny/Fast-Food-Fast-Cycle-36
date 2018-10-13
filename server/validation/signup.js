@@ -35,7 +35,7 @@ const validateSigninInput = (data) => {
   }
 
   if (!regex.test(data.email)) {
-    errors.email = 'You have entered an invalid email format';
+    errors.email = 'You have entered an invalid email';
   }
   if (isEmpty(data.email)) {
     errors.email = 'Email field is empty';
@@ -53,7 +53,7 @@ const validateSigninInput = (data) => {
   }
 
   if (data.password !== data.confirmPassword) {
-    errors.comfirmPassword = 'Passwords do not match';
+    errors.confirmPassword = 'Passwords do not match';
   }
 
   return {
