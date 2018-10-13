@@ -59,13 +59,8 @@ const signupUser = e => {
       }
 
       if (cpass === undefined) {
-        console.log('undefined');
-        console.log(cpass);
         cPassErrMsg.innerHTML = '';
       }
-    //    cPassErrMsg.innerHTML = confirmPassword;
-
-      //   fNameErrMsg.innerHTML = data.data.errors.firstName;
       console.log(data);
     });
 };
