@@ -1,9 +1,13 @@
 const baseUrl = 'https://fast-food-fast-app.herokuapp.com/api/v1/auth/signup';
 const signUpForm = document.querySelector('.signup');
 const submitBtn = document.querySelector('.button2');
+const loader = (document.getElementById('loader').style.display = 'none');
+// console.log('----->', loader);
+let uReg;
 
 const signupUser = e => {
   e.preventDefault();
+  document.getElementById('loader').style.display = 'block';
   const firstName = document.getElementById('firstname').value;
   const lastName = document.getElementById('lastname').value;
   const email = document.getElementById('email').value;
@@ -14,6 +18,8 @@ const signupUser = e => {
   const emailErrMsg = document.getElementById('emailErrMsg');
   const passErrMsg = document.getElementById('passErrMsg');
   const cPassErrMsg = document.getElementById('cPassErrMsg');
+  const userRegErr = document.getElementById('userRegErr');
+  console.log(userRegErr);
 
   fetch(baseUrl, {
     method: 'POST',
@@ -32,19 +38,32 @@ const signupUser = e => {
       return response.json();
     })
     .then(data => {
-      const {
-        firstName,
-        lastName,
-        email,
-        password,
-        confirmPassword
-      } = data.data.errors;
-      console.log('------>', confirmPassword);
-      let fName = (fNameErrMsg.innerHTML = firstName);
-      let lName = (lNameErrMsg.innerHTML = lastName);
-      let mail = (emailErrMsg.innerHTML = email);
-      let pass = (passErrMsg.innerHTML = password);
-      let cpass = (cPassErrMsg.innerHTML = confirmPassword);
+        setTimeout(() => {
+            console.log(data.status);
+          if (data.status === true) {
+            window.location.replace('/index.html');
+          }
+              console.log('ooosoossosoos')
+        }, 500);
+        
+      const loader = (document.getElementById('loader').style.display = 'none');
+      if (data.data.errors === undefined) {
+        console.log(data);
+        console.log('=====>', data.data.message);
+        uReg = userRegErr.innerHTML = data.data.message;
+        return data;
+      }
+
+      let fName = (fNameErrMsg.innerHTML = data.data.errors.firstName);
+      let lName = (lNameErrMsg.innerHTML = data.data.errors.lastName);
+      let mail = (emailErrMsg.innerHTML = data.data.errors.email);
+      let pass = (passErrMsg.innerHTML = data.data.errors.password);
+      let cpass = (cPassErrMsg.innerHTML = data.data.errors.confirmPassword);
+      // console.log('=====> ', uReg);
+
+      if (uReg === undefined) {
+        userRegErr.innerHTML = '';
+      }
       if (fName === undefined) {
         fNameErrMsg.innerHTML = '';
       }
@@ -61,7 +80,9 @@ const signupUser = e => {
       if (cpass === undefined) {
         cPassErrMsg.innerHTML = '';
       }
+
       console.log(data);
+ 
     });
 };
 submitBtn.addEventListener('click', signupUser);
