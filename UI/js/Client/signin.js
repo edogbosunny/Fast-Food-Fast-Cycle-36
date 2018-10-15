@@ -29,9 +29,8 @@ const signinUser = e => {
         setTimeout(() => {
           if (data.status === true) {
             localStorage.setItem('x-auth-token', data.data.token);
-            // window.location.replace('/index.html');
+            window.location.replace('/index.html');
           }
-            //   console.log('ooosoossosoos')
         }, 500);
 
       document.getElementById('loader').style.display = 'none';
