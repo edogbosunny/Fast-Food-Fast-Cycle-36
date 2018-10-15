@@ -526,12 +526,13 @@ a {
 .a5 {
   background-color: #4caf50;
   border: 0px;
+  width: 100%;
   color: white;
   padding: 10px 0px 10px 0px;
-  padding: 3% 15%;
+  padding: 3% 37%;
   text-align: center;
   font-weight: 600;
-  display: grid;
+  display: flex;
   font-size: 20px;
   border-radius: 8px;
   font-family: "Montserrat", sans-serif;

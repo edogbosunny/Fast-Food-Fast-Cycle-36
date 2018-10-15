@@ -41,11 +41,12 @@ const signupUser = e => {
         setTimeout(() => {
             console.log(data.status);
           if (data.status === true) {
+            localStorage.setItem('x-auth-token', data.data.token);
             window.location.replace('/index.html');
           }
-              console.log('ooosoossosoos')
+            //   console.log('ooosoossosoos')
         }, 500);
-        
+
       const loader = (document.getElementById('loader').style.display = 'none');
       if (data.data.errors === undefined) {
         console.log(data);

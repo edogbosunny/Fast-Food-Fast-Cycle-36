@@ -13,7 +13,7 @@ import validateFoodOrder from '../validation/foodOrder';
 
 const router = express.Router();
 router.use(cors());
-router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 router.use(express.static('UI'));
 router.use('/UI', express.static(path.resolve(__dirname, '../../UI/')));
