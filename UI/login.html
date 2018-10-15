@@ -87,19 +87,24 @@
                     <div class="aligncnt ">
                         <h2 class="mt">Login To Your Account </h2>
                         <!-- <h4 style="margin-top:-25px; color:#f2f2f2 ">Get your food in minutes</h4> -->
-                        <form>
+                        <form>  
                             <div class="divwidth ">
                                 <div>
-                                    <input class="txtwidth form-style-1 " type="email " name="email " placeholder="Email " />
-                                    <p class="ErrMsg">Error</p>
+                                    <input class="txtwidth form-style-1 " id="email" type="email" name="email" placeholder="Email " />
+                                    <p class="ErrMsg" id="emailErrMsg"></p>
                                 </div>
                                 <div>
-                                    <input class="txtwidth form-style-1" type="password" id="password " name="password " minlength="5 " placeholder="Enter Password "/>
-                                    <p class="ErrMsg">Error</p>
+                                        <input class="txtwidth form-style-1" type="password" id="pass" name="password" minlength="5" placeholder="Password"
+                                        required />
+                                    <p class="ErrMsg" id="pwdErrMsg"></p>
+                                    <br>
+                                    <p class="ErrMsg" id="signinErrMsg"></p>
                                 </div>
                                 <div class="mg-top">
 
-                                    <a href="./availableorder.html" class="a5 ">Login</a>
+                                    <button href="" id="submitbtn" class="a5 ">Login
+                                        <span id="loader"></span>
+                                    </button>
 
                                     <!-- <button class="button2 ">Login</button> -->
                                 </div>
@@ -116,6 +121,7 @@
             </div>
         </div>
     </div>
+    <script src="./js/Client/signin.js"></script>
 </body>
 
 

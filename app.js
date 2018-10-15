@@ -22,7 +22,7 @@ const app = express();
 app.use(cors());
 app.use('/api/v1', routes);
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json({ strict: false }));
+app.use(bodyParser.json());
 app.use(express.static('UI'));
 app.use('/UI', express.static(path.resolve(__dirname, '../../UI/')));
 
