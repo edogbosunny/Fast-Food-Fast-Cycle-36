@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
 
-
-
     <title>Order Food Fast</title>
 
     <link rel="apple-touch-icon" sizes="57x57" href="./images/fav/apple-icon-57x57.png">
@@ -43,10 +41,10 @@
             <a href="./index.html">Home</a>
             <a href="#about ">About</a>
 
-            
+
             <span class="regbut ">
-                    <a href="./login.html">Login</a>
-              
+                <a href="./login.html">Login</a>
+
                 <a href="./register.html ">Register</a>
             </span>
         </nav>
@@ -55,7 +53,11 @@
             <span class="mobmenu topnav1 fl-right">
                 <span class="mr">
 
-                    <a href="./cart.html" i class="fas fa-shopping-cart fas"><span class="sup-cart"><sup>3</sup></span></a>
+                    <a href="./cart.html" i class="fas fa-shopping-cart fas">
+                        <span class="sup-cart">
+                            <sup>3</sup>
+                        </span>
+                    </a>
 
                 </span>
                 <span class="mr">
@@ -89,10 +91,10 @@
             <p class="caption-small">Get your food in minutes!</p>
         </div>
         <div class="search-form">
-        <form action="">
-            <input type="text" class="search-bar" placeholder="Search for food">
-            <i class="fas fa-search faz"></i>
-        </form>
+            <form action="">
+                <input type="text" class="search-bar" placeholder="Search for food">
+                <i class="fas fa-search faz"></i>
+            </form>
         </div>
     </div>
     <div>
@@ -105,157 +107,97 @@
                     <thead class="cart_summary">
                         <tr>
                             <th>Your Order</th>
-                            <th><span class="price ash ">
+                            <th>
+                                <span class="price ash ">
                                     <i class="fa fa-shopping-cart blk"></i>
-        
+
                                     <b>2</b>
-                                </span> </th>
+                                </span>
+                            </th>
                         </tr>
                     </thead>
                     <thead class="cart_summary1">
-                            <tr>
-                                <th>Meal</th>
-                                <th class="price">Price </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    Naija Meal <span><i class="fas fa-times del-cart"></i></span>
-                                </td>
-                                <td class="price">
-                                    1300
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                    <td>
-                                        Naija Meal <span><i class="fas fa-times del-cart"></i></span>
-                                    </td>
-                                    <td class="price">
-                                        1300
-                                    </td>
-                                    
-                                </tr>
-                                <tr>
-                                        <td>
-                                           Total Amount
-                                        </td>
-                                        <td class="price">
-                                           2600
-                                        </td>
-                                        
-                                    </tr>
-                        </tbody>
-                        <thead class="cart_summary">
-                                <tr>
-                                    <th>
-                                        <button class="checkoutBut">Proceed to Checkout</button>
-                                    </th>
-                                    <th></th>
-                                </tr>
-                            </thead>
+                        <tr>
+                            <th>Meal</th>
+                            <th class="price">Price </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Naija Meal
+                                <span>
+                                    <i class="fas fa-times del-cart"></i>
+                                </span>
+                            </td>
+                            <td class="price">
+                                1300
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Naija Meal
+                                <span>
+                                    <i class="fas fa-times del-cart"></i>
+                                </span>
+                            </td>
+                            <td class="price">
+                                1300
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Total Amount
+                            </td>
+                            <td class="price">
+                                2600
+                            </td>
+
+                        </tr>
+                    </tbody>
+                    <thead class="cart_summary">
+                        <tr>
+                            <th>
+                                <button class="checkoutBut">Proceed to Checkout</button>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
                 </table>
             </div>
-        <div align="center" class="gridcontainer">
-            <div class="card griditem">
-
-                <img class="cardimg " src="./images/bg-img3.jpg " alt="logo ">
-
-
-                <div>
-                    <h3>Name: Naija Meal</h3>
-                    <h4>Price: N1300</h4>
-                </div>
-
-                <div class="cart-btn-mag">
-                    <a class="btnaccept ">Add to Cart</a>
-                   
-                    <button id="subtract" onclick=subbtn() class="btncomp">-</button>
-                    <input type="text" id="quant" class="btncomp1" value="0"/>
-                    <button id="plus" onclick=plsbtn() class="btndeny">+</button>
-                    
-
-                </div>
-
-            </div>
-
-            <div class="card griditem">
-
-                <img class="cardimg " src="./images/bg-img3.jpg " alt="logo ">
-
-
-                <div>
-                    <h3>Name: Naija Meal</h3>
-                    <h4>Price: N1300</h4>
-                </div>
-
-
-                <div class="cart-btn-mag">
-                        <a class="btnaccept ">Add to Cart</a>
-                        <button id="subtract" onclick=subbtn() class="btncomp">-</button>
-                    <input type="text" id="quant" class="btncomp1" value="0"/>
-                    <button id="plus" onclick=plsbtn() class="btndeny">+</button>
-                    
+            <!-- Card woulb de inserted here from javascript -->
+            <div align="center" class="gridcontainer">
+                <div class="card griditem">
+                    <img class="cardimg " src="./images/bg-img3.jpg " alt="logo ">
+                    <div>
+                        <h3>Name: Naija Meal</h3>
+                        <h4>Price: N1300</h4>
                     </div>
-
-
-            </div>
-
-            <div class="card griditem">
-
-                <img class="cardimg " src="./images/bg-img3.jpg " alt="logo ">
-
-
-                <div>
-                    <h3>Name: Naija Meal</h3>
-                    <h4>Price: N1300</h4>
-                </div>
-
-                <!-- <h4>Quantity: 2</h4> -->
-
-            
-                <div class="cart-btn-mag">
+    
+                    <div class="cart-btn-mag">
                         <a class="btnaccept ">Add to Cart</a>
+                       
                         <button id="subtract" onclick=subbtn() class="btncomp">-</button>
                         <input type="text" id="quant" class="btncomp1" value="0"/>
                         <button id="plus" onclick=plsbtn() class="btndeny">+</button>
                         
+    
                     </div>
-
-
-            </div>
-            <div class="card griditem">
-
-                <img class="cardimg " src="./images/bg-img3.jpg " alt="logo ">
-
-
-                <div>
-                    <h3>Name: Naija Meal</h3>
-                    <h4>Price: N1300</h4>
+    
                 </div>
-
-                <!-- <h4>Quantity: 2</h4> -->
-
-              
-                <div class="cart-btn-mag">
-                        <a class="btnaccept ">Add to Cart</a>
-                        <button id="subtract" onclick=subbtn() class="btncomp">-</button>
-                        <input type="text" id="quant" class="btncomp1" value="0"/>
-                        <button id="plus" onclick=plsbtn() class="btndeny">+</button>
-                        
-                    </div>
-
             </div>
-        
+
         </div>
-       
-      
-</div>
+
+
+    </div>
 
 
     </div>
     <script src="./js/main.js"></script>
+    <script src="./js/Client/index.js"></script>
 </body>
 <footer class="footer">
     <div>

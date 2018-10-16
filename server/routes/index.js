@@ -49,7 +49,7 @@ router.post('/menu', [
 // @access public
 router.get(
   '/menu',
-  isAuthenticated.authenticationCheck,
+  // isAuthenticated.authenticationCheck,
   foodmealController.getAllMeal,
 );
 

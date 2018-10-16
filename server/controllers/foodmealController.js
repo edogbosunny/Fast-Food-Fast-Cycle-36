@@ -61,8 +61,14 @@ class Foodmeal {
      */
     db.query(query)
       .then((resp) => {
+        if (resp.rowCount === 0) {
+          return res.status(200).send({
+            status: true,
+            message: 'no food menu exists at this time please check back later',
+          });
+        }
         // console.log(resp);
-        res.status(200).json({
+        return res.status(200).json({
           message: 'Food menu has been retrieved succesfully',
           count: resp.rowCount,
           data: resp.rows,
