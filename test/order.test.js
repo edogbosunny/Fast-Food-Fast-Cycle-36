@@ -24,7 +24,7 @@ after('Clean up Db befor test', async () => {
 });
 
 describe('seed admin user', () => {
-  it('user should be able to login with admin acount', (done) => {
+  it('user should be able to login with admin account', (done) => {
     chai
       .request(app)
       .post('/api/v1/auth/login')

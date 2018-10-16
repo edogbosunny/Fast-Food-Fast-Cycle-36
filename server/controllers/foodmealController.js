@@ -63,7 +63,7 @@ class Foodmeal {
       .then((resp) => {
         if (resp.rowCount === 0) {
           return res.status(200).send({
-            status: true,
+            status: false,
             message: 'no food menu exists at this time please check back later',
           });
         }

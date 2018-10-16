@@ -21,7 +21,7 @@ before('Clean up Db befor test', async () => {
   }
 });
 
-describe('seed admin user', () => {
+describe('seed admin user  ', () => {
   it('user should be able to login with admin acount', (done) => {
     chai
       .request(app)
@@ -31,6 +31,7 @@ describe('seed admin user', () => {
         password: '123456',
       })
       .end((err, res) => {
+        // console.log(res);
         token = res.body.data.token;
         expect(res).to.have.status(201);
         done();
@@ -122,7 +123,7 @@ describe('#food menu test', () => {
       // .set('x-access-token', token)
       .end((err, res) => {
         console.log(err);
-        expect(res).to.have.status(401);
+        expect(res).to.have.status(200);
         expect(res).to.be.an('object');
       });
   });
