@@ -1,4 +1,4 @@
-const baseUrl = 'https://fast-food-fast-app.herokuapp.com/api/v1/auth/login';
+const baseUrl = '/api/v1/auth/login';
 const submitBtn = document.querySelector('#submitbtn');
 const loader = (document.getElementById('loader').style.display = 'none');
 let uReg;
@@ -32,7 +32,7 @@ const signinUser = e => {
       }
 
       setTimeout(() => {
-        if (localStorage.userRole === admin) {
+        if (localStorage.userRole === data.data.userRole) {
           window.location.replace('/admin.html');
         } else {
           window.location.replace('/index.html');
