@@ -16,6 +16,7 @@ class signUp {
    * @param {object} res Responds to Signup Request
    */
   static signUpCtrl(req, res) {
+    const userIdNo = req.app.get('userId');
     const {
       firstName, lastName, email, password,
     } = req.body;
@@ -44,7 +45,7 @@ class signUp {
               expiresIn: 86400,
             });
             const message = 'User account created successfully';
-            return responseStatus.sendResponse(res, 201, message, true, token);
+            return responseStatus.sendResponse(res, 201, message, true, token, userIdNo);
           });
         return null;
       })

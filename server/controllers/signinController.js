@@ -13,7 +13,7 @@ class signin {
   static signinCtr(req, res) {
     const { email, password } = req.body;
     const { errors, isValid } = validateSignin(req.body);
-
+    const userIdNo = req.app.get('userId');
     if (!isValid) {
       return res.status(400).json({
         status: false,
@@ -39,7 +39,7 @@ class signin {
             expiresIn: 86400,
           });
           const message = 'You have logged in successfully';
-          return sendResponse.sendResponse(res, 201, message, true, token);
+          return sendResponse.sendResponse(res, 201, message, true, token, userIdNo);
         }
         return null;
       })
