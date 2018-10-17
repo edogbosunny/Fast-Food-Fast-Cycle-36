@@ -25,19 +25,19 @@ const signinUser = e => {
       return response.json();
     })
     .then(data => {
+      if (data.status === true) {
+        localStorage.setItem('x-auth-token', data.data.token);
+        localStorage.setItem('userId', data.data.userId);
+        localStorage.setItem('userRole', data.data.userRole);
+      }
+
       setTimeout(() => {
-        if (data.status === true) {
-          localStorage.setItem('x-auth-token', data.data.token);
-          localStorage.setItem('userId', data.data.userId);
-          localStorage.setItem('userRole', data.data.userRole);
-          if (localStorage.userRole === admin) {
-            window.location.replace('/admin.html');
-          } else {
-            window.location.replace('/index.html');
-          }
+        if (localStorage.userRole === admin) {
+          window.location.replace('/admin.html');
+        } else {
+          window.location.replace('/index.html');
         }
       }, 500);
-
       document.getElementById('loader').style.display = 'none';
       if (data.data.error === undefined) {
         if (data.data.message.length > 0) {
