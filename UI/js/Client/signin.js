@@ -32,7 +32,7 @@ const signinUser = e => {
       }
 
       setTimeout(() => {
-        if (data.data.userRole === admin) {
+        if (data.data.userRole === 'admin') {
           window.location.replace('/admin.html');
         } else {
           window.location.replace('/index.html');
