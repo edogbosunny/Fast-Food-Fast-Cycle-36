@@ -11,12 +11,11 @@ const signinUser = e => {
   const passErrMsg = document.getElementById('pwdErrMsg');
   const signinErrMsg = document.getElementById('signinErrMsg');
 
-
   fetch(baseUrl, {
     method: 'POST',
     body: JSON.stringify({
-        email,
-        password
+      email,
+      password
     }),
     headers: {
       'Content-Type': 'application/json'
@@ -26,20 +25,25 @@ const signinUser = e => {
       return response.json();
     })
     .then(data => {
-        setTimeout(() => {
-          if (data.status === true) {
-            localStorage.setItem('x-auth-token', data.data.token);
+      setTimeout(() => {
+        if (data.status === true) {
+          localStorage.setItem('x-auth-token', data.data.token);
+          localStorage.setItem('userId', data.data.userId);
+          localStorage.setItem('userRole', data.data.userRole);
+          if (localStorage.userRole === admin) {
+            window.location.replace('/admin.html');
+          } else {
             window.location.replace('/index.html');
           }
-        }, 500);
+        }
+      }, 500);
 
       document.getElementById('loader').style.display = 'none';
       if (data.data.error === undefined) {
-    if(data.data.message.length > 0) {
-        emailErrMsg.innerHTML = '';
-        passErrMsg.innerHTML = '';
-
-    }
+        if (data.data.message.length > 0) {
+          emailErrMsg.innerHTML = '';
+          passErrMsg.innerHTML = '';
+        }
         uSignin = signinErrMsg.innerHTML = data.data.message;
         return data;
       }
@@ -52,7 +56,6 @@ const signinUser = e => {
       if (pass === undefined) {
         passErrMsg.innerHTML = '';
       }
- 
     });
 };
 submitBtn.addEventListener('click', signinUser);
