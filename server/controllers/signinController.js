@@ -13,7 +13,7 @@ class signin {
   static signinCtr(req, res) {
     const { email, password } = req.body;
     const { errors, isValid } = validateSignin(req.body);
-
+    let userRole;
     if (!isValid) {
       return res.status(400).json({
         status: false,
@@ -27,6 +27,7 @@ class signin {
     const userQuery = 'SELECT * FROM users WHERE email = $1';
     db.query(userQuery, [email])
       .then((user) => {
+        userRole = user.rows[0].user_role;
         if (user.rows.length < 1) {
           const message = 'This user does not exists';
           sendResponse.sendResponse(res, 401, message, false, null);
@@ -39,7 +40,7 @@ class signin {
             expiresIn: 86400,
           });
           const message = 'You have logged in successfully';
-          return sendResponse.sendResponse(res, 201, message, true, token);
+          return sendResponse.sendResponsewithID(res, 201, message, true, token, userId, userRole);
         }
         return null;
       })

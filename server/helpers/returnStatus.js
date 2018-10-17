@@ -5,7 +5,15 @@ const sendResponse = (response, statusCode, message, status, token) => response.
     token,
   },
 });
-
+const sendResponsewithID = (response, statusCode, message, status, token, userId, userRole) => response.status(statusCode).send({
+  status,
+  data: {
+    message,
+    token,
+    userId,
+    userRole,
+  },
+});
 const sendResponse40x = (response, statusCode, message, status) => response.status(statusCode).send({
   status,
   data: {
@@ -69,5 +77,5 @@ const isAutenticationResponse = (response, statusCode, status, message, token) =
   },
 });
 export default {
-  sendResponse, sendResponse40x, isAutenticationResponse, updateHistoryResponse, sendResponseErr, sendResponse20x, sendResponse2xx, sendUserHistoryResponse,
+  sendResponse, sendResponse40x, sendResponsewithID, isAutenticationResponse, updateHistoryResponse, sendResponseErr, sendResponse20x, sendResponse2xx, sendUserHistoryResponse,
 };
