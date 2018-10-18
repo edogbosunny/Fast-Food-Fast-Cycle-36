@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:4000/api/v1/auth/login';
+const baseUrl = '/api/v1/auth/login';
 const submitBtn = document.querySelector('#submitbtn');
 const loader = (document.getElementById('loader').style.display = 'none');
 let uReg;
