@@ -7,27 +7,29 @@ class foodOrder {
     const { mealId, quantity } = req.body;
     const reg = /^\d+$/;
     const errors = {};
-    if (!reg.test(mealId)) {
-      errors.mealId = 'Meal id must be a number';
+    if (mealId === undefined || quantity === undefined) {
+      errors.fatalError = 'Meal Id or Quantity Id is undefined';
+      return statusResponse.sendResponseErr(res, 400, false, errors);
     }
-    if (isEmpty(mealId)) {
-      errors.mealId = 'meal Id field is Empty';
-    }
-    if (!reg.test(quantity)) {
-      errors.quantity = 'Quantity value must be a number';
-    }
-    // if (data.quantity !== Number) {
-    //   errors.quantity = 'Invalid quantity character entered';
-    // }
-    if (isEmpty(quantity)) {
-      errors.quantity = 'quantity field is Empty';
-    }
+    const newMealId = Array.isArray(mealId) ? mealId : [mealId];
+    const newQuantity = Array.isArray(quantity) ? quantity : [quantity];
+    newMealId.forEach((refinedData) => {
+      // console.log(typeof refinedData);
+      if (!reg.test(refinedData)) {
+        errors.meal = 'Meal ID must be a number';
+      }
+    });
+    newQuantity.forEach((refinedData) => {
+      // console.log(typeof refinedData);
+      if (!reg.test(refinedData)) {
+        errors.quantity = 'Quantity value must be a number';
+      }
+    });
     if (!isEmpty(errors)) {
       return statusResponse.sendResponseErr(res, 400, false, errors);
     }
     return next();
   }
 }
-
 
 export default foodOrder;
