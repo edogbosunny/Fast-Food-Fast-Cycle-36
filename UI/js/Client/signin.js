@@ -34,8 +34,10 @@ const signinUser = e => {
       setTimeout(() => {
         if (data.data.userRole === 'admin') {
           window.location.replace('/admin.html');
-        } else {
+        } else if(data.data.userRole === 'user'){
           window.location.replace('/index.html');
+        }else{
+          window.location.replace('/login.html');
         }
       }, 500);
       document.getElementById('loader').style.display = 'none';
