@@ -27,7 +27,6 @@ class signin {
     const userQuery = 'SELECT * FROM users WHERE email = $1';
     db.query(userQuery, [email])
       .then((user) => {
-        userRole = user.rows[0].user_role;
         if (user.rows.length < 1) {
           const message = 'This user does not exists';
           sendResponse.sendResponse(res, 401, message, false, null);
@@ -35,6 +34,7 @@ class signin {
           const message = 'you have entered invalid credentials. please try again';
           return sendResponse.sendResponse(res, 401, message, true, null);
         } else {
+          userRole = user.rows[0].user_role;
           const userId = user.rows[0].user_id;
           const token = jwt.sign({ id: userId }, config.tokenSecret, {
             expiresIn: 86400,
