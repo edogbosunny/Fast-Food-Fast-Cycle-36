@@ -118,15 +118,18 @@ class FoodOrder {
      as o INNER JOIN users AS u ON o.user_id = u.user_id WHERE u.user_id = $1`;
 
     db.query(userHistoryQuery, [id]).then((resp) => {
+      // console.log(resp.mealitem);
       const response = resp.rows[0];
       if (response === undefined) {
         const message = 'User order history does not exist for this user';
         return sendResponse.sendResponse40x(res, 400, message, false);
       }
-      const stringifyMealdata = response.mealitem;
-      const newConvertedData = JSON.parse(stringifyMealdata);
+      const data = resp.rows.map(returndRows => returndRows);
+      // console.log('----data-->', data);
+      // const stringifyMealdata = response.mealitem;
+      // const newConvertedData = JSON.parse(stringifyMealdata);
       const message = 'User order history retrieved successfully';
-      return sendResponse.sendUserHistoryResponse(res, 200, true, message, response.status, response.order_id, response.quantity, response.cost, newConvertedData, response.user_id);
+      return sendResponse.sendUserHistoryResponse(res, 200, true, message, response.status, response.order_id, response.quantity, response.cost, data, response.user_id);
     });
     return null;
   }
