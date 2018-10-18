@@ -45,7 +45,7 @@ class signin {
         return null;
       })
       .catch((err) => {
-        // console.log(err);
+        console.log(err);
         const message = 'Internal Server Error!';
         return sendResponse.sendResponse40x(res, 500, message, false);
       });
