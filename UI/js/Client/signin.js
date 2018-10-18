@@ -37,7 +37,7 @@ const signinUser = e => {
         } else if(data.data.userRole === 'user'){
           window.location.replace('/index.html');
         }else{
-          window.location.replace('/login.html');
+         return null;
         }
       }, 500);
       document.getElementById('loader').style.display = 'none';
