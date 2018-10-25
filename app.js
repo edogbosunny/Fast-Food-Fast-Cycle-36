@@ -15,7 +15,7 @@ const port = process.env.PORT || 4000;
     // console.log(e);
   }
 })().catch((err) => {
-  // console.log(err);
+
 });
 
 const app = express();

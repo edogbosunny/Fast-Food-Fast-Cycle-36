@@ -17,6 +17,7 @@ class FoodOrder {
     const userId = req.app.get('userId');
     const { mealId, quantity } = req.body;
     const orderStatus = 'new';
+    let orderQuery;
     const reqId = Array.isArray(mealId) ? mealId : [mealId];
     // const { errors, isValid } = validateOrder(req.body);
     if (!userId) {
@@ -54,14 +55,15 @@ class FoodOrder {
           totalAmount = Amount + totalAmount;
         }
         const totalQuantity = findQuant.reduce((a, b) => a + b, 0);
-        const orderQuery = 'INSERT INTO orders (user_id, status, quantity, cost, mealitem) VALUES ($1, $2, $3, $4, $5) RETURNING order_id';
-        const message = 'Your order has been successfully created';
-        db.query(orderQuery, [userId, orderStatus, totalQuantity, totalAmount, strigifiedOrder])
-          .then(resp => sendResponse.sendResponse20x(res, 201, true, message, orderStatus, resp.rows[0].order_id, quantity, totalAmount, newOrderFromDb));
+        arrQuant.forEach((userOrderQuantity) => {
+          orderQuery = 'INSERT INTO orders (user_id, status, quantity, cost, mealitem) VALUES ($1, $2, $3, $4, $5) RETURNING order_id';
+          const message = 'Your order has been successfully created';
+          db.query(orderQuery, [userId, orderStatus, userOrderQuantity, totalAmount, strigifiedOrder])
+            .then(resp => sendResponse.sendResponse20x(res, 201, true, message, orderStatus, resp.rows[0].order_id, quantity, totalAmount, newOrderFromDb)).catch((err) => {
+              console.log(err);
+            });
+        });
         return null;
-      })
-      .catch((err) => {
-        console.log(err);
       });
     return null;
   }
@@ -125,7 +127,7 @@ class FoodOrder {
         return sendResponse.sendResponse40x(res, 400, message, false);
       }
       const data = resp.rows.map(returndRows => returndRows);
-      // console.log('----data-->', data);
+      // console.log('----data-->', ...data);
       // const stringifyMealdata = response.mealitem;
       // const newConvertedData = JSON.parse(stringifyMealdata);
       const message = 'User order history retrieved successfully';
