@@ -35,7 +35,7 @@ const signinUser = e => {
         if (data.data.userRole === 'admin') {
           window.location.replace('/admin.html');
         } else if(data.data.userRole === 'user'){
-          window.location.replace('/availableorder.html');
+          window.location = 'index.html';
         }else{
          return null;
         }

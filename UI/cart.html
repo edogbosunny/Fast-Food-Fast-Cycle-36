@@ -37,9 +37,9 @@
             <a href="./index.html " class="nav-btn-mag" class="nav-btn-mag">Home</a>
             <a href="#about " class="nav-btn-mag">About</a>
             <span class="regbut ">
-                    <a href="./availableorder.html" class="nav-btn-mag">Available Order</a>
-                <a class="active" href="#cart ">Cart <span><sup>3</sup></span> </a>
-                <a href="#register " class="nav-btn-mag">Logout</a>
+                   
+                <!-- <a class="active" href="#cart ">Cart <span><sup>3</sup></span> </a> -->
+                <a href="#" onclick = "logout()" class="nav-btn-mag">Logout</a>
 
 
             </span>
@@ -58,30 +58,27 @@
 
                         <li>Home</li>
                     </a>
-                    <a href="./availableorder.html">
-
-                        <li>Available Order</li>
-                    </a>
+           
                     <a href="#">
                         <li>About</li>
                     </a>
                 </ul>
             </div>
-            <span class="mobmenu topnav1">
+            <div class="mobmenu topnav1">
                 <img class="logo5 " src="./images/logo3.png " alt="logo">
-                <span >
+                <!-- <span >
 
                         <a  href="./cart.html" i class="fas fa-shopping-cart fas mg-up"><span class="sup-cart"><sup>3</sup></span></a>
+                </span> -->
+                <span>
+                    <a  href="#" onclick="logout()" i class="fas fa-sign-out-alt"></a>
                 </span>
-                <span >
-                    <a href="" i class="fas fa-sign-out-alt"></a>
-                </span>
-            </span>
+            </div>
 
 
         </nav>
     </header>
-    <div class="cont botom">
+    <div class="cont botom mainWidth">
         <h2 align="center" class="mg-top1">Cart Checkout Page</h2>
         <div class="row">
             <div class="col-75">
@@ -171,7 +168,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-25">
+            <!-- <div class="col-25">
                 <div class="container">
                     <h4>Cart
                         <span class="price ash" >
@@ -204,9 +201,10 @@
                         </span>
                     </p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
+    <script src="./js/Client/cart.js"></script>
 </body>
 <footer class="footer">
 
