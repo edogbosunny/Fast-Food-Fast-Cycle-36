@@ -46,7 +46,7 @@ class signin {
       })
       .catch((err) => {
         console.log(err);
-        const message = 'Internal Server Error!';
+        const message = 'Network Error!';
         return sendResponse.sendResponse40x(res, 500, message, false);
       });
     return null;

@@ -47,22 +47,25 @@
 
                 <a href="./register.html ">Register</a>
             </span>
+            <span class="logoutbtn">
+                <a href="#" onclick="logout()">Logout</a>
+            </span>
         </nav>
         <nav role="navigation " class="navbar1 ">
             <img class="logo3 " src="./images/logo3.png " alt="logo">
             <span class="mobmenu topnav1 fl-right">
                 <span class="mr">
 
-                    <a href="./cart.html" i class="fas fa-shopping-cart fas">
+                    <!-- <a href="./cart.html" i class="fas fa-shopping-cart fas">
                         <span class="sup-cart">
                             <sup>3</sup>
                         </span>
-                    </a>
+                    </a> -->
 
                 </span>
-                <span class="mr">
-                    <a href="" i class="fas fa-sign-out-alt"></a>
-                </span>
+                <div class="mr" onclick="logout()">
+                    <button href="#"  i class="fas fa-sign-out-alt btnLogout"></button>
+                </div>
 
             </span>
             <div id="menuToggle">
@@ -90,12 +93,12 @@
             <h1 class="caption">Order Food Fast!</h1>
             <p class="caption-small">Get your food in minutes!</p>
         </div>
-        <div class="search-form">
+        <!-- <div class="search-form">
             <form action="">
                 <input type="text" class="search-bar" placeholder="Search for food">
                 <i class="fas fa-search faz"></i>
             </form>
-        </div>
+        </div> -->
     </div>
     <div>
         <div>
@@ -126,12 +129,16 @@
                         </tr>
                         <tr>
                             <th>
-                                <button class="checkoutBut">Proceed to Checkout</button>
+                                <button class="checkoutBut" onclick="checkout()">Proceed to Checkout</button>
                             </th>
                             <th></th>
                         </tr>
                     </thead>
                 </table>
+               
+            </div>
+            <div id="emptyMenu">
+                <h2>No Food Menu Available At The Moment</h2>
             </div>
             <div align = center id="spinner">
                     <div class="lds-spinner">
@@ -149,6 +156,7 @@
                             <div></div>
                         </div>
             </div>
+            <div id="snackbar">Your order has been placed succesfully..</div>
             <!-- Card woulb de inserted here from javascript -->
             <div align="center" class="gridcontainer">
                 <!-- card here -->
@@ -158,7 +166,6 @@
 
 
     </div>
-    <script src="./js/main.js"></script>
     <script src="./js/Client/indexPage.js"></script>
 </body>
 <footer class="footer">
