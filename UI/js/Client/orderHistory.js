@@ -35,6 +35,10 @@ const userOrderTemplate = ({
     `;
 };
 
+const logout = () => {
+  localStorage.removeItem('x-auth-token');
+  window.location = 'login.html';
+}
 /**
  * Modal Template
  */
