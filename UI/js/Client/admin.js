@@ -89,7 +89,7 @@ fetch(adminBaseUrl, {
     // console.log(userOrderTableRow.join(''));
     appendTableItem += `
     <table >
-                    <thead class='tbg'>
+                     <thead class='tbg'>
                         <tr>
                             <th>Order Id</th>
                             <th>Ordered item(s)</th>
