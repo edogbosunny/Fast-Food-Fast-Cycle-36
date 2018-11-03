@@ -46,7 +46,7 @@ const addbtn = id => {
   document.getElementById(`quant${id}`).value = value;
 };
 
-const orderBaseUrl = "http://localhost:4000/api/v1/orders";
+const orderBaseUrl = "/api/v1/orders";
 const userToken = localStorage.getItem("x-auth-token");
 let checkoutButton = document.querySelector(".checkoutBut");
 
