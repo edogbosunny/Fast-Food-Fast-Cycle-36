@@ -36,7 +36,9 @@ const logout = () => {
   localStorage.removeItem('x-auth-token')
   window.location = 'login.html'
 }
-
+ const orderHistory = () => {
+   window.location = 'orderhistory.html';
+ }
 const addbtn = id => {
   let value = document.getElementById(`quant${id}`).value;
   value = parseInt(value, 10);
