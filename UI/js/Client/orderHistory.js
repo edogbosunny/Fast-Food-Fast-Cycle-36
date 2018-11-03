@@ -83,9 +83,10 @@ fetch(`${orderHistoryUrl}/${userId}/orders`, {
         mealItem.status = status;
         return mealItem;
       });
-      console.log(userOrderedMeals);
+      // console.log(userOrderedMeals);
       return userOrderTemplate(userOrder);
     });
+    // console.log(rows);
     item += `
     <table>
     <thead class='tbg'>
@@ -111,6 +112,7 @@ const openModal = e => {
   const buttonClicked = e.target;
   const clickedOrderId = buttonClicked.getAttribute('data-orderId');
   const mealItemsForClikedOrder = orderedMealsByUsers[clickedOrderId];
+  // console.log(orderedMealsByUsers)
   //console.log(mealItemsForClikedOrder);
   const arrayOfMealItemTemplates = mealItemsForClikedOrder.map(meal =>
     modalRow(meal)
@@ -118,10 +120,11 @@ const openModal = e => {
   document.querySelector(
     '#modal-body'
   ).innerHTML = arrayOfMealItemTemplates.join('');
-  var modal8 = document.getElementById('ordersUserCompModal');
+  let modal8 = document.getElementById('ordersUserCompModal');
   modal8.style.display = 'block';
 };
 const closeModal = event => {
-  var modal8 = document.getElementById('ordersUserCompModal');
+  let modal8 = document.getElementById('ordersUserCompModal');
   modal8.style.display = 'none';
 };
+// console.log(orderedMealsByUsers)
