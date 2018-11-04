@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/app.css">
+    
     <title>Order Food Fast</title>
     <link rel="apple-touch-icon" sizes="57x57" href="./images/fav/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./images/fav/apple-icon-60x60.png">
@@ -100,7 +102,7 @@
             <!-- <hr style="width:109%; margin-left:-10px;"> -->
 
             <div align="center" class="btnpad btnmag ">
-                <a id="myBtn" class="adminbtn3">Add Order</a>
+                <a id="myBtn" onclick="modalBody()" class="adminbtn3">Add Order</a>
             </div>
 
             <div align="center" class="btnpad ">
@@ -160,35 +162,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
-                <h2>Add Order</h2>
+                <h2>Add Menu</h2>
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="divwidth">
-                        <div>
-                            <input class="txtwidth form-style-1" type="text" name="firstname" placeholder="Product Name" />
-
-                        </div>
-                        <div>
-                            <input type="text" class="txtwidth form-style-1" name="lastname" placeholder="Quantity in Stock" />
-
-                        </div>
-                        <div>
-
-                            <input class="txtwidth form-style-1" type="file" name="upload" />
-
-                        </div>
-
-
-                        <div>
-                            <button class="btnSub">Submit</button>
-                        </div>
-
-                    </div>
-
-                    <div class="bm">
-                    </div>
-                </form>
+            <div class="modal-body" id="modalBody">
+               <!-- Dynamically create modal using js -->
             </div>
 
         </div>
@@ -318,8 +295,9 @@
   
     </div>
     <!-- End of Order moodal -->
-    <script src="./js/addprod.js"></script>
+    <!-- <script src="./js/addprod.js"></script> -->
     <script src="./js/Client/admin.js"></script>
+    <script src="./js/Client/addmenu.js"></script>
     <!-- <script src="./js/acceptmodal.js"></script>
     <script src="./js/declinemodal.js"></script>
     <script src="./js/confirmModal.js"></script> -->
