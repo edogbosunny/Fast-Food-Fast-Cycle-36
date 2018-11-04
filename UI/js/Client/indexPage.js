@@ -8,7 +8,7 @@ emptyMenuError.style.display = "none";
 const hideLoginButton = document.querySelector('.regbut');
 const logoutUser = document.querySelector('.logoutbtn');
 // console.log(spinner)
-const baseURL = "https://fast-food-fast-app.herokuapp.com/api/v1/menu";
+const baseURL = "/api/v1/menu";
 let priceArr = [];
 let cachedPriceArr = [];
 let cachedDeletedPriceArr = [];

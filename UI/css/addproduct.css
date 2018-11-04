@@ -35,7 +35,6 @@ a:hover {
   color: tomato;
 }
 
-
 .form-style-1 {
   padding: 7px 0px 7px 5px;
   margin-top: 10px;
@@ -65,22 +64,21 @@ a:hover {
 
 .btnSub {
   /* margin-left: -5px; */
-  padding-top: 7px;
+  /* padding-top: 7px; */
   background-color: #46af4f;
-  padding-bottom: 11px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: #f2f2f2;
+  /* padding-bottom: 11px; */
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
+  color: #fff;
   margin-left: -2px;
   margin-right: 2px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   border: none;
 }
 .btnSub:hover {
   color: #474747;
   background: #f2f2f2;
   transition: 0.4s;
-
 }
 .btn-can {
   /* margin-left: -5px; */
@@ -100,6 +98,21 @@ a:hover {
   background: red;
   transition: 0.4s;
 }
-.sg-out{
-  margin-right:15px;
+.sg-out {
+  margin-right: 15px;
+}
+/* Submit button spinners */
+.buttonload {
+  background-color: #4CAF50; /* Green background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 24px; /* Some padding */
+  font-size: 16px; /* Set a font-size */
+  margin-top:20px;
+}
+
+/* Add a right margin to each icon */
+.fa {
+  margin-left: -12px;
+  margin-right: 8px;
 }
