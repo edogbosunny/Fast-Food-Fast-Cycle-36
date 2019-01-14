@@ -30,13 +30,14 @@ describe('User should be able to Signup', () => {
       .send({
         email: 'user@user.com',
         password: '123456',
-        confirmPassword: '123456',
-        firstName: 'test',
-        lastName: 'user',
+        confirmpassword: '123456',
+        firstname: 'test',
+        lastname: 'user',
       })
       .end((err, res) => {
         token = res.body.data.token;
         expect(res).to.be.an('object');
+        console.log(res.body);
         expect(res).to.have.status(201);
         done();
       });
@@ -49,9 +50,9 @@ describe('User should be able to Signup', () => {
       .send({
         email: 'test5@test.com',
         password: '123456',
-        confirmPassword: '1234556',
-        firstName: 'test',
-        lastName: 'user',
+        confirmpassword: '1234556',
+        firstname: 'test',
+        lastname: 'user',
       })
       .end((err, res) => {
         expect(res).to.be.an('object');
@@ -66,9 +67,9 @@ describe('User should be able to Signup', () => {
       .send({
         email: '',
         password: '',
-        confirmPassword: '',
-        firstName: '',
-        lastName: '',
+        confirmpassword: '',
+        firstname: '',
+        lastname: '',
       })
       .end((err, res) => {
         expect(res).to.be.an('object');
