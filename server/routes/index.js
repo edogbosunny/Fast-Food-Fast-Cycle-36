@@ -91,7 +91,7 @@ router.post('/orders', [
   foodOrderController.addOrder,
 ]);
 
-// @route PUT /api/v1/users/:id/orders
+// @route PUT /api/v1/users/:id/ orders
 // @desc  return user history
 // @access private
 router.get('/users/:id/orders', [

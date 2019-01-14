@@ -225,7 +225,7 @@ fetch(baseURL, {
       return;
     }
     foodMenu.forEach(returnedData => {
-      console.log("0----->", returnedData);
+      // console.log("0----->", returnedData);
       item += ` <div class='card griditem'>
           <img class='cardimg ' src='${foodUrl}' alt='logo '>
           <div>

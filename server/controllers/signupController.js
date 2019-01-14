@@ -18,7 +18,7 @@ class signUp {
   static signUpCtrl(req, res) {
     const userIdNo = req.app.get('userId');
     const {
-      firstName, lastName, email, password,
+      firstname, lastname, email, password,
     } = req.body;
     let userRole; let token; let userId;
     const { errors, isValid } = validateSignup(req.body);
@@ -38,7 +38,7 @@ class signUp {
         }
         userRole = 'user';
         const query = 'INSERT INTO users(email, hashpassword, firstname, lastname, user_role) VALUES ($1, $2, $3, $4, $5) RETURNING user_id ';
-        db.query(query, [email, hashPassword, firstName, lastName, userRole])
+        db.query(query, [email, hashPassword, firstname, lastname, userRole])
           .then((resp) => {
             userId = resp.rows[0].user_id;
             token = jwt.sign({ id: userId }, config.tokenSecret, {
