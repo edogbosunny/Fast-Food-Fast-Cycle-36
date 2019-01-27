@@ -82,6 +82,15 @@ router.put('/orders/:id', [
   foodOrderController.updateOrder,
 ]);
 
+// @route DELETE /api/v1/orders/:id
+// @desc  update single food by id
+// @access public
+router.delete('/orders/:id', [
+  isAuthenticated.authenticationCheck,
+  isAdmin.isAdmin,
+  foodOrderController.deleteSingleOrder,
+]);
+
 // @route POST /api/v1/orders
 // @desc  creates order route
 // @access public

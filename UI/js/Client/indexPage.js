@@ -56,6 +56,7 @@ const checkout = () => {
   } else {
     console.log(cartArr);
     const placeCustomerOrder = cartArr.map(loopedOrderResponse => {
+      console.log(loopedOrderResponse)
       let mealId = loopedOrderResponse.id;
       let quantity = loopedOrderResponse.cartOrderQuantity;
 
