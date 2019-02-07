@@ -87,7 +87,6 @@ router.put('/orders/:id', [
 // @access public
 router.delete('/orders/:id', [
   isAuthenticated.authenticationCheck,
-  isAdmin.isAdmin,
   foodOrderController.deleteSingleOrder,
 ]);
 
