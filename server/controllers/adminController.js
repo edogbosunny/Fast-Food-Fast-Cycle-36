@@ -30,7 +30,7 @@ class Admin {
         db.query(query, [email, hashPassword, firstName, lastName, userRole])
           .then((resp) => {
             userId = resp.rows[0].user_id;
-            token = jwt.sign({ id: userId }, config.tokenSecret, {
+            token = jwt.sign({ id: userId, userRole }, config.tokenSecret, {
               expiresIn: 86400,
             });
             return res.status(201).json({

@@ -36,7 +36,7 @@ class signin {
         } else {
           userRole = user.rows[0].user_role;
           const userId = user.rows[0].user_id;
-          const token = jwt.sign({ id: userId }, config.tokenSecret, {
+          const token = jwt.sign({ id: userId, userRole }, config.tokenSecret, {
             expiresIn: 86400,
           });
           const message = 'You have logged in successfully';

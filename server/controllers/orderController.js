@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 import { isNumber } from 'util';
 import validateOrder from '../validation/foodOrder';
 import validateStatusInput from '../validation/status';
@@ -88,14 +89,7 @@ class FoodOrder {
         return product;
       });
       const message = 'Food order retrieved succesfully';
-      return sendResponse.sendResponse2xx(
-        res,
-        200,
-        true,
-        message,
-        resp.rowCount,
-        response,
-      );
+      return sendResponse.sendResponse2xx(res, 200, true, message, resp.rowCount, response);
     });
     return null;
   }
@@ -163,6 +157,36 @@ class FoodOrder {
       const newConvertedData = JSON.parse(stringifyMealdata);
       const message = 'Single user order retrieved successfully';
       return sendResponse.sendUserHistoryResponse(res, 200, true, message, response.status, response.order_id, response.quantity, response.cost, newConvertedData, response.user_id);
+    });
+    return null;
+  }
+
+  static deleteSingleOrder(req, res) {
+    const { id } = req.params;
+    const { errors, isValid } = validateParams(req.params);
+    if (!isValid) {
+      return sendResponse.sendResponseErr(res, 400, false, errors);
+    }
+    const userId = req.app.get('userId');
+    if (!userId) {
+      const message = 'User is not Authenticated. Please log in to access this route';
+      return sendResponse.sendResponse40x(res, 401, message, false);
+    }
+    const singleOrderQuery = 'DELETE FROM orders WHERE order_id = $1';
+
+    db.query(singleOrderQuery, [parseInt(id, 10)]).then((resp) => {
+      // console.log('resp====>', resp);
+      if (resp.rowCount === 1) {
+        return res.status(200).json({
+          status: true,
+          data: 'requested order has been deleted',
+        });
+      } else {
+        return res.status(400).json({
+          status: false,
+          data: 'requested order does not exist',
+        });
+      }
     });
     return null;
   }
